@@ -58,4 +58,4 @@ On the first day, the void parted to expose the **heart of Linux**:
 --- 
 
 🔗 **[Return to Chronicle](Voidborne-Archive.md)**
-🔗 **[Next: Day 2](CLI-Inferno/Day-2)**  
+🔗 **[Next: Day 2](CLI-Inferno/Day-2.md)**  
