@@ -10,7 +10,7 @@ You can download ISO file from [OPNsense.org](https://opnsense.org/)
    - Subtype: FreeBSD
    - Version: FreeBSD (64-bit) 
 
-2. Login to Live Envoriment
+2. Login to Live Boot
    - Attach installed ISO to VM
    - Login:  installer/opnsense
    - Choose Keymap
@@ -38,7 +38,6 @@ You can download ISO file from [OPNsense.org](https://opnsense.org/)
         - Enable DHCP: Yes (if you want OPNsense to assign IPs to your VMs)
         - Choose range between 192.168.57.10 -> 200
    - Choose Option 12: Update from console
-
 
 4. Enable Firewall & NAT in OPNsense
    - Access OPNsense Web GUI  
@@ -86,6 +85,7 @@ You can download ISO file from [OPNsense.org](https://opnsense.org/)
         - Destination: OPT1 net  
         - Description: "Allow LAN to access OPT1"  
     - Click Apply Changes  
+
 5. Test Connectivity
    - Check if VMs get an IP  
    - Test Internet   

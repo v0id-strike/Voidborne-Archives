@@ -27,27 +27,27 @@ Configure VirtualBox networking and virtual machines (VMs) to create isolated la
 | VM                       | RAM  | CPU | Storage | Adapter 1    | Adapter 2    |
 | ------------------------ | ---- | --- | ------- | ------------ | ------------ |
 | [OpnSense](Lab/OpnSense) | 4GB+ | 2+  | 40GB+   | NAT (WAN)    | vtnet0 (LAN) |
-| AthenaOS                 | 4GB+ | 2+  | 100GB+  | vtnet0 (LAN) | -            |
+| [AthenaOS](Lab/AthenaOS) | 4GB+ | 2+  | 100GB+  | vtnet0 (LAN) | -            |
 | Server                   | 2GB+ | 2+  | 30GB+   | vtnet0 (LAN) | -            |
 | Windows                  | 4GB+ | 2+  | 80GB+   | vtnet1 (DMZ) | -            |
 | Sub-Targets              |      |     |         | vtnet1 (DMZ) | -            |
 
 - Network Topology 
-```bash
-                          [Internet]  
-                               │  
-                       (NAT: VirtualBox)
-                               │  
-			 ┌────-─--─-───[OpnSense]──-───--─────┐
-			 │             (Firewall)             │
-			 │                                    │
-	 [LAN: OpenNet]                       [DMZ: PrivateNet]
-	 192.168.56.0/24                      192.168.57.0/24
-			 │                                    │
-┌───────--───┬───────--───┐          ┌──--────────┬─────--─────┐
-│  AthenaOS  │  Server    │          │  VulnVM 1  │  VulnVM 2  │
-│192.168.1.10│192.168.1.20│          │192.168.2.10│192.168.2.20│
-└─────--─────┴─────--─────┘          └─────-──-───┴──-──-──────┘
+```plaintext
+                             [Internet]  
+                                 │  
+                         (NAT: VirtualBox)
+                                 │  
+			  ┌────-─---─-───[OpnSense]──-───---─────┐
+			  │              (Firewall)              │
+    		  │                                      │
+       [LAN: vboxnet0]                        [DMZ: vboxnet1]
+	   192.168.56.0/24                        192.168.57.0/24
+			  │                                      │
+┌───────---───┬───────---───┐          ┌──---────────┬─────---─────┐
+│  Athena OS  │   Server    │          │  VulnVM #1  │  VulnVM #2  │
+│192.168.56.10│192.168.56.20│          │192.168.57.10│192.168.57.20│
+└─────---─────┴─────---─────┘          └─────---─────┴──---────────┘
 ```
 
 - Connection Breakdown
