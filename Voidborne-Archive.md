@@ -12,23 +12,23 @@ This repository is:
 
 ## 📖 **The Chronicle (Ongoing)** 
 ### I. CLI Inferno 
-*"Where Bash scripts burn brighter than hellfire, and sudo is the incantation of gods"*
-- [Day 1: The Kernel's Gaze](CLI-Inferno/Day-1.md)
+*"Embracing the Terminal's Flame"*
+- [Origin](The%20Spark%20of%20a%20Cyber%20Odyssey.md)
 - ...
 ### II. Network Wars  
-*"Where firewalls fell and packets whispered secrets."*  
+*"Navigating the Digital Abyss"*  
 - ...  
 
 ### III. Red Nights  
-*"When BloodHound howled and domains burned."*  
+*"Dancing with the Shadows"*  
 - ...  
 
-### IV. Malware’s Whisper  
-*"Code that danced in the dark, unseen."*  
+### IV. Art of Malware  
+*"Crafting Digital Sorcery"*  
 - ...  
 
-### IV. The Siege (Coming)  
-*"Where the void meets the fortress."*  
+### V. The Hacker’s Legacy   
+*"Transcending Mortal Limits"*  
 - ...
 
 ---  
@@ -39,8 +39,8 @@ This repository is:
 ├── CLI-Inferno/         # Linux Mastery
 ├── network-wars/        # All about networks  
 ├── red-nights/          # Red-Team, Hacking, Tools 
-├── malware-whisper/     # Malware Development, reverse engineering  
-└── prophecy.md          # The 120-day path  
+├── malware-art/         # Malware Development, reverse engineering  
+└── prophecy.md          # Path to Unknown future  
 ``` 
 
 ---  
@@ -49,13 +49,8 @@ This repository is:
 *The crucible where reality is rewritten:*  
 - **Hypervisor**: VirtualBox (Nyx’s chosen vessel).  
 - **Firewall**: OPNsense (gatekeeper of the void).  
-- **Attacker**: AthenaOS (BlackArch’s razor).  
+- **Attacker**: AthenaOS (Arch’s razor).  
 - **Victims**: Windows AD, Metasploitable, DVWA (they *volunteered*).  
-
----
-
-## 📜 **Epilogue**  
-*"This archive breathes. It grows as I do. To read it is to walk a razor’s edge between genius and ruin."*  
 
 ---  
 
@@ -64,7 +59,7 @@ This repository is:
 - **Star** this repo to witness the chaos unfold.  
 - **Fork** to carve your own path. 
 - **Issue** challenges, and I will breach them.  
-- [Rules](Extras/Rules)
+- [The Pillars of Participation](The%20Pillars%20of%20Participation.md)
 
 *"Bring your code, your curses, and your coffee. The terminal awaits."*  
 

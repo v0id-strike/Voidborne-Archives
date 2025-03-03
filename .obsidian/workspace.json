@@ -8,49 +8,35 @@
         "type": "tabs",
         "children": [
           {
-            "id": "644230d1678f6a50",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Extras/Resume.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "Resume"
-            }
-          },
-          {
-            "id": "cdde3fa0102df8f8",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Lab/VirtualBox-Setup.md",
-                "mode": "source",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "VirtualBox-Setup"
-            }
-          },
-          {
             "id": "66e21c57b18cf5d0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Lab/VirtualBox-Setup.md",
+                "file": "Voidborne-Archive.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "VirtualBox-Setup"
+              "title": "Voidborne-Archive"
+            }
+          },
+          {
+            "id": "9f58fe60a122b24c",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Extras/The Pillars of Participation.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "The Pillars of Participation"
             }
           }
         ],
-        "currentTab": 2
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -197,10 +183,15 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "66e21c57b18cf5d0",
+  "active": "9f58fe60a122b24c",
   "lastOpenFiles": [
-    "Lab/Arch.md",
+    "Extras/Resume.md",
+    "Extras/The Pillars of Participation.md",
+    "Voidborne-Archive.md",
+    "Extras/The Spark of a Cyber Odyssey.md",
+    "prophecy.md",
     "Lab/VirtualBox-Setup.md",
+    "Lab/Arch.md",
     "Lab/Fedora-Server.md",
     "Lab/OpnSense.md",
     "Lab/Sub-Targets.md",
@@ -210,10 +201,7 @@
     "Lab/Lab-Overview.md",
     "Lab/Ubuntu-Server.md",
     "Lab/Windows.md",
-    "Extras/Resume.md",
     "Obscure Codex/GPG-101.md",
-    "prophecy.md",
-    "Voidborne-Archive.md",
     "README.md",
     "[Extras/LICENSE|LICENSE].md",
     "[Extras",
@@ -229,8 +217,6 @@
     "CLI-Inferno/day1.md",
     "CLI-Inferno",
     "README 1.md",
-    "Extras/Rules.md",
-    "Lab",
-    "CachyOS.md"
+    "Lab"
   ]
 }
