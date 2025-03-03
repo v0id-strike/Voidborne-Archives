@@ -55,7 +55,7 @@ sudo virtualbox-secureboot enroll
 ### **Troubleshooting**
 - **Kernel Headers Mismatch**? Ensure `linux-headers` matches your kernel:
   ```bash
-  uname -r  # Check kernel version (e.g., 6.6.12-arch1-1)
+  uname -r
   sudo pacman -S linux-headers
   ```
 - Still broken? Nuke and rebuild:

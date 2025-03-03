@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Voidborne-Archive.md",
+                "file": "Lab/OpnSense.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Voidborne-Archive"
+              "title": "OpnSense"
             }
           }
         ],
@@ -185,18 +185,26 @@
   },
   "active": "cdde3fa0102df8f8",
   "lastOpenFiles": [
+    "Lab/VirtualBox-Setup.md",
+    "Lab/CachyOS-Guide.md",
+    "Obscure Codex/Securing-Home.md",
+    "Lab/OpnSense.md",
+    "Lab/Lab-Overview.md",
+    "Lab/Sub-Targets.md",
+    "Lab/Ubuntu-Server.md",
+    "Lab/Windows.md",
+    "Extras/Resume.md",
+    "Obscure Codex/GPG-101.md",
+    "prophecy.md",
+    "Voidborne-Archive.md",
+    "README.md",
     "[Extras/LICENSE|LICENSE].md",
     "[Extras",
-    "Voidborne-Archive.md",
     "Extras/LICENSE|LICENSE.md",
     "Extras/LICENSE.md",
     "Extras/LICENSE",
     "LICENSE",
-    "README.md",
-    "prophecy.md",
-    "Untitled.md",
     "CLI-Inferno/Day-1.md",
-    "Extras/Resume.md",
     "Obscure Codex",
     "Extras",
     "ROADMAP.md",
@@ -205,14 +213,7 @@
     "CLI-Inferno",
     "README 1.md",
     "Extras/Rules.md",
-    "Obscure Codex/GPG-101.md",
-    "Lab/Windows.md",
-    "Lab/OpnSense.md",
-    "Lab/VirtualBox-Setup.md",
-    "Lab/Sub-Targets.md",
-    "Lab/Ubuntu-Server.md",
     "Lab/AthenaOS.md",
-    "Lab/CachyOS-Guide.md",
     "Lab",
     "CachyOS.md",
     "CachyOS 1.md"
