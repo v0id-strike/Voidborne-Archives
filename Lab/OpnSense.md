@@ -14,10 +14,10 @@ You can download ISO file from [OPNsense.org](https://opnsense.org/)
    - Attach installed ISO to VM
    - Login:  installer/opnsense
    - Choose Keymap
-   - i recommend to install ZFS if your PC is decent
-   - we are using Virtualbox, which is single disk, so choose stripe
+   - I recommend to install ZFS if your PC is decent
+   - We are using Virtualbox, which is single disk, so choose stripe
    - Select disk by pressing `space` and `enter` to continue
-   - choose `Yes` to confirm that you are ok with wiping out the disk
+   - Choose `Yes` to confirm that you are ok with wiping out the disk
    - Now wait till installation is complete 
 
 3. Initial Configuration  
