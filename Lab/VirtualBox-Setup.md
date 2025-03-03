@@ -24,30 +24,37 @@ Configure VirtualBox networking and virtual machines (VMs) to create isolated la
 4. VMs: 
 - VM Specs
 
-| VM                       | RAM  | CPU | Storage | Adapter 1    | Adapter 2    |
-| ------------------------ | ---- | --- | ------- | ------------ | ------------ |
-| [OpnSense](Lab/OpnSense) | 4GB+ | 2+  | 40GB+   | NAT (WAN)    | vtnet0 (LAN) |
-| [AthenaOS](Lab/AthenaOS) | 4GB+ | 2+  | 100GB+  | vtnet0 (LAN) | -            |
-| Server                   | 2GB+ | 2+  | 30GB+   | vtnet0 (LAN) | -            |
-| Windows                  | 4GB+ | 2+  | 80GB+   | vtnet1 (DMZ) | -            |
-| Sub-Targets              |      |     |         | vtnet1 (DMZ) | -            |
+| VM                                | RAM  | CPU | Storage | Adapter 1    | Adapter 2    |
+| --------------------------------- | ---- | --- | ------- | ------------ | ------------ |
+| [OpnSense](Lab/OpnSense)          | 4GB+ | 2+  | 40GB+   | NAT (WAN)    | vtnet0 (LAN) |
+| [AthenaOS](Lab/AthenaOS)          | 4GB+ | 2+  | 100GB+  | vtnet0 (LAN) | -            |
+| [Arch](Lab/Arch)                  | 2GB+ | 2+  | 50GB+   | vtnet0 (LAN) |              |
+| [Fedora-Server](Fedora-Server.md) | 2GB+ | 2+  | 20GB+   | vtnet1 (DMZ) | -            |
+| Windows                           | 4GB+ | 2+  | 80GB+   | vtnet1 (DMZ) | -            |
+| Sub-Targets                       |      |     |         | vtnet1 (DMZ) | -            |
 
 - Network Topology 
-```plaintext
-                             [Internet]  
-                                 │  
-                         (NAT: VirtualBox)
-                                 │  
-			  ┌────-─---─-───[OpnSense]──-───---─────┐
-			  │              (Firewall)              │
-    		  │                                      │
-       [LAN: vboxnet0]                        [DMZ: vboxnet1]
-	   192.168.56.0/24                        192.168.57.0/24
-			  │                                      │
-┌───────---───┬───────---───┐          ┌──---────────┬─────---─────┐
-│  Athena OS  │   Server    │          │  VulnVM #1  │  VulnVM #2  │
-│192.168.56.10│192.168.56.20│          │192.168.57.10│192.168.57.20│
-└─────---─────┴─────---─────┘          └─────---─────┴──---────────┘
+```bash
+#                       ┌───────────┐                       
+# ┌─────────────────────│Virtual-Box│──────────────────────┐
+# │                     └───────────┘                      │
+# │                           ▲                            │
+# │                         [WAN]                          │
+# │                           ▼                            │
+# │                      ┌─────────┐                       │
+# │         ┌───[LAN]───►│Opn-Sense│◄───[DMZ]───┐          │
+# │         │            └─────────┘            │          │
+# │         │                                   │          │
+# │         ▼                                   ▼          │
+# │ ┌───────────────┐                  ┌─────────────────┐ │
+# │ │   Athena OS   │                  │ Metasploitable2 │ │
+# │ ├───────────────┤                  ├─────────────────┤ │
+# │ │      Arch     │                  │  Fedora Server  │ │
+# │ ├───────────────┼                  ├─────────────────┤ │
+# │ │ Debian Server │                  │   And  Others   │ │
+# │ └───────────────┘                  └─────────────────┘ │
+# │                                                        │
+# └────────────────────────────────────────────────────────┘
 ```
 
 - Connection Breakdown

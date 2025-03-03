@@ -30,21 +30,6 @@ You can download ISO file from [AthenaOS.org](https://athenaos.org/)
 	   14. Choose "Yes"
    - Now wait till installation is complete 
 
-- Network Configuration  
-```bash   
-sudo ip addr add 192.168.56.10/24 dev eth0  
-sudo ip route add default via 192.168.56.1  
-echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf  
-```
-
-- Install Tools  
-```bash
-sudo pacman -Syu  
-sudo pacman -S metasploit nmap burpsuite crackmapexec  
-```
-
-- Configure SSH Access  
-```bash
-sudo systemctl enable --now sshd  
-sudo passwd athena  # Set password  
-```
+3. Install Tools  
+   - When you log-in, once again you see Athena-Welcome. on top-right side of window. Choose role
+   - Press "Set Cyber Role" it downloads needed tools for Cyber-Role
