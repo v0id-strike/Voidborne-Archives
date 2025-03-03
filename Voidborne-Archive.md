@@ -13,7 +13,7 @@ This repository is:
 ## 📖 **The Chronicle (Ongoing)** 
 ### I. CLI Inferno 
 *"Where Bash scripts burn brighter than hellfire, and sudo is the incantation of gods"*
-- [Day 1: The Kernel's Gaze](CLI-Inferno/Day-1)
+- [Day 1: The Kernel's Gaze](CLI-Inferno/Day-1.md)
 - ...
 ### II. Network Wars  
 *"Where firewalls fell and packets whispered secrets."*  

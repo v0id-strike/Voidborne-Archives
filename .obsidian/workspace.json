@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Lab/AthenaOS.md",
+                "file": "CLI-Inferno/Day-1.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "AthenaOS"
+              "title": "Day-1"
             }
           }
         ]
@@ -170,13 +170,13 @@
   },
   "active": "cdde3fa0102df8f8",
   "lastOpenFiles": [
-    "Lab/OpnSense.md",
+    "Voidborne-Archive.md",
+    "README.md",
     "Lab/AthenaOS.md",
+    "Lab/OpnSense.md",
     "Lab/VirtualBox-Setup.md",
     "Lab/Server.md",
     "Extras/Resume.md",
-    "Voidborne-Archive.md",
-    "README.md",
     "Lab/CachyOS-Guide.md",
     "Obscure Codex/Securing-Home.md",
     "Lab/Lab-Overview.md",
