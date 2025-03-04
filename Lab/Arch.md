@@ -1,5 +1,5 @@
 #### Overview  
-This VM's purpose is to teach my university club about linux.. 
+This VM's purpose is to teach my university club about linux.
 You can skip this
 Why arch? just want to see them suffer from what i had been through : )
 You can download ISO file from [here](https://archlinux.org/download/)
@@ -61,4 +61,5 @@ You can download ISO file from [here](https://archlinux.org/download/)
 		   - `exit`
 		   - `umount -R /mnt`
 		   - `reboot`
-   - 
+   - And if your system boots up. good luck with Arch journey.
+   - For me, looks like i screwed up in some place. (i am teaching my club with [Debian](Debian.md) 😞)

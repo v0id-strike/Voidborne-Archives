@@ -27,16 +27,30 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Extras/The Pillars of Participation.md",
+                "file": "Lab/Arch.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "The Pillars of Participation"
+              "title": "Arch"
+            }
+          },
+          {
+            "id": "f18a33e628294ab0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Lab/Arch.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Arch"
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -183,15 +197,16 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "9f58fe60a122b24c",
+  "active": "f18a33e628294ab0",
   "lastOpenFiles": [
-    "Extras/Resume.md",
+    "Lab/Debian.md",
+    "Lab/Arch.md",
     "Extras/The Pillars of Participation.md",
+    "Extras/Resume.md",
     "Voidborne-Archive.md",
     "Extras/The Spark of a Cyber Odyssey.md",
     "prophecy.md",
     "Lab/VirtualBox-Setup.md",
-    "Lab/Arch.md",
     "Lab/Fedora-Server.md",
     "Lab/OpnSense.md",
     "Lab/Sub-Targets.md",
@@ -216,7 +231,6 @@
     "CLI-Inferno/day-1.md",
     "CLI-Inferno/day1.md",
     "CLI-Inferno",
-    "README 1.md",
     "Lab"
   ]
 }
