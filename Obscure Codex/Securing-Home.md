@@ -22,7 +22,7 @@ sudo rsync -avh --progress /home/ /mnt/home/
 
 - Check that the data has been copied:
 ```bash
-ls /mnt/new_home
+ls /mnt/home
 ```
 
 ### Step 3: Update the Mount Point for /home

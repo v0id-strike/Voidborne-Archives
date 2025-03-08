@@ -39,7 +39,8 @@ This repository is:
 ├── CLI-Inferno/         # Linux Mastery
 ├── network-wars/        # All about networks  
 ├── red-nights/          # Red-Team, Hacking, Tools 
-├── malware-art/         # Malware Development, reverse engineering  
+├── malware-art/         # Malware Development, reverse engineering
+├── shadow-lab/          # Personal Lab for practice
 └── prophecy.md          # Path to Unknown future  
 ``` 
 

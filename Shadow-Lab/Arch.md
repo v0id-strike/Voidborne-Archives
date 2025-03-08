@@ -62,4 +62,4 @@ You can download ISO file from [here](https://archlinux.org/download/)
 		   - `umount -R /mnt`
 		   - `reboot`
    - And if your system boots up. good luck with Arch journey.
-   - For me, looks like i screwed up in some place. (i am teaching my club with [Debian](Debian.md) 😞)
+   - For me, looks like i screwed up in some place. (i am teaching my club with [Ubuntu-Server](Ubuntu-Server.md) 😞)
