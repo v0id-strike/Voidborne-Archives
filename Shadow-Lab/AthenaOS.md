@@ -26,7 +26,7 @@ You can download ISO file from [AthenaOS.org](https://athenaos.org/)
 	   10. Select the disk to partition
 	   11. Create a swap partition if needed
 	   12. Choose desktop, shell, theme, browser, display manager, terminal to use
-	   13. Enable ipv6, zramd, and/or flatpak if needed (don't enable if you created a swap)
+	   13. Enable ipv6, zramd, and/or flatpak if needed (don't enable zramd if you created a swap)
 	   14. Choose "Yes"
    - Now wait till installation is complete 
 

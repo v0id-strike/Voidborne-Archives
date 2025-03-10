@@ -45,30 +45,34 @@ You can download ISO file from [OPNsense.org](https://opnsense.org/)
     2. Go to: http://192.168.56.2  
     3. Login (root / opnsense)
     4. Follow to setup wizard
+    5. Go to Interfaces > OPT1
+	    - type `DMZ` to description
+	    - this renames OPT1 to DMZ 
+	    - this allow us to use clear, descriptive names for interfaces
    - Enable NAT for Internet Access  
     1. Go to Firewall > NAT > Outbound  
     2. Select Hybrid mode  
     3. Add a rule:  
         - Interface: WAN  
-        - Source: LAN Net  
-        - Destination: Any  
-        - Translation: Interface Address
-        - Description: "Allow NAT for Internet Access"
+        - Source Address: LAN Net  
+        - Destination Address: Any  
+        - Translation/Target: Interface Address
+        - Description: "Allow NAT ription Internet Access"
     4. Click Apply Changes  
-   - Add firewall rules for OPT1
-    1.  Go to Firewall > Rules > OPT1
+   - Add firewall rules for DMZ
+    1.  Go to Firewall > Rules > DMZ
     2. Add a rule:  
         - Action: Pass
         - Protocol: Any  
-        - Source: OPT1 net  
-        - Destination: WAN  
-        - Description: "Allow OPT1 to access Internet" 
+        - Source: DMZ net  
+        - Destination: WAN net 
+        - Description: "Allow DMZ to access Internet" 
     3. Add a rule:
         - Action: Block  
         - Protocol: Any  
-        - Source: OPT1 net  
+        - Source: DMZ net  
         - Destination: LAN net  
-        - Description: "Block OPT1 from LAN access"  
+        - Description: "Block DMZ from LAN access"  
     4. Click Save & Apply Changes    
    -  Add firewall rules for LAN  
     1. Go to Firewall > Rules > LAN  
@@ -82,8 +86,8 @@ You can download ISO file from [OPNsense.org](https://opnsense.org/)
         -  Action: Pass 
         - Protocol: TCP  
         - Source: LAN net  
-        - Destination: OPT1 net  
-        - Description: "Allow LAN to access OPT1"  
+        - Destination: DMZ net  
+        - Description: "Allow LAN to access DMZ"  
     4. Click Apply Changes  
 
 5. Test Connectivity
@@ -98,7 +102,7 @@ You can download ISO file from [OPNsense.org](https://opnsense.org/)
    - Try accessing the web server from the internet (if port forwarding is enabled).  
 
 ---
-#### Quick Walkthrough  
+#### Overall Walkthrough  
 You’ve built the fortress—now let’s arm it. This guide will transform you from a novice to a firewall warlord.  
 
 **The Dashboard (Your War Room)  
