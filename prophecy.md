@@ -1,4 +1,4 @@
-*"Master every command, decode every whisper, and leave no stone unturned on your journey. Embrace every fucking topic—big or small—as you forge your legacy in the shadowed realms of cyberspace."* 
+*"Master every command, decode every whisper, and leave no stone unturned on your journey. Embrace every topic—big or small—as you forge your legacy in the shadowed realms of cyberspace."* 
 
 ---
 ### **Phase 1: Shadow-Lab – Constructing the Cyber Fortress**
