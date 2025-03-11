@@ -1,7 +1,5 @@
 #### Overview  
-This VM's purpose is to teach my university club about linux.
-You can skip this
-Why arch? just want to see them suffer from what i had been through : )
+Why it is here, just to test(*taste*) my rices
 You can download ISO file from [here](https://archlinux.org/download/)
 
 #### Steps  

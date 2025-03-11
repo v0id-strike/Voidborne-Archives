@@ -27,11 +27,10 @@ Configure VirtualBox networking and virtual machines (VMs) to create isolated la
 | VM                                | RAM  | CPU | Storage | Adapter 1    | Adapter 2    |
 | --------------------------------- | ---- | --- | ------- | ------------ | ------------ |
 | [OpnSense](OpnSense.md)           | 4GB+ | 2+  | 40GB+   | NAT (WAN)    | vtnet0 (LAN) |
-| [AthenaOS](AthenaOS.md)           | 4GB+ | 2+  | 100GB+  | vtnet0 (LAN) | -            |
+| [AthenaOS](AthenaOS.md)           | 8GB+ | 2+  | 100GB+  | vtnet0 (LAN) | -            |
 | [Arch](Arch.md)                   | 2GB+ | 2+  | 50GB+   | vtnet0 (LAN) | -            |
 | [Ubuntu-Server](Ubuntu-Server.md) | 2GB+ | 2+  | 50GB+   | vtnet0 (LAN) | -            |
 | [Fedora-Server](Fedora-Server.md) | 2GB+ | 2+  | 20GB+   | vtnet1 (DMZ) | -            |
-| Windows                           | 4GB+ | 2+  | 80GB+   | vtnet1 (DMZ) | -            |
 | Sub-Targets                       |      |     |         | vtnet1 (DMZ) | -            |
 
 - Network Topology 

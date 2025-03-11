@@ -114,8 +114,4 @@ Reboot:
 sudo reboot
 ```
 
-After reboot, Arch should appear in the GRUB menu alongside CachyOS. 🚀  
-
----
-
-### **Let me know if you need adjustments or a specific configuration!**
+After reboot, Arch should appear in the GRUB menu alongside CachyOS. 🚀 

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Shadow-Lab/CachyOS-Guide.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CachyOS-Guide"
+              "title": "README"
             }
           }
         ]
@@ -170,20 +170,20 @@
   },
   "active": "53056476e51373db",
   "lastOpenFiles": [
-    "Shadow-Lab/AthenaOS.md",
-    "Shadow-Lab/OpnSense.md",
-    "Shadow-Lab/VirtualBox-Setup.md",
-    "Shadow-Lab/CachyOS-Guide.md",
-    "Obscure Codex/Arch-Setup.md",
-    "Obscure Codex/Securing-Home.md",
-    "Shadow-Lab/Ubuntu-Server.md",
     "Voidborne-Archive.md",
+    "Obscure Codex/Arch-Setup.md",
+    "Shadow-Lab/VirtualBox-Setup.md",
     "Shadow-Lab/Fedora-Server.md",
     "Shadow-Lab/Arch.md",
+    "Shadow-Lab/Ubuntu-Server.md",
+    "Shadow-Lab/OpnSense.md",
+    "Shadow-Lab/CachyOS-Guide.md",
+    "Shadow-Lab/AthenaOS.md",
+    "prophecy.md",
+    "Obscure Codex/Securing-Home.md",
     "Extras/The Pillars of Participation.md",
     "Extras/Resume.md",
     "Extras/The Spark of a Cyber Odyssey.md",
-    "prophecy.md",
     "Shadow-Lab/Sub-Targets.md",
     "Lab/Lab-Overview.md",
     "Lab/Ubuntu-Server.md",
