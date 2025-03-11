@@ -5,7 +5,7 @@ This repository is:
 - A **dark mirror** of my journey from fledgling sysadmin to red team sovereign.  
 - A **sanctum** for code, configs, and exploits birthed in my homelab’s crucible.  
 - A **warning** to complacent systems: *the void watches*.  
-- For those who is interested about my [Origin](The%20Spark%20of%20a%20Cyber%20Odyssey.md)
+- For those who is interested about my [Origin](Extras/The%20Spark%20of%20a%20Cyber%20Odyssey.md)
 
 *"What you see here is not static. It evolves as I do. Each commit is a scar, each branch a battlefield."*  
 
@@ -13,13 +13,14 @@ This repository is:
 
 ## 📖 **The Chronicle (Ongoing)** 
 ### I. Shadow-Lab
-- [Domain Expension](VirtualBox-Setup.md)
-- [The Firewall’s Dawn](OpnSense.md)
-- [The Attacker’s Birth](AthenaOS)
-- [The Keeper of Secrets](Ubuntu-Server.md)
-- [The Architect's Canvas](Arch.md)
-- [The Exiled Ones](Targets.md)
-- [The Sanctum's Test](END.md)
+*"The beginning of dgital stronghold—where security is shaped, and shadows are controlled"*
+- [Domain Expension](Shadow-Lab/VirtualBox.md)
+- [The Firewall’s Dawn](Shadow-Lab/OpnSense.md)
+- [The Attacker’s Birth](Shadow-Lab/AthenaOS)
+- [The Keeper of Secrets](Shadow-Lab/Ubuntu-Server.md)
+- [The Architect's Canvas](Shadow-Lab/Arch.md)
+- [The Exiled Ones](Shadow-Lab/Targets.md)
+- [The Sanctum's Test](Shadow-Lab/END.md)
 ### II. CLI Inferno 
 *"Embracing the Terminal's Flame"*
 - ...
