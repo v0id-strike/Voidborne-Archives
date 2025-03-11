@@ -5,6 +5,7 @@ This repository is:
 - A **dark mirror** of my journey from fledgling sysadmin to red team sovereign.  
 - A **sanctum** for code, configs, and exploits birthed in my homelab’s crucible.  
 - A **warning** to complacent systems: *the void watches*.  
+- For those who is interested about my [Origin](The%20Spark%20of%20a%20Cyber%20Odyssey.md)
 
 *"What you see here is not static. It evolves as I do. Each commit is a scar, each branch a battlefield."*  
 
@@ -13,7 +14,7 @@ This repository is:
 ## 📖 **The Chronicle (Ongoing)** 
 ### I. CLI Inferno 
 *"Embracing the Terminal's Flame"*
-- [Origin](The%20Spark%20of%20a%20Cyber%20Odyssey.md)
+- Day 1-
 - ...
 ### II. Network Wars  
 *"Navigating the Digital Abyss"*  

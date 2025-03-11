@@ -9,7 +9,8 @@ The primary purpose of setting up this VM is to become a crucible for learning t
 
 2. Login to Live Boot
    - Attach installed ISO to VM
-   - Choose Language, Keymap
+   - Choose Language, Keyboard configuratoin
    - Tick checkbox for third-party drivers
-   - 
+   - Create User account
+   - Start installation
    - Reboot

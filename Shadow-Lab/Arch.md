@@ -60,3 +60,5 @@ You can download ISO file from [here](https://archlinux.org/download/)
 		   - `umount -R /mnt`
 		   - `reboot`
    - And if your system boots up. good luck with Arch journey.
+
+If you did come this far and still failed then use: `archinstall`

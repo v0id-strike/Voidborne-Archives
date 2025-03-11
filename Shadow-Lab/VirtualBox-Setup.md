@@ -29,8 +29,8 @@ Configure VirtualBox networking and virtual machines (VMs) to create isolated la
 | [OpnSense](OpnSense.md)           | 4GB+ | 2+  | 40GB+   | NAT (WAN)    | vtnet0 (LAN) |
 | [AthenaOS](AthenaOS.md)           | 8GB+ | 2+  | 100GB+  | vtnet0 (LAN) | -            |
 | [Arch](Arch.md)                   | 2GB+ | 2+  | 50GB+   | vtnet0 (LAN) | -            |
-| [Ubuntu-Server](Ubuntu-Server.md) | 2GB+ | 2+  | 50GB+   | vtnet0 (LAN) | -            |
 | [Fedora-Server](Fedora-Server.md) | 2GB+ | 2+  | 20GB+   | vtnet1 (DMZ) | -            |
+| [Ubuntu-Server](Ubuntu-Server.md) | 2GB+ | 2+  | 50GB+   | vtnet0 (LAN) | -            |
 | Sub-Targets                       |      |     |         | vtnet1 (DMZ) | -            |
 
 - Network Topology 
@@ -63,13 +63,16 @@ Configure VirtualBox networking and virtual machines (VMs) to create isolated la
 		- Provides DHCP for automatic IP assignments.
 		- Firewall Rules allow or block traffic between different networks.
 		- VPN (Optional) for remote access.
-	- Windows (Active Directory):
-		- Used for Privilege Escalation and AD Exploits.
-		- Can be attacked from AthenaOS or Ubuntu Server.
-	- Server:
-		- Hosts C2 Frameworks, Web Applications, or Exploit Development.
 	- AthenaOS:
 		- Main Offensive Security VM (used for pentesting & exploitation).
-		- Can attack Windows & Metasploitable.
-	- VulnerableVMs:
-		- Purposely vulnerable systems for practicing exploits.
+		- Can attack Fedora Server & Metasploitable2
+	- Arch:
+		- Linux Ricing 🙂
+	- Ubuntu Server:
+		- Used for teaching my brother
+		- Hosts C2 Frameworks, Web Applications, or Exploit Development.
+	- Metasploitable2 & Fedora Server:
+		- Main Targets
+		- They volunteered
+	- And others (AKA Sub-Targets):
+		- Planned to be deployed soon

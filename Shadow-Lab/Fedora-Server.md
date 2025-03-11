@@ -6,12 +6,13 @@ You can download ISO file from [Fedora Server](https://fedoraproject.org/server/
 #### Steps  
 1. Create Fedora VM  
    - Name: Fedora Server
-   - Type: 
-   - Subtype: FreeBSD
-   - Version: FreeBSD (64-bit) 
+   - Type: Linux
+   - Subtype: Fedora
+   - Version: Fedora (64-bit) 
 
 2. Login to Live Boot
    - Attach installed ISO to VM
-   - Login:  installer/opnsense
-   - Choose Keymap
-   - 
+   - Choose Language, Installation destination, Timezone
+   - Create Root/User accounts
+   - Begin Installation
+   - Reboot
