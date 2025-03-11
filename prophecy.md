@@ -1,7 +1,30 @@
 *"Master every command, decode every whisper, and leave no stone unturned on your journey. Embrace every fucking topic—big or small—as you forge your legacy in the shadowed realms of cyberspace."* 
 
 ---
-### **Phase 1: CLI-Inferno – Embracing the Terminal's Flame**  
+### **Phase 1: Shadow-Lab Awakening – Constructing the Cyber Fortress**
+
+**Goal**: _Lay the foundation of your digital battlefield—deploy core machines, forge secure networks, and shape the architecture of your domain._
+
+- **The Firewall’s Dawn** 
+  *Summon the first guardian—install and configure OPNsense as the sentinel of your realm. Assign three sacred paths: NAT for the outside world, LAN for the trusted core, and DMZ for the forsaken.*
+
+- **The Attacker’s Birth** 
+  *From the depths of darkness, AthenaOS awakens—your blade in the cyber shadows. Configure tools of penetration, forge the arsenal of exploits, and establish its rightful place within the LAN.*
+
+- **The Keeper of Secrets**  
+  *Ubuntu Server rises as the silent orchestrator—crafting hidden corridors for C2 operations and web hosting. Shape its structure with SSH, configure its shields, and ensure its whispers remain unheard beyond the veil.*
+
+- **The Architect’s Canvas**  
+  *Arch Linux, the sculptor’s masterpiece, awaits your vision. Mold it to perfection—rice the environment, shape the interface, and command the system with unyielding precision.*
+
+- **The Exiled Ones**  
+  *Beyond the firewall’s grace, in the desolate DMZ, remnants of the fallen await. Metasploitable, broken yet brimming with weaknesses, and Fedora Server, a gateway to Docker’s realm—unleash them to test, to conquer, to learn.*
+
+- **The Sanctum’s Test**  
+  *No fortress stands unchallenged. Harden the walls, refine the defenses, and test every connection. Watch the flames rise, let the siege begin, and let the Shadow-Lab breathe its first breath of war.*
+
+---
+### **Phase 2: CLI-Inferno – Embracing the Terminal's Flame**  
 **Goal**: *Become one with your machine—master every command, script, and system secret.*
 
 - **The Newborn Terminal**  
@@ -32,8 +55,7 @@
   *Harness the power of containerization with Docker, Podman, and LXC. Then, when secrets need uncovering, master forensics tools (dd, foremost, Autopsy) to analyze logs, disk images, and system artifacts.*
 
 ---
-
-### **Phase 2: Network Wars – Navigating the Digital Abyss**  
+### **Phase 3: Network Wars – Navigating the Digital Abyss**  
 **Goal**: *Understand and command the invisible threads that bind computers together.*
 
 - **The Ether’s Awakening**  
@@ -61,8 +83,7 @@
   *Learn advanced networking tricks: SSH tunneling, proxychains, VPN pivoting, and the art of lateral movement across networks.*
 
 ---
-
-### **Phase 3: Red Nights – Dancing with the Shadows**  
+### **Phase 4: Red Nights – Dancing with the Shadows**  
 **Goal**: *Step into the shoes of an adversary—understand, simulate, and ultimately master the art of offensive security.*
 
 - **The Trickster’s Prelude**  
@@ -96,8 +117,7 @@
   *Engage in full red team exercises and simulated breaches to put all your skills to the test, from reconnaissance to exploitation and post-engagement analysis.*
 
 ---
-
-### **Phase 4: Art of Malware – Crafting Digital Sorcery**  
+### **Phase 5: Art of Malware – Crafting Digital Sorcery**  
 **Goal**: *From low-level code to stealthy implants—learn to create malware that lurks and persists in the shadows.*
 
 - **The Alchemist’s Primer**  
@@ -131,8 +151,7 @@
   *Combine your skills to craft a custom implant—integrating stealth, persistence, and effective communication to embody your mastery of digital sorcery.*
 
 ---
-
-### **Phase 5: The Hacker’s Legacy – Transcending Mortal Limits**  
+### **Phase 6: The Hacker’s Legacy – Transcending Mortal Limits**  
 **Goal**: *Emerge not just as a skilled practitioner, but as a master, mentor, and innovator in the cyber realm.*
 
 - **The Grand Heist**  

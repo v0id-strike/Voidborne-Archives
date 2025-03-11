@@ -12,23 +12,23 @@ This repository is:
 ---
 
 ## 📖 **The Chronicle (Ongoing)** 
-### I. CLI Inferno 
+### I. Shadow-Lab
+### II. CLI Inferno 
 *"Embracing the Terminal's Flame"*
-- Day 1-
 - ...
-### II. Network Wars  
+### III. Network Wars  
 *"Navigating the Digital Abyss"*  
 - ...  
 
-### III. Red Nights  
+### IV. Red Nights  
 *"Dancing with the Shadows"*  
 - ...  
 
-### IV. Art of Malware  
+### V. Art of Malware  
 *"Crafting Digital Sorcery"*  
 - ...  
 
-### V. The Hacker’s Legacy   
+### VI. The Hacker’s Legacy   
 *"Transcending Mortal Limits"*  
 - ...
 
@@ -41,7 +41,8 @@ This repository is:
 ├── network-wars/        # All about networks  
 ├── red-nights/          # Red-Team, Hacking, Tools 
 ├── malware-art/         # Malware Development, reverse engineering
-├── shadow-lab/          # Personal Lab for practice
+├── shadow-lab/          # Lab for practice
+├── obscure codex/       # Personal Note
 └── prophecy.md          # Path to Unknown future  
 ``` 
 

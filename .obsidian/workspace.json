@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Shadow-Lab/Sub-Targets.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Sub-Targets"
+              "title": "README"
             }
           }
         ]
@@ -170,19 +170,19 @@
   },
   "active": "31697b7c2d158aa1",
   "lastOpenFiles": [
-    "Shadow-Lab/VirtualBox-Setup.md",
-    "Shadow-Lab/Ubuntu-Server.md",
-    "Shadow-Lab/Sub-Targets.md",
-    "Shadow-Lab/OpnSense.md",
     "prophecy.md",
+    "README.md",
+    "Shadow-Lab/VirtualBox-Setup.md",
+    "Extras/The Spark of a Cyber Odyssey.md",
+    "Shadow-Lab/Sub-Targets.md",
+    "Shadow-Lab/Ubuntu-Server.md",
+    "Shadow-Lab/OpnSense.md",
     "Shadow-Lab/Fedora-Server.md",
     "Shadow-Lab/Arch.md",
-    "README.md",
     "Obscure Codex/Securing-Home.md",
     "Obscure Codex/GPG-101.md",
     "Obscure Codex/Arch-Setup.md",
     "Extras/The Pillars of Participation.md",
-    "Extras/The Spark of a Cyber Odyssey.md",
     "Voidborne-Archive.md",
     "Shadow-Lab/CachyOS-Guide.md",
     "Shadow-Lab/AthenaOS.md",
