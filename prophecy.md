@@ -1,9 +1,12 @@
 *"Master every command, decode every whisper, and leave no stone unturned on your journey. Embrace every fucking topic—big or small—as you forge your legacy in the shadowed realms of cyberspace."* 
 
 ---
-### **Phase 1: Shadow-Lab Awakening – Constructing the Cyber Fortress**
+### **Phase 1: Shadow-Lab – Constructing the Cyber Fortress**
 
 **Goal**: _Lay the foundation of your digital battlefield—deploy core machines, forge secure networks, and shape the architecture of your domain._
+
+- **Domain Expansion**  
+  *A world must be built before war can begin. Construct the virtual domain within VirtualBox, mapping the roles of each machine. OPNsense guards the gates, AthenaOS wields the blade, Ubuntu Server whispers in the dark, Arch Linux crafts the soul, while Metasploitable and Fedora Server lurk in exile, waiting for their fate.*
 
 - **The Firewall’s Dawn** 
   *Summon the first guardian—install and configure OPNsense as the sentinel of your realm. Assign three sacred paths: NAT for the outside world, LAN for the trusted core, and DMZ for the forsaken.*

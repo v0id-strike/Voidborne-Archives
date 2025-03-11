@@ -13,6 +13,9 @@ This repository is:
 
 ## 📖 **The Chronicle (Ongoing)** 
 ### I. Shadow-Lab
+- [Domain Expension](VirtualBox-Setup.md)
+- [The Firewall’s Dawn](OpnSense.md)
+- [The Attacker’s Birth](AthenaOS)
 ### II. CLI Inferno 
 *"Embracing the Terminal's Flame"*
 - ...
