@@ -16,6 +16,10 @@ This repository is:
 - [Domain Expension](VirtualBox-Setup.md)
 - [The Firewall’s Dawn](OpnSense.md)
 - [The Attacker’s Birth](AthenaOS)
+- [The Keeper of Secrets](Ubuntu-Server.md)
+- [The Architect's Canvas](Arch.md)
+- [The Exiled Ones](Targets.md)
+- [The Sanctum's Test](END.md)
 ### II. CLI Inferno 
 *"Embracing the Terminal's Flame"*
 - ...
