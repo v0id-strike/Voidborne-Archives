@@ -1,7 +1,3 @@
-Got it. Here’s a simplified version without losing the edge:
-
----
-
 ## 🎯 **Purpose of the Void**
 
 This repo is:

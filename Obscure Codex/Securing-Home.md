@@ -1,5 +1,3 @@
-To move your /home data from the 512GB SSD to a 1TB SSD, you can follow these general steps. I’ll break it down into parts:
-
 ### Step 1: Mount the 1TB SSD
 - Prepare the 1TB SSD: You’ll need to format it with a filesystem like BTRFS.
 
