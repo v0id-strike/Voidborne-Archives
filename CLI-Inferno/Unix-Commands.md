@@ -9,15 +9,15 @@ Below is an **A to Z** reference of essential Unix/Linux commands. This will ser
 ## Quick Jump:
 [A](#a-commands) | [B](#b-commands) | [C](#c-commands) | [D](#d-commands) | [E](#e-commands) | [F](#f-commands) | [G](#g-commands) | [H](#h-commands) | [I](#i-commands) | [J](#j-commands) | [K](#k-commands) | [L](#l-commands) | [M](#m-commands) | [N](#n-commands) | [O](#o-commands) | [P](#p-commands) | [Q](#q-commands) | [R](#r-commands) | [S](#s-commands) | [T](#t-commands) | [U](#u-commands) | [V](#v-commands) | [W](#w-commands) | [X](#x-commands) | [Y](#y-commands) | [Z](#z-commands)  
 
-## A-Commands
+## A Commands
 - `alias` → Create command shortcuts  
 - `awk` → Pattern scanning and processing  
 
-## B-Commands
+## B Commands
 - `basename` → Extract filename from path  
 - `bash` → Open a shell  
 
-## C-Commands
+## C Commands
 - `cat` → View file contents  
 - `chmod` → Change file permissions  
 - `cp` → Copy files and directories  
@@ -81,7 +81,7 @@ Below is an **A to Z** reference of essential Unix/Linux commands. This will ser
 - `rm` → Delete files  
 - `rsync` → Synchronize files  
 
-## S-Commands
+## S Commands
 - `ssh` → Remote shell access  
 - `sed` → Stream editor  
 
