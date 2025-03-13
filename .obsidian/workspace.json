@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Extras/The Pillars of Participation.md",
+                "file": "Shadow-Lab/Targets.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "The Pillars of Participation"
+              "title": "Targets"
             }
           }
         ]
@@ -190,21 +190,21 @@
   },
   "active": "86f2cbdd40511fa3",
   "lastOpenFiles": [
+    "Shadow-Lab/VirtualBox.md",
+    "Shadow-Lab/Fedora-Server.md",
+    "Shadow-Lab/AthenaOS.md",
+    "Shadow-Lab/Ubuntu-Server.md",
+    "Extras/The Pillars of Participation.md",
     "Extras/The Spark of a Cyber Odyssey.md",
     "Obscure Codex/Arch-Setup.md",
     "Obscure Codex/GPG-101.md",
     "Obscure Codex/Securing-Home.md",
     "Obscure Codex/VirtualBox.md",
     "Shadow-Lab/Arch.md",
-    "Shadow-Lab/AthenaOS.md",
-    "Shadow-Lab/Fedora-Server.md",
     "Shadow-Lab/OpnSense.md",
     "Shadow-Lab/Targets.md",
-    "Shadow-Lab/Ubuntu-Server.md",
-    "Shadow-Lab/VirtualBox.md",
     "prophecy.md",
     "README.md",
-    "Extras/The Pillars of Participation.md",
     "Shadow-Lab/END.md",
     "Voidborne-Archive.md",
     "Extras/Resume.md",
