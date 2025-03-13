@@ -1,16 +1,41 @@
-#### Overview  
-The primary purpose of setting up this VM is to become a crucible for learning the sacred art of Linux. Born of stability and resilience, it serves not only as a classroom for mastering the command line but also as a steadfast bastion for hosting your digital services and web applications. Begin your journey by acquiring the Ubuntu ISO from [here](https://ubuntu.com/download/server).
-#### Steps  
-1. Create Ubuntu VM  
-   - Name: Ubuntu Server
-   - Type: Linux
-   - Subtype: Ubuntu
-   - Version: Ubuntu (64-bit) 
+The primary purpose of this VM is to serve as a **fortress of learning**—a place to **master Linux fundamentals**, **harden your sysadmin skills**, and **deploy web services** with confidence. Whether you're setting up a **self-hosted server**, **learning automation**, or **building a C2 framework**, this Ubuntu Server VM will be your **battle-tested** companion.
 
-2. Login to Live Boot
-   - Attach installed ISO to VM
-   - Choose Language, Keyboard configuratoin
-   - Tick checkbox for third-party drivers
-   - Create User account
-   - Start installation
-   - Reboot
+📥 Get the official **Ubuntu Server ISO** from [here](https://ubuntu.com/download/server).
+
+---
+
+## **📌 Phase 1: Creating the Ubuntu VM**
+### **1️⃣ Setup Virtual Machine**
+
+1. Open **VirtualBox** and click **New**.
+2. Name the VM: **Ubuntu Server**
+3. Type: **Linux**
+4. Version: **Ubuntu (64-bit)**
+5. VirtualBox Settings > Network:
+    - **Adapter 1:** Attached to: **Host-only Adapter**
+
+---
+
+## **📌 Phase 2: Installing AthenaOS**
+### **2️⃣ Boot into Live ISO**
+
+- Attach the **Ubuntu ISO** to your VM
+- Boot into **Ubuntu Installer**
+
+### **3️⃣ Installation Process**
+
+- **Language & Keyboard:** Choose your preferred settings
+- **Network Setup:** Configure your network (can leave as default for DHCP)
+- **Storage:** Choose **"Use entire disk"** (or manual partitioning if preferred)
+- **User Account:**
+    - Create a **username & password**
+    - Set a hostname for your server
+- **Additional Software (Optional):**
+    - Tick **"Install OpenSSH server"** (important for remote access)
+    - Select **third-party drivers** if prompted
+
+### **4️⃣ Finish Installation**
+
+- Start the installation process
+- Once completed, **reboot** the system
+- Login with your created user credentials

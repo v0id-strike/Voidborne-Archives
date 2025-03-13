@@ -1,7 +1,3 @@
-Got it! Since you're already on CachyOS and have an empty Btrfs partition, we'll install Arch on it while keeping your existing system intact.
-
----
-
 ## **🛠 Steps to Install Arch on the Empty Btrfs Partition**
 ### **1️⃣ Prepare the Partition**
 First, check your partition table:
@@ -112,6 +108,4 @@ sudo umount -R /mnt/arch
 Reboot:
 ```bash
 sudo reboot
-```
-
-After reboot, Arch should appear in the GRUB menu alongside CachyOS. 🚀 
+``` 

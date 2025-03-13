@@ -23,9 +23,6 @@
 - **The Exiled Ones**  
   *Beyond the firewall’s grace, in the desolate DMZ, remnants of the fallen await. Metasploitable, broken yet brimming with weaknesses, and Fedora Server, a gateway to Docker’s realm—unleash them to test, to conquer, to learn.*
 
-- **The Sanctum’s Test**  
-  *No fortress stands unchallenged. Harden the walls, refine the defenses, and test every connection. Watch the flames rise, let the siege begin, and let the Shadow-Lab breathe its first breath of war.*
-
 ---
 ### **Phase 2: CLI-Inferno – Embracing the Terminal's Flame**  
 **Goal**: *Become one with your machine—master every command, script, and system secret.*

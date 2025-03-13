@@ -1,19 +1,14 @@
-### **Overview**  
 Before building the Shadow-Lab, we first configure VirtualBox to suit our needs.  
-
 There are many virtualization platforms available, but VirtualBox is one of the most widely used and beginner-friendly solutions. Its simplicity and cross-platform compatibility make it an excellent choice. However, if you are confident using other solutions and understand their configurations, feel free to experiment.  
 
 ---
-
-### **Setup Steps**  
-
-#### **1. Install VirtualBox**  
+#### **Install VirtualBox**  
 - Download the latest version from [VirtualBox.org](https://www.virtualbox.org/).  
 - Ensure **VT-x/AMD-V** and **Nested Virtualization** are enabled in BIOS/UEFI.  
 
 ---
 
-#### **2. Create Virtual Networks**  
+#### **Create Virtual Networks**  
 To establish proper network segmentation, we define two primary virtual networks:  
 
 - **Trusted LAN (Internal Network for Core Machines)**  
@@ -29,7 +24,7 @@ To establish proper network segmentation, we define two primary virtual networks
 
 ---
 
-#### **3. Virtual Machine Specifications**  
+#### **Virtual Machine Specifications**  
 
 | VM                                | RAM    | CPU    | Storage | Adapter 1    | Adapter 2    |
 | --------------------------------- | ------ | ------ | ------- | ------------ | ------------ |
@@ -42,7 +37,7 @@ To establish proper network segmentation, we define two primary virtual networks
 
 ---
 
-### **4. Network Topology**  
+### **Network Topology**  
 The Shadow-Lab network is structured for both security and versatility.  
 
 ```bash
@@ -70,7 +65,7 @@ The Shadow-Lab network is structured for both security and versatility.
 
 ---
 
-### **5. Simple Breakdown**  
+### **Simple Breakdown**  
 
 - **OPNsense**  
   - Acts as the firewall and primary router, controlling inbound/outbound traffic.  

@@ -26,7 +26,6 @@ _"Building the stronghold—where security is forged, and control is absolute."_
 - [The Keeper of Secrets](Shadow-Lab/Ubuntu-Server.md)
 - [The Architect's Canvas](Shadow-Lab/Arch.md)
 - [The Exiled Ones](Shadow-Lab/Targets.md)
-- [The Sanctum’s Test](Shadow-Lab/END.md)
 
 ### II. CLI Inferno
 
