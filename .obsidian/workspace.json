@@ -78,7 +78,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 300,
+    "collapsed": true
   },
   "right": {
     "id": "dfe15e24d98ffa01",
@@ -171,8 +172,8 @@
   "active": "86f2cbdd40511fa3",
   "lastOpenFiles": [
     "README.md",
-    "CLI-Inferno/Unix-Commands.md",
     "prophecy.md",
+    "CLI-Inferno/Unix-Commands.md",
     "Extras/The Pillars of Participation.md",
     "Extras/The Spark of a Cyber Odyssey.md",
     "Obscure Codex/VirtualBox.md",

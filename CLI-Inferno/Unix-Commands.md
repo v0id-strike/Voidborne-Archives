@@ -8,17 +8,20 @@ Below is an **A to Z** reference of essential Unix/Linux commands. This will ser
 
 ## 🅰️ A Commands
 
-- `alias` → Create shortcuts for commands
-- `awk` → Text processing tool for extracting and manipulating data
-- `arch` → Display system architecture
+### `alias` → Create shortcuts for commands
+- Usage: `alias [name[=command]...]`
+- Without arguments, it lists all defined aliases.
+### `awk` → Powerful text-processing tool for data extraction and manipulation
+- AWK has extensive functionality; refer to the [GNU AWK manual](https://www.gnu.org/software/gawk/manual/gawk.html) for details.
+- The link covers `gawk` (GNU AWK), including general `awk` concepts.
 
 ## 🅱️ B Commands
 
-- `basename` → Extract filename from a path
-- `bash` → Open a shell
-- `bg` → Resume a job in the background
-- `blkid` → Display UUIDs and filesystem types of block devices
-- `bzip2` → Compress files
+### `basename` → Extract filename from a path
+### `bash` → Open a shell
+### `bg` → Resume a job in the background
+### `blkid` → Display UUIDs and filesystem types of block devices
+### `bzip2` → Compress files
 
 ## 🌊 C Commands
 
