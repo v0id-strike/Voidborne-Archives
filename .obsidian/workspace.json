@@ -78,8 +78,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "dfe15e24d98ffa01",
@@ -171,9 +170,13 @@
   },
   "active": "86f2cbdd40511fa3",
   "lastOpenFiles": [
+    "Pasted image 20250314195559.png",
+    "CLI-Inferno/A-Z/basename.md",
+    "CLI-Inferno/Unix-Commands.md",
+    "CLI-Inferno/A-Z",
+    "CLI-Inferno/A-Z",
     "README.md",
     "prophecy.md",
-    "CLI-Inferno/Unix-Commands.md",
     "Extras/The Pillars of Participation.md",
     "Extras/The Spark of a Cyber Odyssey.md",
     "Obscure Codex/VirtualBox.md",
@@ -196,10 +199,8 @@
     "[Extras/LICENSE|LICENSE].md",
     "[Extras",
     "Extras/LICENSE|LICENSE.md",
-    "Extras/LICENSE.md",
     "Extras/LICENSE",
     "LICENSE",
-    "CLI-Inferno/Day-1.md",
     "Obscure Codex",
     "Extras",
     "CLI-Inferno",
