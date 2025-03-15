@@ -8,17 +8,17 @@
         "type": "tabs",
         "children": [
           {
-            "id": "86f2cbdd40511fa3",
+            "id": "f5baa36a032f976b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CLI-Inferno/Unix-Commands.md",
+                "file": "CLI-Inferno/Files.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Unix-Commands"
+              "title": "Files"
             }
           }
         ]
@@ -168,28 +168,30 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "86f2cbdd40511fa3",
+  "active": "f5baa36a032f976b",
   "lastOpenFiles": [
+    "prophecy.md",
+    "CLI-Inferno/Files.md",
+    "Shadow-Lab/OpnSense.md",
+    "README.md",
+    "Obscure Codex/VirtualBox.md",
+    "CLI-Inferno/Text-Editors.md",
+    "Obscure Codex/Securing-Home.md",
+    "Obscure Codex/GPG-101.md",
+    "Obscure Codex/Arch-Setup.md",
+    "CLI-Inferno/Unix-Commands.md",
     "Pasted image 20250314195559.png",
     "CLI-Inferno/A-Z/basename.md",
-    "CLI-Inferno/Unix-Commands.md",
     "CLI-Inferno/A-Z",
     "CLI-Inferno/A-Z",
-    "README.md",
-    "prophecy.md",
     "Extras/The Pillars of Participation.md",
     "Extras/The Spark of a Cyber Odyssey.md",
-    "Obscure Codex/VirtualBox.md",
     "Shadow-Lab/VirtualBox.md",
     "Shadow-Lab/Targets.md",
     "Shadow-Lab/Fedora-Server.md",
     "Shadow-Lab/AthenaOS.md",
     "Shadow-Lab/Ubuntu-Server.md",
-    "Obscure Codex/Arch-Setup.md",
-    "Obscure Codex/GPG-101.md",
-    "Obscure Codex/Securing-Home.md",
     "Shadow-Lab/Arch.md",
-    "Shadow-Lab/OpnSense.md",
     "Shadow-Lab/END.md",
     "Voidborne-Archive.md",
     "Extras/Resume.md",
@@ -198,7 +200,6 @@
     "Shadow-Lab/Windows.md",
     "[Extras/LICENSE|LICENSE].md",
     "[Extras",
-    "Extras/LICENSE|LICENSE.md",
     "Extras/LICENSE",
     "LICENSE",
     "Obscure Codex",

@@ -30,9 +30,6 @@
 - **The Newborn Terminal**  
   *Begin at the very beginning: install multiple Linux distributions (Arch, Ubuntu, Fedora, Debian) via Live USBs and virtual machines. Learn the basics—navigating directories, file manipulation (ls, cd, cp, mv, rm), and understanding the Linux file hierarchy.*
 
-- **The Scribbler’s Quill**  
-  *Discover the art of text editing with editors like Nano, Vim, and Emacs. Learn how to write and edit code, configuration files, and scripts—the very words that breathe life into your system.*
-
 - **The File’s Chronicle**  
   *Delve into file permissions, ownership, and the mysteries of the Unix file system. Learn about symbolic links, hard links, and how to tame file hierarchies with chmod, chown, and umask.*
 

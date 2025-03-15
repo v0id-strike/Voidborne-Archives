@@ -28,7 +28,7 @@ _"Building the stronghold—where security is forged, and control is absolute."_
 _"Mastering the Terminal’s Power."_
 
 - [The Newborn Terminal](CLI-Inferno/Unix-Command.md)
-- [The Scribbler's Quill](CLI-Inferno/Text-Editors.md)
+- [The File's Chronicle](CLI-Inferno/Files.md)
 
 ### III. Network Wars
 
