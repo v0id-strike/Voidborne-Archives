@@ -29,6 +29,7 @@ _"Mastering the Terminal’s Power."_
 
 - [The Newborn Terminal](CLI-Inferno/Unix-Command.md)
 - [The File's Chronicle](CLI-Inferno/Files.md)
+- [The Shell’s Symphony](CLI-Inferno/Shell-Scripting.md)
 
 ### III. Network Wars
 
