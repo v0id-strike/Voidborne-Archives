@@ -168,7 +168,7 @@ Key Components:
     - `$1` - First argument (domain).
 5. **Variable (`domain`)** - Stores the input for later use.
 
-### 3️⃣ Understanding Shebang (`#!`)
+### 1️⃣ Understanding Shebang (`#!`)
 
 The **shebang** (`#!`) at the top of a script specifies the interpreter that executes the script. While we typically use Bash (`/bin/bash`), other interpreters like Python or Perl can be specified:
 ```python
@@ -179,7 +179,7 @@ The **shebang** (`#!`) at the top of a script specifies the interpreter that exe
 #!/usr/bin/env perl
 ```
 
-### 4️⃣ Using If-Else for Conditional Execution
+### 2️⃣ Using If-Else for Conditional Execution
 
 Conditional checks are fundamental in scripting. The basic `if` condition follows this logic:
 ```bash
@@ -206,7 +206,7 @@ $ bash script.sh 12
 Given argument is greater than 10.
 ```
 
-### 5️⃣ Extending Conditions with `elif` and `else`
+### 3️⃣ Extending Conditions with `elif` and `else`
 
 Adding `elif` (else-if) and `else` provides additional condition checks:
 ```bash
@@ -237,7 +237,7 @@ script.sh: line 8: [: Blah-Blah: integer expression expected
 Given argument is not a number.
 ```
 
-### 6️⃣ Handling Multiple Conditions
+### 4️⃣ Handling Multiple Conditions
 
 We can extend our script to check for multiple conditions:
 ```bash
@@ -266,4 +266,174 @@ This structured approach ensures scripts behave predictably based on user input.
 
 ---
 
-## **📌 Phase 3: **
+## **📌 Phase 3: Arguments, Variables, and Arrays**
+
+One of the key advantages of Bash scripting is the ability to pass command-line arguments (`$0-$9`) without explicitly assigning them to variables. This allows scripts to dynamically handle input values.
+
+### 1️⃣ **Command-Line Arguments**
+
+Bash automatically assigns up to **9 arguments** to special variables:
+```bash
+$0   # Script name
+$1   # First argument
+$2   # Second argument
+...
+$9   # Ninth argument
+```
+
+For example, running:
+```bash
+$ ./script.sh ARG1 ARG2 ARG3 ... ARG9
+```
+
+assigns:
+```
+$0 = script.sh
+$1 = ARG1
+$2 = ARG2
+...
+$9 = ARG9
+```
+These **special variables** act as placeholders, allowing scripts to process input dynamically.
+
+**Example: Argument Handling in a Script**
+```bash
+#!/bin/bash
+
+# Check if an argument is provided
+if [ $# -eq 0 ]; then
+    echo -e "You need to specify the target domain.\n"
+    echo -e "Usage:"
+    echo -e "\t$0 <domain>"
+    exit 1
+else
+    domain=$1
+fi
+```
+
+This script:
+- **Checks if an argument is given** (`$#` checks argument count).
+- **Displays usage instructions** if no arguments are provided.
+- **Assigns the first argument (`$1`) to a variable** (`domain`).
+
+#### **Setting Execution Permissions**
+
+Before executing a script, it must have the correct permissions:
+```vb
+$ chmod +x script.sh   # Grant execution permissions
+```
+
+#### **Running the Script**
+##### **Without arguments:**
+```vb
+$ ./script.sh
+```
+**Output:**
+```vb
+You need to specify the target domain.
+
+Usage:
+    script.sh <domain>
+```
+
+##### **Without execution permissions (using Bash directly):**
+```vb
+$ bash script.sh
+```
+
+---
+
+### 2️⃣ **Special Variables in Bash**
+
+Bash provides special variables for handling script execution:
+
+| Variable | Description                                                          |
+| -------- | -------------------------------------------------------------------- |
+| `$#`     | Number of arguments passed.                                          |
+| `$@`     | List of all arguments.                                               |
+| `$n`     | Retrieves the nth argument (e.g., `$1`, `$2`).                       |
+| `$$`     | Process ID (PID) of the script.                                      |
+| `$?`     | Exit status of the last executed command (0 = success, 1 = failure). |
+
+ **Example: Using Special Variables**
+```bash
+#!/bin/bash
+
+echo "Script Name: $0"
+echo "Number of Arguments: $#"
+echo "All Arguments: $@"
+echo "Process ID: $$"
+```
+
+### 3️⃣ **Variables in Bash**
+
+Unlike other programming languages, Bash does not differentiate between **strings**, **integers**, or **booleans**. All variables are treated as **strings** unless used in arithmetic operations.
+
+##### **Variable Assignment Rules**
+- **No spaces around `=`**:
+```bash
+variable="Correct Syntax"
+```
+
+- **Incorrect (causes an error)**:
+```bash
+variable = "Incorrect Syntax"
+```
+
+ **Example: Assigning and Using Variables**
+```bash
+#!/bin/bash
+
+name="Alice"
+echo "Hello, $name!"
+```
+
+**Execution Output:**
+```
+Hello, Alice!
+```
+
+### 4️⃣ **Arrays in Bash**
+
+Bash supports **arrays**, allowing multiple values to be stored in a single variable. Arrays use **zero-based indexing**.
+
+ **Declaring an Array**:
+```bash
+domains=(www.example.com ftp.example.com vpn.example.com)
+```
+
+**Accessing Array Elements**:
+```bash
+echo ${domains[0]}   # Outputs: www.example.com
+echo ${domains[1]}   # Outputs: ftp.example.com
+```
+
+**Example: Using Arrays in a Script**:
+```bash
+#!/bin/bash
+
+domains=("www.inlanefreight.com" "ftp.inlanefreight.com" "vpn.inlanefreight.com")
+
+echo "First domain: ${domains[0]}"
+```
+
+**Execution Output:**
+```vb
+First domain: www.inlanefreight.com
+```
+
+Use **double or single quotes** to prevent spaces from splitting values:
+```bash
+domains=("www.inlanefreight.com ftp.inlanefreight.com vpn.inlanefreight.com" www2.inlanefreight.com)
+echo ${domains[0]}
+```
+
+**Output:**
+```
+www.inlanefreight.com ftp.inlanefreight.com vpn.inlanefreight.com
+```
+Without quotes, Bash treats spaces as **separators** for different elements.
+
+---
+
+## **📌 Phase 4:**
