@@ -436,4 +436,136 @@ Without quotes, Bash treats spaces as **separators** for different elements.
 
 ---
 
-## **📌 Phase 4:**
+## **📌 Phase 4: Bash Comparison Operators**
+
+Comparison operators help us evaluate and compare values within Bash scripts. These operators are categorized as follows:
+- **String Operators** – Compare text values.
+- **Integer Operators** – Compare numerical values.
+- **File Operators** – Check file properties and permissions.
+- **Boolean & Logical Operators** – Evaluate conditions using logical expressions.
+
+### **1️⃣ String Operators**
+
+Used to compare text values within Bash scripts. Always enclose variables in **double quotes** (`"$var"`) to prevent errors.
+
+| Operator | Description                |
+| -------- | -------------------------- |
+| `==`     | Equal to                   |
+| `!=`     | Not equal to               |
+| `<`      | Less than (ASCII order)    |
+| `>`      | Greater than (ASCII order) |
+| `-z`     | String is empty (null)     |
+| `-n`     | String is not empty        |
+
+**Example:**
+```bash
+#!/bin/bash
+
+if [ "$1" != "HackTheBox" ]; then
+    echo "You must provide 'HackTheBox' as an argument."
+    exit 1
+elif [ $# -gt 1 ]; then
+    echo "Too many arguments given."
+    exit 1
+else
+    echo "Success!"
+fi
+```
+
+📌 **Note:** `<` and `>` work **only** with double square brackets `[[ ... ]]`.
+```bash
+if [[ "$1" > "Bash" ]]; then
+    echo "String is greater in ASCII order."
+fi
+```
+
+### **2️⃣ Integer Operators**
+
+Used for numerical comparisons.
+
+| Operator | Description              |
+| -------- | ------------------------ |
+| `-eq`    | Equal to                 |
+| `-ne`    | Not equal to             |
+| `-lt`    | Less than                |
+| `-le`    | Less than or equal to    |
+| `-gt`    | Greater than             |
+| `-ge`    | Greater than or equal to |
+
+**Example:**
+```bash
+#!/bin/bash
+
+if [ $# -lt 1 ]; then
+    echo "Less than 1 argument provided."
+    exit 1
+elif [ $# -gt 1 ]; then
+    echo "More than 1 argument provided."
+    exit 1
+else
+    echo "Exactly 1 argument provided."
+fi
+```
+
+### **3️⃣ File Operators**
+
+Check file properties, existence, and permissions.
+
+| Operator | Description                           |
+| -------- | ------------------------------------- |
+| `-e`     | File exists                           |
+| `-f`     | Regular file (not a directory)        |
+| `-d`     | Directory exists                      |
+| `-L`     | Symbolic link                         |
+| `-N`     | File modified since last read         |
+| `-O`     | Owned by current user                 |
+| `-G`     | Group ID matches current user’s group |
+| `-s`     | File is not empty                     |
+| `-r`     | Readable                              |
+| `-w`     | Writable                              |
+| `-x`     | Executable                            |
+
+**Example:**
+```bash
+#!/bin/bash
+
+if [ -e "$1" ]; then
+    echo "The file exists."
+else
+    echo "The file does not exist."
+fi
+```
+
+### **4️⃣ Boolean & Logical Operators**
+
+Boolean comparisons return `true` or `false`.
+
+| Operator        | Description                 |
+| --------------- | --------------------------- |
+| `[[ -z $var ]]` | True if `$var` is empty     |
+| `[[ -n $var ]]` | True if `$var` is not empty |
+
+### **5️⃣ Logical Operators:**
+
+| Operator | Description                                    |
+| -------- | ---------------------------------------------- |
+| `!`      | Logical **NOT**                                |
+| `&&`     | Logical **AND** (both conditions must be true) |
+| \|\|     | Logical OR (one condition must be true)        |
+
+**Example:**
+```bash
+#!/bin/bash
+
+if [[ -e "$1" && -r "$1" ]]; then
+    echo "The file exists and is readable."
+elif [[ ! -e "$1" ]]; then
+    echo "The file does not exist."
+elif [[ -e "$1" && ! -r "$1" ]]; then
+    echo "The file exists but is not readable."
+else
+    echo "An error occurred."
+fi
+```
+
+---
