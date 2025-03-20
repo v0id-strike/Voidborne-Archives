@@ -569,3 +569,111 @@ fi
 ```
 
 ---
+
+## **📌 Phase 5: Arithmetic Operators**  
+
+Bash provides **seven** arithmetic operators to perform mathematical operations and modify integer values.  
+
+### **1️⃣ Arithmetic Operators**  
+
+| Operator     | Description         |
+| ------------ | ------------------- |
+| `+`          | Addition            |
+| `-`          | Subtraction         |
+| `*`          | Multiplication      |
+| `/`          | Division            |
+| `%`          | Modulus (remainder) |
+| `variable++` | Increment by 1      |
+| `variable--` | Decrement by 1      |
+
+### **2️⃣ Arithmetic Operations in Bash**  
+
+You can use `$((expression))` to perform arithmetic calculations.  
+
+**Example:**  
+
+```bash
+#!/bin/bash
+
+increase=1
+decrease=1
+
+echo "Addition: 10 + 10 = $((10 + 10))"
+echo "Subtraction: 10 - 10 = $((10 - 10))"
+echo "Multiplication: 10 * 10 = $((10 * 10))"
+echo "Division: 10 / 10 = $((10 / 10))"
+echo "Modulus: 10 % 4 = $((10 % 4))"
+
+((increase++))
+echo "Increment Variable: $increase"
+
+((decrease--))
+echo "Decrement Variable: $decrease"
+```
+
+📌 **Output:**  
+
+```bash
+Addition: 10 + 10 = 20
+Subtraction: 10 - 10 = 0
+Multiplication: 10 * 10 = 100
+Division: 10 / 10 = 1
+Modulus: 10 % 4 = 2
+Increment Variable: 2
+Decrement Variable: 0
+```
+
+### **3️⃣ Determining Variable Length**  
+
+To find the length of a string variable, use `${#variable}`.  
+
+**Example:**  
+
+```bash
+#!/bin/bash
+
+htb="HackTheBox"
+
+echo "Length of string: ${#htb}"
+```
+
+📌 **Output:**  
+
+```bash
+10
+```
+
+### **4️⃣ Arithmetic in a Loop (CIDR Ping Example)**  
+
+Increment (`++`) and decrement (`--`) operators are useful in loops, such as when checking active hosts within a CIDR range.  
+
+**Example:**  
+
+```bash
+<SNIP>
+echo -e "\nPinging host(s):"
+for host in $cidr_ips; do
+    stat=1
+    while [ $stat -eq 1 ]; do
+        ping -c 2 $host > /dev/null 2>&1
+        if [ $? -eq 0 ]; then
+            echo "$host is up."
+            ((stat--))
+            ((hosts_up++))
+            ((hosts_total++))
+        else
+            echo "$host is down."
+            ((stat--))
+            ((hosts_total++))
+        fi
+    done
+done
+<SNIP>
+```
+
+📌 **Explanation:**  
+- `((stat--))` ensures the loop eventually exits.  
+- `((hosts_up++))` increments the count of online hosts.  
+- `((hosts_total++))` keeps track of the total hosts scanned.  
+
+---
