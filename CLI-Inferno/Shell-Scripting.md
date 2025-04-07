@@ -1,572 +1,403 @@
 ## **📌 Phase 1: Introduction to Bash Scripting**
 
-Bash is a scripting language used to interact with Unix-based operating systems and execute commands. Since May 2019, Windows has supported the Windows Subsystem for Linux (WSL), allowing users to run Bash in a Windows environment. Mastering Bash is essential for working efficiently with these systems. Unlike programming languages, scripting languages do not require compilation before execution.
+### 1️⃣ **Introduction / Definition**  
+> Bash is a Unix shell and command language used for automating tasks, system administration, and penetration testing. Unlike compiled languages, Bash scripts are interpreted, making them flexible for quick execution. Key features include:  
+> - **No compilation needed**  
+> - **Direct system command integration**  
+> - **Essential for privilege escalation and data filtering in security tasks**  
 
-As penetration testers, we must work with both Windows and Unix-based systems. Understanding these systems, especially for privilege escalation, is crucial. On Unix-based systems, knowing how to use the terminal, filter data, and automate tasks is vital. Large enterprise networks often require handling vast amounts of data, which makes sorting and filtering critical for identifying security gaps quickly.
-
-Scripting enhances efficiency by combining multiple commands and processing individual results. Bash scripting follows a structure similar to programming languages, including:
-- Input & Output
-- Arguments, Variables & Arrays
-- Conditional Execution
-- Arithmetic
-- Loops
-- Comparison Operators
-- Functions
-
-### 1️⃣ Executing Bash Scripts
-Scripts automate repetitive tasks and process large data sets. Unlike compiled programs, scripts are executed by an interpreter—in this case, Bash. To run a script, specify the interpreter and the script name:
-
-**Examples:**
+### 2️⃣ **Syntax Block**  
+#### Basic Script Structure:  
 ```bash
-bash script.sh <optional arguments>
-sh script.sh <optional arguments>
-./script.sh <optional arguments>
+#!/bin/bash  
+# Comments start with '#'  
+
+# Variables  
+variable="value"  
+
+# Functions  
+function_name() {  
+    commands  
+}  
+
+# Conditional Execution  
+if [ condition ]; then  
+    commands  
+fi  
+
+# Loops  
+for item in list; do  
+    commands  
+done  
+
+# User Input  
+read -p "Prompt: " variable  
 ```
 
-### Example: CIDR.sh Script
-This script identifies the network range of a domain, checks for active hosts, and provides relevant details.
+### 3️⃣ **Explanation of Syntax**  
+- ✅ `#!/bin/bash` → **Shebang** declares the interpreter.  
+- ✅ `variable="value"` → **Variables** store data (no spaces around `=`).  
+- ✅ `if [ condition ]; then` → **Conditionals** use square brackets for tests.  
+- ✅ `for item in list; do` → **Loops** iterate over lists/arrays.  
+- ✅ `read -p "Prompt: " var` → **User input** stored in `var`.  
 
-Running the script:
+### 4️⃣ **Why / When to Use**  
+| Scenario                | Bash | Python/C |     |
+| ----------------------- | ---- | -------- | --- |
+| Quick system automation | ✅    | ❌        |     |
+| Parsing command output  | ✅    | ⚠️       |     |
+| Complex data structures | ❌    | ✅        |     |
+
+> **Best for**:  
+> - Combining Unix commands (`grep`, `awk`, `whois`).  
+> - Rapid prototyping for pentesting (e.g., host discovery).  
+
+### 5️⃣ **Examples**  
+#### Example 1: Basic Script  
 ```bash
-./CIDR.sh inlanefreight.com
-```
+#!/bin/bash  
+echo "Hello, $USER!"  
+```  
 
-**Output:**
-```
-Discovered IP address(es):
-165.22.119.202
-
-Additional options available:
-1) Identify the corresponding network range of the target domain.
-2) Ping discovered hosts.
-3) All checks.
-*) Exit.
-
-Select your option: 3
-
-NetRange for 165.22.119.202:
-NetRange:       165.22.0.0 - 165.22.255.255
-CIDR:           165.22.0.0/16
-
-Pinging host(s):
-165.22.119.202 is up.
-
-1 out of 1 hosts are up.
-```
-
-### 2️⃣ CIDR.sh Code:
+#### Example 2: IP-finder.sh 
 ```bash
-#!/bin/bash
-
-# Check for given arguments
-if [ $# -eq 0 ]
-then
-	echo -e "You need to specify the target domain.\n"
-	echo -e "Usage:\n\t$0 <domain>"
-	exit 1
-else
-	domain=$1
-fi
-
-# Function: Identify Network Range
-function network_range {
-	for ip in $ipaddr
-	do
-		netrange=$(whois $ip | grep "NetRange\|CIDR" | tee -a CIDR.txt)
-		cidr=$(whois $ip | grep "CIDR" | awk '{print $2}')
-		cidr_ips=$(prips $cidr)
-		echo -e "\nNetRange for $ip:"
-		echo -e "$netrange"
-	done
-}
-
-# Function: Ping Discovered Hosts
-function ping_host {
-	hosts_up=0
-	hosts_total=0
-	echo -e "\nPinging host(s):"
-	for host in $cidr_ips
-	do
-		ping -c 2 $host > /dev/null 2>&1
-		if [ $? -eq 0 ]
-		then
-			echo "$host is up."
-			((hosts_up++))
-		else
-			echo "$host is down."
-		fi
-		((hosts_total++))
-	done
-	echo -e "\n$hosts_up out of $hosts_total hosts are up."
-}
-
-# Identify IP Address of Target Domain
-hosts=$(host $domain | grep "has address" | cut -d" " -f4 | tee discovered_hosts.txt)
-
-echo -e "Discovered IP address:\n$hosts\n"
-ipaddr=$(host $domain | grep "has address" | cut -d" " -f4 | tr "\n" " ")
-
-# Menu Options
-echo -e "Additional options available:"
-echo -e "\t1) Identify the corresponding network range of the target domain."
-echo -e "\t2) Ping discovered hosts."
-echo -e "\t3) All checks."
-echo -e "\t*) Exit.\n"
-
-read -p "Select your option: " opt
-
-case $opt in
-	"1") network_range ;;
-	"2") ping_host ;;
-	"3") network_range && ping_host ;;
-	"*") exit 0 ;;
-esac
+#!/bin/bash  
+domain=$1  
+ip=$(host $domain | grep "has address" | cut -d" " -f4)  
+echo "Discovered IP: $ip"  
 ```
 
-The script is structured into the following sections:
-1. **Check for Given Arguments:**
-    - Verifies if a domain is provided; if not, displays usage instructions.
-2. **Identify Network Range:**
-    - Uses `whois` to retrieve the network range and saves it to `CIDR.txt`.
-3. **Ping Discovered Hosts:**    
-    - Uses a loop to check which IPs in the network range are active.
-4. **Identify IP Addresses:**
-    - Extracts the IPv4 addresses of the specified domain.
-5. **Menu Options:**
-	- Provides different functionality based on user selection.
+### 6️⃣ **Advanced Usage / Tricks**  
+- **Pattern Matching**:  
+```bash
+case $opt in  
+    [Yy]*) echo "Yes" ;;  
+	[Nn]*) echo "No" ;;  
+esac  
+```  
+- **Command Substitution**:  
+```bash
+cidr=$(whois $ip | grep "CIDR")  
+```  
+
+### 7️⃣ **Tips & Common Mistakes**  
+- ❌ **Spaces in variables**: `var = "value"` (wrong) vs. `var="value"` (correct).  
+- ✅ **Debugging**: Use `set -x` to trace execution.  
+- ❌ **Forgotten `;;`** in `case` statements causes syntax errors.  
+
+### 8️⃣ **Summary**  
+> Bash scripting is ideal for automating system tasks, especially in security (host discovery, log analysis). It combines simplicity with powerful command-line integration.  
+
+### 🔖 Bonus  
+- **Use `#!/usr/bin/env bash`** for portability.  
+- **Colorize output**:  
+  ```bash
+  echo -e "\e[31mError\e[0m"  # Red text  
+  ```  
+
 
 ---
 
 ## **📌 Phase 2: Conditional Execution**
 
-Conditional execution allows us to control the flow of a script by specifying different conditions. Without it, we could only execute commands sequentially, limiting flexibility.
+### 1️⃣ **Introduction / Definition**  
+> Conditional execution allows scripts to make decisions based on specified conditions. Without it, scripts would run sequentially without flexibility. Key structures:  
+> - `if-then-fi` → Basic condition check.  
+> - `elif` → Additional conditions.  
+> - `else` → Default action if no conditions match.  
 
-By defining conditions, we determine which sections of code should execute based on specific values. When a condition is met, the corresponding code runs while others are skipped. Once that section completes, the script continues executing subsequent commands.
-
-Let's analyze the first part of a Bash script:
+### 2️⃣ **Syntax Block**  
+#### Basic Structure:  
 ```bash
-#!/bin/bash
-
-# Check if an argument is provided
-if [ $# -eq 0 ]; then
-    echo -e "You need to specify the target domain.\n"
-    echo -e "Usage:"
-    echo -e "\t$0 <domain>"
-    exit 1
-else
-    domain=$1
-fi
+if [ condition ]; then  
+    # Code if true  
+elif [ condition ]; then  
+    # Code if elif-true  
+else  
+    # Default code  
+fi  
 ```
 
-Key Components:
-1. **Shebang (`#!/bin/bash`)** - Specifies the script interpreter.
-2. **Conditional Execution (`if-else-fi`)** - Controls flow based on conditions.
-3. **Echo (`echo`)** - Prints messages to the terminal.
-4. **Special Variables (`$#`, `$0`, `$1`)**:
-    - `$#` - Number of arguments passed.
-    - `$0` - Script name.
-    - `$1` - First argument (domain).
-5. **Variable (`domain`)** - Stores the input for later use.
-
-### 1️⃣ Understanding Shebang (`#!`)
-
-The **shebang** (`#!`) at the top of a script specifies the interpreter that executes the script. While we typically use Bash (`/bin/bash`), other interpreters like Python or Perl can be specified:
-```python
-#!/usr/bin/env python
-```
-
-```perl
-#!/usr/bin/env perl
-```
-
-### 2️⃣ Using If-Else for Conditional Execution
-
-Conditional checks are fundamental in scripting. The basic `if` condition follows this logic:
+#### Example: Argument Check  
 ```bash
-if [ condition ]; then
-    # Code to execute if the condition is met
-fi
+if [ $# -eq 0 ]; then  
+    echo "Error: No arguments provided."  
+    exit 1  
+fi  
 ```
 
-Example:
+### 3️⃣ **Explanation of Syntax**  
+- ✅ `if [ condition ]` → Starts conditional block. **Spaces around `[ ]` are mandatory**.  
+- ✅ `-eq`, `-lt`, `-gt` → Comparison operators (`=`, `<`, `>`).  
+- ✅ `$#` → Number of arguments passed.  
+- ✅ `exit 1` → Terminates script with error code.  
+
+### 4️⃣ **Why / When to Use**  
+| Scenario                  | Use Case                |     |
+| ------------------------- | ----------------------- | --- |
+| Validate user input       | `if [ $# -eq 0 ]`       |     |
+| Handle different outcomes | `if-elif-else` ladder   |     |
+| Error handling            | `exit` on failed checks |     |
+
+> **Key Benefit**: Prevents script failures due to invalid inputs.  
+
+### 5️⃣ **Examples**  
+#### Example 1: Numeric Comparison  
 ```bash
-#!/bin/bash
-
-value=$1
-
-if [ $value -gt 10 ]; then
-    echo "Given argument is greater than 10."
-fi
+value=$1  
+if [ $value -gt 10 ]; then  
+    echo "Value > 10"  
+elif [ $value -lt 10 ]; then  
+    echo "Value < 10"  
+else  
+    echo "Value = 10"  
+fi  
 ```
 
-Execution:
+#### Example 2: File Existence Check  
 ```bash
-$ bash script.sh 5
-$ bash script.sh 12
-Given argument is greater than 10.
+if [ -f "file.txt" ]; then  
+    echo "File exists."  
+else  
+    echo "File not found."  
+fi  
 ```
 
-### 3️⃣ Extending Conditions with `elif` and `else`
-
-Adding `elif` (else-if) and `else` provides additional condition checks:
+### 6️⃣ **Advanced Usage / Tricks**  
+- **Combining Conditions**:  
 ```bash
-#!/bin/bash
-
-value=$1
-
-if [ $value -gt 10 ]; then
-    echo "Given argument is greater than 10."
-elif [ $value -lt 10 ]; then
-    echo "Given argument is less than 10."
-else
-    echo "Given argument is not a number."
-fi
-```
-
-Execution:
+if [ $age -gt 18 ] && [ "$country" = "US" ]; then  
+	echo "Eligible."  
+fi  
+```  
+- **Regex Matching**:  
 ```bash
-$ bash script.sh 5
-Given argument is less than 10.
+if [[ "$input" =~ ^[A-Za-z]+$ ]]; then  
+    echo "Alphabetic input."  
+fi  
+```  
 
-$ bash script.sh 12
-Given argument is greater than 10.
+### 7️⃣ **Tips & Common Mistakes**  
+- ❌ **Missing Spaces**: `if[$#-eq0]` → Syntax error.  
+- ✅ **Quote Variables**: `if [ "$var" = "value" ]` → Prevents word splitting.  
+- ❌ **Using `=` for numbers**: Use `-eq` instead of `==`.  
 
-$ bash script.sh Blah-Blah
-script.sh: line 5: [: Blah-Blah: integer expression expected
-script.sh: line 8: [: Blah-Blah: integer expression expected
-Given argument is not a number.
-```
+### 8️⃣ **Summary**  
+> Conditionals (`if-elif-else`) are essential for validating inputs, handling errors, and creating dynamic scripts. Always test edge cases!  
 
-### 4️⃣ Handling Multiple Conditions
-
-We can extend our script to check for multiple conditions:
+### 🔖 Bonus  
+- **Use `[[ ]]` instead of `[ ]`** for advanced features (regex, logical operators).  
+- **Colorize Errors**:  
 ```bash
-#!/bin/bash
-
-# Check for the correct number of arguments
-if [ $# -eq 0 ]; then
-    echo -e "You need to specify the target domain.\n"
-    echo -e "Usage:"
-    echo -e "\t$0 <domain>"
-    exit 1
-elif [ $# -eq 1 ]; then
-    domain=$1
-else
-    echo -e "Too many arguments provided."
-    exit 1
-fi
-```
-
-Here, the script:
-- Exits if **no** arguments are given.
-- Assigns the input to `domain` if **one** argument is provided.
-- Exits if **more than one** argument is given.
-
-This structured approach ensures scripts behave predictably based on user input.
+echo -e "\e[31mError: No arguments.\e[0m"  
+```    
 
 ---
 
-## **📌 Phase 3: Arguments, Variables, and Arrays**
+## **📌 Phase 3: Variables, Arguments and Array**
 
-One of the key advantages of Bash scripting is the ability to pass command-line arguments (`$0-$9`) without explicitly assigning them to variables. This allows scripts to dynamically handle input values.
+### 1️⃣ **Introduction / Definition**  
+> Bash provides automatic handling of command-line arguments through special variables (`$0-$9`, `$#`, `$@`). Variables store data as strings by default, while arrays allow storing multiple values. These features enable dynamic script behavior based on user input.
 
-### 1️⃣ **Command-Line Arguments**
-
-Bash automatically assigns up to **9 arguments** to special variables:
+### 2️⃣ **Syntax Block**  
+#### Command-Line Arguments:
 ```bash
-$0   # Script name
-$1   # First argument
-$2   # Second argument
-...
-$9   # Ninth argument
+$0          # Script name
+$1-$9       # 1st to 9th arguments
+${10}       # Arguments beyond 9 (braces required)
 ```
 
-For example, running:
+#### Variable Assignment:
 ```bash
-$ ./script.sh ARG1 ARG2 ARG3 ... ARG9
+var="value"   # Correct (no spaces)
+var = "value" # Incorrect (causes error)
 ```
 
-assigns:
-```
-$0 = script.sh
-$1 = ARG1
-$2 = ARG2
-...
-$9 = ARG9
-```
-These **special variables** act as placeholders, allowing scripts to process input dynamically.
-
-**Example: Argument Handling in a Script**
+#### Array Declaration:
 ```bash
-#!/bin/bash
-
-# Check if an argument is provided
-if [ $# -eq 0 ]; then
-    echo -e "You need to specify the target domain.\n"
-    echo -e "Usage:"
-    echo -e "\t$0 <domain>"
-    exit 1
-else
-    domain=$1
-fi
+arr=("val1" "val2" "val3")  # Zero-based indexing
+echo ${arr[1]}              # Access second element
 ```
 
-This script:
-- **Checks if an argument is given** (`$#` checks argument count).
-- **Displays usage instructions** if no arguments are provided.
-- **Assigns the first argument (`$1`) to a variable** (`domain`).
+### 3️⃣ **Explanation of Syntax**  
+- ✅ `$0` → Always contains the script name.  
+- ✅ `$1`, `$2`... → Positional arguments (up to `$9`). Use `${10}` for higher numbers.  
+- ✅ `var="value"` → Spaces around `=` break assignment.  
+- ✅ `arr=(...)` → Arrays require parentheses and quoted elements with spaces.  
 
-#### **Setting Execution Permissions**
+### 4️⃣ **Why / When to Use**  
+| Scenario                | Tools                 |
+| ----------------------- | --------------------- |
+| Handling user input     | `$1`, `$2`, `$@`      |
+| Storing multiple values | Arrays (`arr=(...)`)  |
+| Checking input validity | `$#` (argument count) |
+| Debugging scripts       | `$?` (exit status)    |
 
-Before executing a script, it must have the correct permissions:
-```vb
-$ chmod +x script.sh   # Grant execution permissions
-```
+> **Key Benefit**: Enables flexible, user-driven script execution.
 
-#### **Running the Script**
-##### **Without arguments:**
-```vb
-$ ./script.sh
-```
-**Output:**
-```vb
-You need to specify the target domain.
-
-Usage:
-    script.sh <domain>
-```
-
-##### **Without execution permissions (using Bash directly):**
-```vb
-$ bash script.sh
-```
-
----
-
-### 2️⃣ **Special Variables in Bash**
-
-Bash provides special variables for handling script execution:
-
-| Variable | Description                                                          |
-| -------- | -------------------------------------------------------------------- |
-| `$#`     | Number of arguments passed.                                          |
-| `$@`     | List of all arguments.                                               |
-| `$n`     | Retrieves the nth argument (e.g., `$1`, `$2`).                       |
-| `$$`     | Process ID (PID) of the script.                                      |
-| `$?`     | Exit status of the last executed command (0 = success, 1 = failure). |
-
- **Example: Using Special Variables**
+### 5️⃣ **Examples**  
+#### Example 1: Basic Argument Handling
 ```bash
 #!/bin/bash
-
-echo "Script Name: $0"
-echo "Number of Arguments: $#"
-echo "All Arguments: $@"
-echo "Process ID: $$"
+echo "Script: $0"
+echo "First arg: $1"
+echo "All args: $@"
 ```
 
-### 3️⃣ **Variables in Bash**
-
-Unlike other programming languages, Bash does not differentiate between **strings**, **integers**, or **booleans**. All variables are treated as **strings** unless used in arithmetic operations.
-
-##### **Variable Assignment Rules**
-- **No spaces around `=`**:
+#### Example 2: Array Usage
 ```bash
-variable="Correct Syntax"
-```
-
-- **Incorrect (causes an error)**:
-```bash
-variable = "Incorrect Syntax"
-```
-
- **Example: Assigning and Using Variables**
-```bash
-#!/bin/bash
-
-name="Alice"
-echo "Hello, $name!"
-```
-
-**Execution Output:**
-```
-Hello, Alice!
-```
-
-### 4️⃣ **Arrays in Bash**
-
-Bash supports **arrays**, allowing multiple values to be stored in a single variable. Arrays use **zero-based indexing**.
-
- **Declaring an Array**:
-```bash
-domains=(www.example.com ftp.example.com vpn.example.com)
-```
-
-**Accessing Array Elements**:
-```bash
-echo ${domains[0]}   # Outputs: www.example.com
-echo ${domains[1]}   # Outputs: ftp.example.com
-```
-
-**Example: Using Arrays in a Script**:
-```bash
-#!/bin/bash
-
-domains=("www.inlanefreight.com" "ftp.inlanefreight.com" "vpn.inlanefreight.com")
-
+domains=("www.example.com" "ftp.example.com")
 echo "First domain: ${domains[0]}"
+echo "All domains: ${domains[@]}"
 ```
 
-**Execution Output:**
-```vb
-First domain: www.inlanefreight.com
-```
+### 6️⃣ **Advanced Usage / Tricks**  
+- **Shift Arguments**:  
+  ```bash
+  shift   # Discards $1, shifts remaining args left ($2 becomes $1)
+  ```
+- **Default Values**:  
+  ```bash
+  name=${1:-"Guest"}  # Uses "Guest" if $1 is empty
+  ```
+- **Associative Arrays (Bash 4+)**:  
+  ```bash
+  declare -A colors=(["red"]="#FF0000" ["green"]="#00FF00")
+  echo ${colors["red"]}
+  ```
 
-Use **double or single quotes** to prevent spaces from splitting values:
-```bash
-domains=("www.inlanefreight.com ftp.inlanefreight.com vpn.inlanefreight.com" www2.inlanefreight.com)
-echo ${domains[0]}
-```
+### 7️⃣ **Tips & Common Mistakes**  
+- ❌ **Unquoted variables**: `rm $file` fails if `$file` contains spaces. Use `rm "$file"`.  
+- ✅ **Check argument count**:  
+  ```bash
+  if [ $# -lt 2 ]; then echo "Need 2 args"; exit 1; fi
+  ```
+- ❌ **Forgotten braces**: `$10` is interpreted as `$1` followed by `0`. Use `${10}`.  
 
-**Output:**
-```
-www.inlanefreight.com ftp.inlanefreight.com vpn.inlanefreight.com
-```
-Without quotes, Bash treats spaces as **separators** for different elements.
+### 8️⃣ **Summary**  
+> Bash's special variables (`$0-$9`, `$#`, `$@`) and arrays provide robust input handling. Variables are string-based by default, while arrays simplify multi-value storage. Always validate inputs!
+
+### 🔖 Bonus  
+- **List all arguments**:  
+  ```bash
+  for arg in "$@"; do echo "$arg"; done
+  ```
+- **Slice arrays**:  
+  ```bash
+  echo ${arr[@]:1:3}  # Elements 1 to 3
+  ```
 
 ---
 
-## **📌 Phase 4: Bash Comparison Operators**
+## **📌 Phase 4: Comparison Operators
 
-Comparison operators help us evaluate and compare values within Bash scripts. These operators are categorized as follows:
-- **String Operators** – Compare text values.
-- **Integer Operators** – Compare numerical values.
-- **File Operators** – Check file properties and permissions.
-- **Boolean & Logical Operators** – Evaluate conditions using logical expressions.
+### 1️⃣ **Introduction / Definition**  
+> Comparison operators in Bash allow scripts to make decisions by evaluating conditions. They are categorized into:  
+> - **String operators** (text comparisons)  
+> - **Integer operators** (numeric comparisons)  
+> - **File operators** (filesystem checks)  
+> - **Logical operators** (combining conditions)  
 
-### **1️⃣ String Operators**
-
-Used to compare text values within Bash scripts. Always enclose variables in **double quotes** (`"$var"`) to prevent errors.
-
-| Operator | Description                |
-| -------- | -------------------------- |
-| `==`     | Equal to                   |
-| `!=`     | Not equal to               |
-| `<`      | Less than (ASCII order)    |
-| `>`      | Greater than (ASCII order) |
-| `-z`     | String is empty (null)     |
-| `-n`     | String is not empty        |
-
-**Example:**
+### 2️⃣ **Syntax Block**  
+#### String Comparison:  
 ```bash
-#!/bin/bash
+[ "$var" == "value" ]   # Equality
+[[ "$var" > "A" ]]      # ASCII comparison (requires [[ ]])
+```
 
-if [ "$1" != "HackTheBox" ]; then
-    echo "You must provide 'HackTheBox' as an argument."
+#### Integer Comparison:  
+```bash
+[ $num -lt 10 ]   # Less than
+```
+
+#### File Checks:  
+```bash
+[ -f "file.txt" ]  # Is a regular file
+```
+
+#### Logical Operators:  
+```bash
+[ "$var" ] && [ -f "$var" ]  # AND
+[[ -z "$var" || ! -d "$dir" ]]  # OR/NOT
+```
+
+### 3️⃣ **Explanation of Syntax**  
+- ✅ **Quotes matter**: `"$var"` prevents errors with spaces/empty values.  
+- ✅ `[[ ]]` vs `[ ]`:  
+  - `[[ ]]` supports `&&/||` and advanced string comparisons (`<`, `>`).  
+  - `[ ]` is POSIX-compliant but more limited.  
+- ✅ **File operators**: `-e`, `-f`, `-d` check existence/types.  
+
+### 4️⃣ **Why / When to Use**  
+| Scenario               | Operator Type          | Example                            |
+| ---------------------- | ---------------------- | ---------------------------------- |
+| Validating user input  | String (`==`, `!=`)    | `[ "$1" == "admin" ]`              |
+| Numeric range checks   | Integer (`-lt`, `-gt`) | `[ $age -ge 18 ]`                  |
+| File permission checks | File (`-r`, `-w`)      | `[ -w "/etc/passwd" ]`             |
+| Complex conditions     | Logical (`&&`/`\|\|`)  | `[ -f "$file" ] && [ -s "$file" ]` |
+
+### 5️⃣ **Examples**  
+#### Example 1: String Comparison  
+```bash
+if [ "$USER" != "root" ]; then
+    echo "Error: Run as root!"
     exit 1
-elif [ $# -gt 1 ]; then
-    echo "Too many arguments given."
-    exit 1
-else
-    echo "Success!"
 fi
 ```
 
-📌 **Note:** `<` and `>` work **only** with double square brackets `[[ ... ]]`.
+#### Example 2: File Check  
 ```bash
-if [[ "$1" > "Bash" ]]; then
-    echo "String is greater in ASCII order."
+if [[ -f "$logfile" && -s "$logfile" ]]; then
+    echo "Logfile exists and is not empty."
 fi
 ```
 
-### **2️⃣ Integer Operators**
-
-Used for numerical comparisons.
-
-| Operator | Description              |
-| -------- | ------------------------ |
-| `-eq`    | Equal to                 |
-| `-ne`    | Not equal to             |
-| `-lt`    | Less than                |
-| `-le`    | Less than or equal to    |
-| `-gt`    | Greater than             |
-| `-ge`    | Greater than or equal to |
-
-**Example:**
+#### Example 3: Numeric Range  
 ```bash
-#!/bin/bash
-
-if [ $# -lt 1 ]; then
-    echo "Less than 1 argument provided."
-    exit 1
-elif [ $# -gt 1 ]; then
-    echo "More than 1 argument provided."
-    exit 1
-else
-    echo "Exactly 1 argument provided."
+if [ $count -gt 0 ] && [ $count -le 100 ]; then
+    echo "Valid count (1-100)."
 fi
 ```
 
-### **3️⃣ File Operators**
+### 6️⃣ **Advanced Usage / Tricks**  
+- **Pattern Matching**:  
+  ```bash
+  if [[ "$file" == *.txt ]]; then
+      echo "Text file detected."
+  fi
+  ```  
+- **Combining Checks**:  
+  ```bash
+  [ -d "$dir" ] || mkdir -p "$dir"  # Create dir if missing
+  ```  
 
-Check file properties, existence, and permissions.
+### 7️⃣ **Tips & Common Mistakes**  
+- ❌ **Unquoted Variables**: `[ $var == "value" ]` fails if `$var` is empty. Use `[ "$var" == "value" ]`.  
+- ✅ **Use `[[ ]]` for Strings**: Safer and supports regex (`=~`).  
+- ❌ **Mixing Operators**: `-eq` for numbers, `==` for strings.  
 
-| Operator | Description                           |
-| -------- | ------------------------------------- |
-| `-e`     | File exists                           |
-| `-f`     | Regular file (not a directory)        |
-| `-d`     | Directory exists                      |
-| `-L`     | Symbolic link                         |
-| `-N`     | File modified since last read         |
-| `-O`     | Owned by current user                 |
-| `-G`     | Group ID matches current user’s group |
-| `-s`     | File is not empty                     |
-| `-r`     | Readable                              |
-| `-w`     | Writable                              |
-| `-x`     | Executable                            |
+### 8️⃣ **Summary**  
+> Comparison operators are essential for:  
+> - Validating inputs (strings/numbers).  
+> - Checking files/permissions.  
+> - Building complex logic with `&&/||`.  
+> Always quote variables and prefer `[[ ]]` for strings!  
 
-**Example:**
-```bash
-#!/bin/bash
+---
 
-if [ -e "$1" ]; then
-    echo "The file exists."
-else
-    echo "The file does not exist."
-fi
-```
-
-### **4️⃣ Boolean & Logical Operators**
-
-Boolean comparisons return `true` or `false`.
-
-| Operator        | Description                 |
-| --------------- | --------------------------- |
-| `[[ -z $var ]]` | True if `$var` is empty     |
-| `[[ -n $var ]]` | True if `$var` is not empty |
-
-### **5️⃣ Logical Operators:**
-
-| Operator | Description                                    |
-| -------- | ---------------------------------------------- |
-| `!`      | Logical **NOT**                                |
-| `&&`     | Logical **AND** (both conditions must be true) |
-| \|\|     | Logical OR (one condition must be true)        |
-
-**Example:**
-```bash
-#!/bin/bash
-
-if [[ -e "$1" && -r "$1" ]]; then
-    echo "The file exists and is readable."
-elif [[ ! -e "$1" ]]; then
-    echo "The file does not exist."
-elif [[ -e "$1" && ! -r "$1" ]]; then
-    echo "The file exists but is not readable."
-else
-    echo "An error occurred."
-fi
-```
+### 🔖 Bonus  
+- **Regex Matching**:  
+  ```bash
+  if [[ "$email" =~ ^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$ ]]; then
+      echo "Valid email."
+  fi
+  ```  
+- **Exit Code Check**:  
+  ```bash
+  if grep -q "error" logfile; then
+      echo "Errors found!"
+  fi
+  ```  
 
 ---
 
@@ -677,3 +508,380 @@ done
 - `((hosts_total++))` keeps track of the total hosts scanned.  
 
 ---
+
+## **📌 Phase 6: Arithmetic Operators**
+
+### 1️⃣ **Introduction / Definition**  
+> Bash provides integer-based arithmetic operations through `$(( ))` and `(( ))` syntax. Key capabilities:  
+> - Basic calculations (`+`, `-`, `*`, `/`, `%`)  
+> - Auto-increment/decrement (`++`, `--`)  
+> - String length checks (`${#var}`)  
+> - Essential for loop control and network operations (e.g., host scanning)  
+
+### 2️⃣ **Syntax Block**  
+#### Basic Arithmetic:
+```bash
+echo "$((5 + 3))"     # → 8
+echo "$((5 / 2))"     # → 2 (integer division)
+```
+
+#### Increment/Decrement:
+```bash
+((counter++))         # Post-increment
+((--total))           # Pre-decrement
+```
+
+#### String Length:
+```bash
+str="Hello"
+echo "${#str}"        # → 5
+```
+
+### 3️⃣ **Explanation of Syntax**  
+- ✅ `$(( ))` → Expands to calculation result (use in `echo`, assignments).  
+- ✅ `(( ))` → Performs arithmetic *without* output (ideal for loops/conditionals).  
+- ✅ `${#var}` → Returns character count (spaces included).  
+- ❌ **No native floats**: Use `bc` or `awk` for decimals.  
+
+### 4️⃣ **Why / When to Use**  
+| Scenario                  | Operator            | Example                  |
+| ------------------------- | ------------------- | ------------------------ |
+| Loop counters             | `++`/`--`           | `for ((i=0; i<10; i++))` |
+| Network host calculations | `%` (modulus)       | `$((ip % 256))`          |
+| Input validation          | `${#var}`           | `[ ${#pass} -ge 8 ]`     |
+| CIDR range iteration      | Combined arithmetic | `((hosts_total++))`      |
+
+### 5️⃣ **Examples**  
+#### Example 1: Basic Calculator  
+```bash
+#!/bin/bash
+read -p "Enter two numbers: " a b
+echo "Sum: $((a + b))"
+echo "Product: $((a * b))"
+```
+
+#### Example 2: Password Strength Check  
+```bash
+password="P@ssw0rd"
+if [ ${#password} -lt 8 ]; then
+    echo "Weak: Password too short!"
+fi
+```
+
+#### Example 3: CIDR Host Scanner (Snippet)  
+```bash
+for ip in $cidr_ips; do
+    ping -c 1 $ip >/dev/null && ((alive++))
+    ((total++))
+done
+echo "$alive/$total hosts responded."
+```
+
+### 6️⃣ **Advanced Usage / Tricks**  
+- **Bitwise Operations**:  
+  ```bash
+  echo "$((5 & 3))"   # AND → 1
+  echo "$((16#FF))"   # Hex to decimal → 255
+  ```  
+- **Floating-Point Workaround**:  
+  ```bash
+  echo "scale=2; 10/3" | bc  # → 3.33
+  ```  
+- **Random Numbers**:  
+  ```bash
+  echo $((RANDOM % 100))  # Random 0-99
+  ```  
+
+### 7️⃣ **Tips & Common Mistakes**  
+- ❌ **Spaces in assignments**: `sum = $((a+b))` fails (use `sum=$((a+b))`).  
+- ✅ **Force exit on error**:  
+  ```bash
+  ((count > 0)) || exit 1  # Exit if count ≤ 0
+  ```  
+- ❌ **Unquoted strings in `[ ]`**: Use `[[ "${var}" == value ]]` for safety.  
+
+### 8️⃣ **Summary**  
+> Bash arithmetic enables:  
+> - **Efficient loop control** (counters, exit conditions).  
+> - **Network operations** (host scanning, IP calculations).  
+> - **Input validation** (length checks, numeric ranges).  
+> Combine with loops and conditionals for powerful automation!  
+
+---
+
+### 🔖 Bonus: Pro Tips  
+- **Ternary-like operations**:  
+  ```bash
+  (( result = condition ? 1 : 0 ))  # Sets result=1 if condition is true
+  ```  
+- **Quick math in terminal**:  
+  ```bash
+  $ echo $(( (10 + 5) * 2 ))  # → 30
+  ```  
+
+---
+
+## **📌 Phase 7: Input and Output Control 
+
+### 1️⃣ **Introduction / Definition**  
+> Bash provides powerful tools for:  
+> - **Interactive input** (`read`) to guide script execution  
+> - **Output control** via redirection (`>`, `>>`, `2>`) and `tee`  
+> - **Clean flow control** with `case` statements  
+> Essential for building user-friendly scripts and logging results.
+
+### 2️⃣ **Syntax Block**  
+#### User Input:
+```bash
+read -p "Prompt: " variable  # Stores input in $variable
+```
+
+#### Output Redirection:
+```bash
+command > file.txt      # Overwrite file
+command >> file.txt     # Append to file
+command 2> errors.log  # Redirect errors
+command &> output.log  # Redirect all output
+```
+
+#### Tee for Dual Output:
+```bash
+command | tee file.txt      # Display+overwrite
+command | tee -a file.txt  # Display+append
+```
+
+#### Case Statement:
+```bash
+case $var in
+    "1") command1 ;;
+    "2") command2 ;;
+    *) default_command ;;
+esac
+```
+
+### 3️⃣ **Explanation of Syntax**  
+- ✅ `read -p` → Prompts user and stores input (e.g., menu selections).  
+- ✅ `tee` → Splits output to both terminal and file (`-a` appends).  
+- ✅ `case` → Cleaner alternative to nested `if` for multiple conditions.  
+- ❌ **Unquoted variables** in `read`: May cause word splitting issues.  
+
+### 4️⃣ **Why / When to Use**  
+| Scenario               | Tool               | Example                |                 |
+| ---------------------- | ------------------ | ---------------------- | --------------- |
+| Interactive menus      | `read` + `case`    | CIDR.sh options        |                 |
+| Logging command output | `tee`              | `whois $ip             | tee -a log.txt` |
+| Error handling         | `2>`               | `cmd 2> errors.log`    |                 |
+| Progress visibility    | `tee` without `-a` | Real-time scan updates |                 |
+
+### 5️⃣ **Examples**  
+#### Example 1: Interactive Menu
+```bash
+read -p "Choose (1-Scan, 2-Ping): " opt
+case $opt in
+    1) nmap -sV $target ;;
+    2) ping -c 4 $target ;;
+    *) echo "Invalid option" ;;
+esac
+```
+
+#### Example 2: Logging with Tee
+```bash
+nmap -sS 192.168.1.0/24 | tee scan_results.txt
+```
+
+#### Example 3: Error Handling
+```bash
+curl https://example.com &> curl.log || echo "Failed!"
+```
+
+### 6️⃣ **Advanced Usage / Tricks**  
+- **Silent Mode**:  
+  ```bash
+  read -s -p "Password: " pass  # Hides input
+  ```  
+- **Timeout for Input**:  
+  ```bash
+  read -t 10 -p "Quick! Answer (10s): " response
+  ```  
+- **Multi-output Logging**:  
+  ```bash
+  cmd | tee >(grep "ERROR" > errors.log) > output.log
+  ```  
+
+### 7️⃣ **Tips & Common Mistakes**  
+- ✅ **Always initialize variables**:  
+  ```bash
+  declare -i hosts_up=0  # Integer for counters
+  ```  
+- ❌ **Overwriting logs**: Use `>>` or `tee -a` for critical data.  
+- ✅ **Validate input**:  
+  ```bash
+  [[ "$opt" =~ ^[1-3]$ ]] || exit 1
+  ```  
+
+### 8️⃣ **Summary**  
+> Key takeaways:  
+> - Use `read` + `case` for interactive menus.  
+> - `tee` is ideal for real-time monitoring + logging.  
+> - Redirect errors (`2>`) to separate debug files.  
+> - Always test input validation edge cases.  
+
+### 🔖 Bonus: Pro Tips  
+- **Colorize menu prompts**:  
+  ```bash
+  echo -e "\e[32m1) Scan\e[0m"  # Green text
+  ```  
+- **Audit trails**:  
+  ```bash
+  echo "$(date): User chose $opt" >> audit.log
+  ```  
+
+---
+
+## **📌 Phase 8: Flow Control and Loops
+
+### 1️⃣ **Introduction / Definition**  
+> Flow control structures determine how Bash scripts execute commands based on conditions and repetitions. They enable:  
+> - **Decision-making** (`if`, `case`)  
+> - **Repetitive execution** (`for`, `while`, `until`)  
+> - **Output management** (`tee`, redirection)  
+
+### 2️⃣ **Syntax Block**  
+#### Branches:
+```bash
+# If-Else
+if [ "$var" -eq 1 ]; then  
+    commands  
+elif [ "$var" -eq 2 ]; then  
+    commands  
+else  
+    commands  
+fi  
+
+# Case
+case $var in  
+    "a") commands ;;  
+    "b") commands ;;  
+    *) default_commands ;;  
+esac  
+```
+
+#### Loops:
+```bash
+# For
+for item in {1..5}; do  
+    commands  
+done  
+
+# While
+while [ $counter -le 5 ]; do  
+    commands  
+    ((counter++))  
+done  
+
+# Until
+until [ $counter -gt 5 ]; do  
+    commands  
+    ((counter++))  
+done  
+```
+
+#### Output Control:
+```bash
+command | tee file.txt          # Display + save  
+command >> file.txt 2>&1        # Append stdout/stderr  
+```
+
+### 3️⃣ **Explanation of Syntax**  
+- ✅ `if [ ]` → Spaces inside `[ ]` are mandatory. Use `-eq` for numbers, `==` for strings.  
+- ✅ `case` → Cleaner than nested `if` for multiple matches. Terminate patterns with `;;`.  
+- ✅ `for` → Iterates over lists (`{1..5}`, `*.txt`, `${array[@]}`).  
+- ✅ `while`/`until` → Update loop variables to prevent infinite loops.  
+- ❌ **Unquoted variables** → May cause word splitting in `[ ]` tests.  
+
+### 4️⃣ **Why / When to Use**  
+| Scenario                 | Structure         | Example                    |                 |
+| ------------------------ | ----------------- | -------------------------- | --------------- |
+| Menu-driven scripts      | `case`            | CIDR.sh options            |                 |
+| Iterating files/IPs      | `for`             | `for ip in $(prips $cidr)` |                 |
+| Error-tolerant execution | `while` + `break` | Retry failed commands      |                 |
+| Real-time logging        | `tee`             | `scan                      | tee -a log.txt` |
+
+### 5️⃣ **Examples**  
+#### Example 1: Network Scanner
+```bash
+for ip in $(prips 192.168.1.0/24); do  
+    ping -c 1 $ip >/dev/null && echo "$ip: LIVE" | tee -a live_hosts.txt  
+done  
+```
+
+#### Example 2: User Menu
+```bash
+case $choice in  
+    1) nmap -sV $target ;;  
+    2) ping -c 4 $target ;;  
+    3) exit 0 ;;  
+    *) echo "Invalid option" && exit 1 ;;  
+esac  
+```
+
+#### Example 3: Conditional File Processing
+```bash
+while read -r file; do  
+    if [ -f "$file" ]; then  
+        wc -l "$file"  
+    else  
+        echo "Missing: $file" >> errors.log  
+    fi  
+done < file_list.txt  
+```
+
+### 6️⃣ **Advanced Usage / Tricks**  
+- **Loop Control**:  
+  ```bash
+  for i in {1..100}; do  
+      [ $i -eq 50 ] && break    # Exit loop early  
+      [ $i -lt 10 ] && continue # Skip iterations  
+  done  
+  ```  
+- **Background Processing**:  
+  ```bash
+  while read ip; do  
+      ping $ip &  # Run pings in parallel  
+  done < ips.txt  
+  ```  
+- **Named Pipes for Tee**:  
+  ```bash
+  mkfifo pipe  
+  command | tee pipe > output.log &  
+  grep "ERROR" pipe > errors.log  
+  ```  
+
+### 7️⃣ **Tips & Common Mistakes**  
+- ✅ **Quote variables**: `[ "$file" = "test" ]` (safe with spaces).  
+- ❌ **Infinite loops**: Always update loop variables (`((i++))`).  
+- ✅ **Use `[[ ]]` for regex**: `[[ "$str" =~ ^[0-9]+$ ]]`.  
+- ❌ **Overwriting files**: Prefer `>>` or `tee -a` for logs.  
+
+### 8️⃣ **Summary**  
+> Key takeaways:  
+> - `if`/`case` handle decisions, loops automate repetition.  
+> - `tee` splits output for real-time monitoring + logging.  
+> - Always validate inputs and exit conditions to prevent hangs.  
+
+### 🔖 Bonus: Pro Tips  
+- **Parallel Execution**:  
+  ```bash
+  for ip in ${ips[@]}; do  
+      (ping -c 1 $ip | tee -a ping.log) &  
+  done  
+  wait  # Wait for all background jobs  
+  ```  
+- **Colorized Output**:  
+  ```bash
+  echo -e "\e[31mFAIL\e[0m"  # Red text  
+  ```  
+
+---
+
+## **📌 Phase 9: 
