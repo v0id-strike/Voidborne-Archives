@@ -11,10 +11,14 @@
             "id": "b31836ebd6d74eb2",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "CLI-Inferno/Shell-Scripting.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Shell-Scripting"
             }
           }
         ]
@@ -163,6 +167,14 @@
   },
   "active": "b31836ebd6d74eb2",
   "lastOpenFiles": [
-    "CLI-Inferno/Shell-Scripting.md"
+    "Obscure Codex/Arch-Setup.md",
+    "CLI-Inferno/Shell-Scripting.md",
+    "CLI-Inferno/Misc",
+    "Extras/Note-Taking Templete.md",
+    "Shadow-Lab/AthenaOS.md",
+    "Shadow-Lab/OpnSense.md",
+    "Obscure Codex/VirtualBox.md",
+    "Obscure Codex/Securing-Home.md",
+    "README.md"
   ]
 }

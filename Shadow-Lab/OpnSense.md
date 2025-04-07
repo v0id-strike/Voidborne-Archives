@@ -117,7 +117,7 @@ In the realm of digital warfare, OPNsense stands as a formidable sentinel, balan
 ✅ **Allow LAN to Access DMZ**
 
 - Action: **Pass**
-- Protocol: **TCP**
+- Protocol: **Any**
 - Source: **LAN Net**
 - Destination: **DMZ Net**
 - Click **Apply Changes**
