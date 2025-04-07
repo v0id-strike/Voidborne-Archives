@@ -67,7 +67,7 @@ _"Leaving something behind."_
 ├── malware-art/         # Malware development, reverse engineering  
 ├── shadow-lab/          # The practice ground  
 ├── obscure-codex/       # Notes, findings, and research  
-└── prophecy.md          # Future plans  
+└── prophecy.md          # Future Plans  
 ```
 
 ---
