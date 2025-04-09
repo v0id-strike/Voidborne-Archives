@@ -884,4 +884,384 @@ done < file_list.txt
 
 ---
 
-## **📌 Phase 9: 
+## **📌 Phase 9: Case Statements**
+
+### 1️⃣ **Introduction / Definition**  
+> Case statements (switch-case) provide cleaner pattern matching than `if-elif-else` chains when:  
+> - Comparing **exact values** (not ranges/conditions)  
+> - Handling **multiple fixed options** (e.g., menus)  
+> - Matching **patterns** (wildcards, regex-like syntax)  
+
+Key differences from `if-else`:  
+✅ Cleaner syntax for exact matches  
+❌ Cannot evaluate boolean expressions (`-gt`, `-lt`)  
+
+### 2️⃣ **Syntax Block**  
+#### Basic Structure:
+```bash
+case $variable in
+    pattern1)
+        commands
+        ;;
+    pattern2|pattern3)
+        commands
+        ;;
+    *)
+        default_commands
+        ;;
+esac
+```
+
+#### CIDR.sh Example:
+```bash
+case $opt in
+    "1") network_range ;;
+    "2") ping_host ;;
+    "3") network_range && ping_host ;;
+    "*") exit 0 ;;
+esac
+```
+
+### 3️⃣ **Explanation of Syntax**  
+- ✅ `case $var in` → Starts comparison against `$var`  
+- ✅ `pattern)` → Matches exact value or wildcard:  
+  - `"1"` → Literal `1`  
+  - `"*"` → Catch-all (default case)  
+  - `[Yy]*)` → Matches "Yes", "yes", etc.  
+- ✅ `;;` → Terminates each block (like `break` in C)  
+- ✅ `esac` → Ends the `case` statement  
+
+### 4️⃣ **Why / When to Use**  
+| Scenario                  | `case` vs `if`        | Example                 |
+| ------------------------- | --------------------- | ----------------------- |
+| Menu-driven scripts       | ✅ Cleaner with `case` | CIDR.sh options         |
+| Exact value matching      | ✅ More readable       | `"yes"`/`"no"` input    |
+| Pattern/wildcard matching | ✅ Built-in support    | `[Yy]*` for "Yes"/"yes" |
+| Numeric ranges            | ❌ Use `if`            | `[ $num -gt 10 ]`       |
+
+### 5️⃣ **Examples**  
+#### Example 1: Simple Menu
+```bash
+read -p "Action (start|stop|restart): " cmd
+case $cmd in
+    "start") systemctl start nginx ;;
+    "stop") systemctl stop nginx ;;
+    "restart") systemctl restart nginx ;;
+    *) echo "Invalid option" && exit 1 ;;
+esac
+```
+
+#### Example 2: Wildcard Matching
+```bash
+read -p "Confirm (Y/n): " answer
+case $answer in
+    [Yy]*) echo "Proceeding..." ;;
+    [Nn]*) echo "Aborted." && exit 0 ;;
+    *) echo "Invalid input" ;;
+esac
+```
+
+#### Example 3: Multi-Pattern Matching
+```bash
+case $file_ext in
+    "jpg"|"png"|"gif") echo "Image file" ;;
+    "txt"|"md") echo "Text file" ;;
+    "sh") echo "Script file" ;;
+esac
+```
+
+### 6️⃣ **Advanced Usage / Tricks**  
+- **Regex-Like Patterns**:  
+  ```bash
+  case $host in
+      web*) echo "Web server" ;;       # Starts with "web"
+      *db) echo "Database server" ;;   # Ends with "db"
+  esac
+  ```  
+- **Fall-Through (Bash 4+)**:  
+  ```bash
+  ;&  # Continues to next block (no ;;)
+  ```  
+- **Exit Codes**:  
+  ```bash
+  case $(curl -s example.com) in
+      *"200 OK"*) exit 0 ;;
+      *) exit 1 ;;
+  esac
+  ```  
+
+### 7️⃣ **Tips & Common Mistakes**  
+- ✅ **Quote patterns**: `"pattern"` to prevent globbing.  
+- ❌ **Missing `;;`**: Causes fall-through (may be unintended).  
+- ✅ **Use `*` last**: Default case should be the final pattern.  
+- ❌ **Over-nesting**: Avoid complex logic; use functions instead.  
+
+### 8️⃣ **Summary**  
+> Case statements excel at:  
+> - **Menu systems** (cleaner than `if-elif`)  
+> - **Exact/pattern matching** (wildcards, `|` for OR)  
+> - **Default fallbacks** (`*` case)  
+> Not suitable for numeric ranges/boolean logic.  
+
+### 🔖 Bonus: Pro Tips  
+- **Colorized Menus**:  
+  ```bash
+  echo -e "1) \e[32mScan\e[0m\n2) \e[31mExit\e[0m"  
+  ```  
+- **Audit Logging**:  
+  ```bash
+  case $opt in
+      "1") echo "$(date): Scan chosen" >> audit.log ;;
+  esac
+  ```
+
+---
+## **📌 Phase 10: Functions**
+
+### 1️⃣ **Introduction / Definition**  
+> Functions in Bash allow:  
+> - **Code reuse** (avoid repetition)  
+> - **Better organization** (modular structure)  
+> - **Localized variables** (with `local` keyword)  
+> - **Parameter passing** (`$1`, `$2` within function)  
+> - **Return values** (exit codes or stdout capture)  
+
+### 2️⃣ **Syntax Block**  
+#### Function Definition:
+```bash
+# Method 1 (explicit)
+function name {
+    commands
+}
+
+# Method 2 (concise)
+name() {
+    commands
+}
+```
+
+#### Function Call:
+```bash
+name          # Without arguments
+name "arg1"   # With arguments
+```
+
+#### Return Values:
+```bash
+return 0      # Success (0-255)
+echo "value"  # Output capture
+```
+
+### 3️⃣ **Explanation of Syntax**  
+- ✅ **`function` keyword**: Optional but improves readability.  
+- ✅ **Parameters**: Accessed via `$1`, `$2` (scoped to function).  
+- ✅ **`local` variables**: Restrict scope: `local var="value"`.  
+- ❌ **Global by default**: Undeclared variables affect entire script.  
+
+### 4️⃣ **Why / When to Use**  
+| Scenario            | Function Benefit                 | Example                      |
+| ------------------- | -------------------------------- | ---------------------------- |
+| Repeating code      | Single definition, multiple uses | `network_range()` in CIDR.sh |
+| Complex logic       | Isolate and debug separately     | Input validation             |
+| Script organization | Break into logical units         | `main()` with sub-functions  |
+
+### 5️⃣**Examples**  
+#### Example 1: Basic Function
+```bash
+function greet {
+    echo "Hello, $1!"
+}
+greet "Alice"  # → "Hello, Alice!"
+```
+
+#### Example 2: Return Status
+```bash
+function is_file {
+    [ -f "$1" ] && return 0 || return 1
+}
+is_file "test.txt"
+echo "Exists? $?"  # 0=yes, 1=no
+```
+
+#### Example 3: Output Capture
+```bash
+function get_ips {
+    host $1 | grep "has address" | cut -d" " -f4
+}
+live_ips=$(get_ips "example.com")
+```
+
+### 6️⃣ **Advanced Usage / Tricks**  
+- **Dynamic Variables**:  
+  ```bash
+  function set_var {
+      local "$1"="$2"  # Safe assignment
+  }
+  set_var "color" "red"
+  ```  
+- **Array Arguments**:  
+  ```bash
+  function process_files {
+      for file in "$@"; do
+          wc -l "$file"
+      done
+  }
+  process_files *.txt
+  ```  
+- **Trap Errors**:  
+  ```bash
+  function safe_rm {
+      [ -e "$1" ] || { echo "Missing file"; return 1; }
+      rm "$1"
+  }
+  ```
+
+### 7️⃣ **Tips & Common Mistakes**  
+- ✅ **Always `local`**: Prevent side effects: `local counter=0`.  
+- ❌ **Overusing globals**: Makes debugging harder.  
+- ✅ **Document functions**:  
+  ```bash
+  # Usage: greet <name>
+  # Returns: Greeting string
+  function greet { ... }
+  ```  
+- ❌ **Ignoring returns**: Check `$?` or capture output.  
+
+### 8️⃣ **Summary**  
+> Key takeaways:  
+> - Use functions for **reusable code blocks**.  
+> - **`local` variables** prevent unintended global changes.  
+> - Return via **exit codes** (`0`=success) or **stdout capture**.  
+> - **Document** purpose/usage for maintainability.  
+
+---
+
+### 🔖 Bonus: Pro Tips  
+- **Debugging**:  
+  ```bash
+  function debug {
+      echo "DEBUG: $*" >&2  # Print to stderr
+  }
+  debug "Variable x=$x"
+  ```  
+- **Colorized Output**:  
+  ```bash
+  function warn {
+      echo -e "\e[33mWARN: $*\e[0m" >&2
+  }
+  warn "Low disk space"
+  ```  
+
+---
+
+## **📌 Phase 11: Debugging** 
+
+### 1️⃣ **Introduction / Definition**  
+> Debugging in Bash involves identifying and resolving:  
+> - **Syntax errors** (missing quotes, brackets)  
+> - **Logical errors** (incorrect flow/calculations)  
+> - **Runtime issues** (permissions, missing files)  
+> Primary tools: `-x` (xtrace) and `-v` (verbose) flags  
+
+### 2️⃣ **Syntax Block**  
+#### Debugging Commands:
+```bash
+bash -x script.sh      # Step-by-step execution
+bash -v script.sh      # Shows raw script + output
+bash -xv script.sh     # Combined verbose tracing
+```
+
+#### In-Script Debugging:
+```bash
+#!/bin/bash
+set -x   # Enable debugging from this point
+code_block
+set +x   # Disable debugging
+```
+
+### 3️⃣ **Explanation of Syntax**  
+- ✅ `-x` → **Prints commands** with expanded variables/arguments (prefixed with `+`).  
+- ✅ `-v` → **Displays raw script** lines before execution.  
+- ✅ `set -x/+x` → **Toggle debugging** within script sections.  
+- ❌ **No breakpoints**: Unlike IDE debuggers, Bash lacks pause/inspect.  
+
+### 4️⃣ **Why / When to Use**  
+| Scenario                   | Tool           | Example                           |
+| -------------------------- | -------------- | --------------------------------- |
+| Tracing variable values    | `-x`           | See expanded `$domain` in CIDR.sh |
+| Verifying control flow     | `-x`           | Confirm `if-else` branch taken    |
+| Checking script parsing    | `-v`           | Detect unexpanded variables early |
+| Isolating problematic code | `set -x` block | Debug just one function           |
+
+### 5️⃣ **Examples**  
+#### Example 1: Basic Debugging
+```bash
+$ bash -x CIDR.sh inlanefreight.com
++ '[' 1 -eq 0 ']'
++ domain=inlanefreight.com
++ echo -e 'Discovered IP address:\n165.22.119.202'
+Discovered IP address:
+165.22.119.202
+```
+
+#### Example 2: Focused Debugging
+```bash
+#!/bin/bash
+# ... normal code ...
+
+set -x  # Start debug
+network_range  # Function to debug
+set +x  # End debug
+
+# ... rest of script ...
+```
+
+#### Example 3: Verbose Mode
+```bash
+$ bash -v script.sh
+#!/bin/bash
+# Check args
+if [ $# -eq 0 ]
+then
+    echo "Error: No args"
+fi
+...shows raw code before execution...
+```
+
+### 6️⃣ **Advanced Usage / Tricks**  
+- **PS4 Customization**:  
+  ```bash
+  export PS4='+ ${BASH_SOURCE}:${LINENO}: '  # Show file/line numbers
+  bash -x script.sh
+  ```  
+- **Log to File**:  
+  ```bash
+  bash -x script.sh 2> debug.log
+  ```  
+- **Error Tracing**:  
+  ```bash
+  trap 'echo "Error on line $LINENO"' ERR
+  ```  
+
+### 7️⃣ **Tips & Common Mistakes**  
+- ✅ **Start small**: Debug one function/block at a time.  
+- ❌ **Over-tracing**: Avoid `-xv` on large scripts (use selectively).  
+- ✅ **Clean output**: Redirect noise (`2>/dev/null`) when needed.  
+- ❌ **Ignoring exit codes**: Always check `$?` after critical commands.  
+
+### 8️⃣ **Summary**  
+> Effective debugging requires:  
+> - **Systematic tracing** (`-x` for execution flow).  
+> - **Context awareness** (`-v` for pre-execution checks).  
+> - **Precision** (`set -x` blocks to isolate issues).  
+> Combine with `echo` statements for complex logic.  
+
+### 🔖 Bonus: Pro Tips  
+- **Colorized Debugging**:  
+  ```bash
+  export PS4='\e[33m+ ${BASH_SOURCE}:${LINENO}:\e[0m '  # Yellow trace
+  ```  
+- **Function Timing**:  
+  ```bash
+  set -x; start=$SECONDS; network_range; echo "Took $((SECONDS-start))s"; set +x
+  ```  

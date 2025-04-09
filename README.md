@@ -27,9 +27,11 @@ _"Building the stronghold—where security is forged, and control is absolute."_
 
 _"Mastering the Terminal’s Power."_
 
-- [The Newborn Terminal](CLI-Inferno/Unix-Command.md)
+- [The Newborn Terminal](CLI-Inferno/Unix-Commands.md)
+- [The Man Pages’ Muse](CLI-Inferno/Man-Pages.md)  
 - [The File's Chronicle](CLI-Inferno/Files.md)
 - [The Shell’s Symphony](CLI-Inferno/Shell-Scripting.md)
+- [The Daemon’s Whisper](CLI-Inferno/Background-Processes-and-Debugging.md)
 
 ### III. Network Wars
 

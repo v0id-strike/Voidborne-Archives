@@ -30,14 +30,14 @@
 - **The Newborn Terminal**  
   *Begin at the very beginning: install multiple Linux distributions (Arch, Ubuntu, Fedora, Debian) via Live USBs and virtual machines. Learn the basics—navigating directories, file manipulation (ls, cd, cp, mv, rm), and understanding the Linux file hierarchy.*
 
+- **The Man Pages’ Muse**  
+  *Turn to the ancient scrolls—man pages, info commands, and online documentation—to seek wisdom on every command and system utility.*
+
 - **The File’s Chronicle**  
   *Delve into file permissions, ownership, and the mysteries of the Unix file system. Learn about symbolic links, hard links, and how to tame file hierarchies with chmod, chown, and umask.*
 
 - **The Shell’s Symphony**  
   *Compose elegant shell scripts using Bash and Zsh. Master variables, loops, conditionals, functions, and learn how to automate mundane tasks to orchestrate your system’s performance.*
-
-- **The Man Pages’ Muse**  
-  *Turn to the ancient scrolls—man pages, info commands, and online documentation—to seek wisdom on every command and system utility.*
 
 - **The Daemon’s Whisper**  
   *Uncover the secrets of background processes: learn about system logs (syslog, journalctl), process management (ps, top, htop), and debugging with strace, ltrace, and gdb.*

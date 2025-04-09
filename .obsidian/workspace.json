@@ -13,15 +13,44 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CLI-Inferno/Shell-Scripting.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Shell-Scripting"
+              "title": "README"
+            }
+          },
+          {
+            "id": "0cc01e1526ed05c9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "README"
+            }
+          },
+          {
+            "id": "2109349d00babbea",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "prophecy.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "prophecy"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -165,16 +194,22 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "b31836ebd6d74eb2",
+  "active": "2109349d00babbea",
   "lastOpenFiles": [
-    "Obscure Codex/Arch-Setup.md",
+    "README.md",
+    "CLI-Inferno/Man-Pages.md",
+    "prophecy.md",
+    "CLI-Inferno/Background-Processes-and-Debugging.md",
+    "Shadow-Lab/VirtualBox.md",
+    "CLI-Inferno/Unix-Commands.md",
+    "CLI-Inferno/Files.md",
     "CLI-Inferno/Shell-Scripting.md",
+    "Obscure Codex/Arch-Setup.md",
     "CLI-Inferno/Misc",
     "Extras/Note-Taking Templete.md",
     "Shadow-Lab/AthenaOS.md",
     "Shadow-Lab/OpnSense.md",
     "Obscure Codex/VirtualBox.md",
-    "Obscure Codex/Securing-Home.md",
-    "README.md"
+    "Obscure Codex/Securing-Home.md"
   ]
 }
