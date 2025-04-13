@@ -793,3 +793,39 @@ echo -e "\e[31mXATO\e[0m"  # Qizil matn
 `if-else` dan asosiy farqlari: 
 ✅ Aniq qiymatlar uchun toza sintaksis
 ❌ Boolean ifodalarni (`-gt, -lt`) tekshira olmaydi
+### 2️⃣ **Sintaksis Blok**
+#### Asosiy tuzilma:
+```
+case $variable in
+    pattern1)
+        buyruklar
+        ;;
+    pattern2|pattern3)
+        buyruklar
+        ;;
+    *)
+        standart_buymruklar
+        ;;
+esac
+```
+#### CIDR.sh misoli:
+```
+case $opt in
+    "1") network_range ;;
+    "2") ping_host ;;
+    "3") network_range && ping_host ;;
+    "*") exit 0 ;;
+esac
+```
+3️⃣ Sintaksis tushuntirishi
+- ✅ `case $var in` → `$var` qiymatiga qarab taqqoslashni boshlaydi
+- ✅ pattern) → To‘g‘ri keladigan qiymat yoki shablon:
+
+  - `"1"` → literal `1`
+
+  - `"*"` → barcha holatlar uchun (default case)
+
+  - `[Yy]*` → `"Yes"`, `"yes"` kabi qiymatlar uchun mos keladi
+- ✅ `;;` → Har bir blokni yakunlaydi (C tilidagi `break`ga o‘xshaydi)
+- ✅ `esac` → `case` operatorini tugatadi (case teskari yozuvi)
+
