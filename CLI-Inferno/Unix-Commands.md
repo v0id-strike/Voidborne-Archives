@@ -1,174 +1,169 @@
-In this chapter, we were supposed to learn how to install and configure Linux distros. However, we **already conquered that challenge** while setting up our **Shadow-Lab**. So instead of repeating what we’ve already done, let's focus on something far more practical—**command-line mastery.**
+# 📜 Muhim Linux Buyruqlari (A-Z)
 
-Below is an **A to Z** reference of essential Unix/Linux commands. This will serve as your **quick-access arsenal** whenever you need to execute system tasks, automate workflows, or dominate the terminal like a pro
+## 🅰️ A Harfi Buyruqlari
 
----
+- `alias` — Buyruqlarga qisqa nomlar (shorthand) yaratish
+- `awk` — Matnni ajratish va qayta ishlash uchun kuchli vosita
 
-# 📜 Essential Linux Commands (A-Z)
+## 🅱️ B Harfi Buyruqlari
 
-## 🅰️ A Commands
+- `basename` — Fayl yo‘lidan faqat fayl nomini ajratib olish
+- `bg` — Fonda bajarilayotgan vazifani davom ettirish
+- `bzip2` — Fayllarni siqish
 
-- `alias` → Create shortcuts for commands
-- `awk` → Powerful text-processing tool for data extraction and manipulation
-## 🅱️ B Commands
+## 🌊 C Harfi Buyruqlari
 
-- `basename` → Extract filename from a path
-- `bg` → Resume a job in the background
-- `bzip2` → Compress files
+- `cat` — Fayl mazmunini ko‘rsatish
+- `cal` — Kalendarni chiqarish
+- `cd` — Ishchi katalogni o‘zgartirish
+- `chmod` — Fayl ruxsatlarini o‘zgartirish
+- `chown` — Fayl egasini o‘zgartirish
+- `cp` — Fayl va kataloglarni nusxalash
+- `curl` — URL orqali ma’lumot uzatish
+- `cut` — Fayldan ustunlarni ajratib olish
 
-## 🌊 C Commands
+## 🏗️ D Harfi Buyruqlari
 
-- `cat` → View file contents
-- `cal` → Display a calendar
-- `cd` → Change the working directory
-- `chmod` → Change file permissions
-- `chown` → Change file ownership
-- `cp` → Copy files and directories
-- `curl` → Transfer data using URLs
-- `cut` → Extract specific columns from a file
+- `date` — Hozirgi sana va vaqtni ko‘rsatish
+- `df` — Diskdagi bo‘sh joyni ko‘rsatish
+- `du` — Katalog hajmini ko‘rsatish
+- `diff` — Ikki faylni satrma-satr solishtirish
+- `dig` — DNS yozuvlarini tekshirish
+- `dmesg` — Yadro va yuklanish xabarlarini ko‘rsatish
 
-## 🏗️ D Commands
+## 📜 E Harfi Buyruqlari
 
-- `date` → Display current date and time
-- `df` → Show disk space usage
-- `du` → Show directory size
-- `diff` → Compare two files line by line
-- `dig` → Query DNS records
-- `dmesg` → Show system boot and kernel messages
+- `echo` — Terminalga matn chiqarish
+- `exit` — Terminal sessiyasini yopish
+- `env` — Muhit o‘zgaruvchilarini ko‘rsatish
+- `exec` — Shell jarayonini boshqa jarayon bilan almashtirish
 
-## 📜 E Commands
+## 🔍 F Harfi Buyruqlari
 
-- `echo` → Print text to the terminal
-- `exit` → Close the terminal session
-- `env` → Show environment variables
-- `exec` → Replace the shell process with another process
+- `file` — Fayl turini aniqlash
+- `find` — Fayllarni qidirish
+- `free` — RAM holatini ko‘rsatish
+- `fsck` — Fayl tizimini tekshirish va tuzatish
 
-## 🔍 F Commands
+## 🛠️ G Harfi Buyruqlari
 
-- `file` → Determine file type
-- `find` → Search for files
-- `free` → Show RAM usage
-- `fsck` → Check and repair filesystem
+- `grep` — Matndan moslikni qidirish
+- `git` — Versiya boshqaruv tizimi
+- `groupadd` — Yangi foydalanuvchi guruhi yaratish
+- `gzip` — Fayllarni siqish
+- `gawk` — GNU versiyasi `awk` buyrug‘i
 
-## 🛠️ G Commands
+## 🏠 H Harfi Buyruqlari
 
-- `grep` → Search for patterns in text
-- `git` → Version control system
-- `groupadd` → Create a new user group
-- `gzip` → Compress files
-- `gawk` → GNU version of `awk`
+- `head` — Faylning dastlabki 10 satrini ko‘rsatish
+- `hostname` — Tizim nomini ko‘rsatish yoki o‘rnatish
+- `htop` — Interaktiv jarayonlar kuzatuvchisi
+- `history` — Oldingi buyruqlar ro‘yxati
 
-## 🏠 H Commands
+## 📡 I Harfi Buyruqlari
 
-- `head` → Display first 10 lines of a file
-- `hostname` → Show or set the system hostname
-- `htop` → Interactive process viewer
-- `history` → Show previously run commands
+- `ifconfig` — Tarmoq interfeyslarini ko‘rsatish (eskirgan, o‘rniga `ip`)
+- `ip` — Tarmoq interfeyslarini boshqarish
+- `iptables` — Tarmoq xavfsizlik qoidalarini sozlash
 
-## 📡 I Commands
+## ⏳ J Harfi Buyruqlari
 
-- `ifconfig` → Show network interfaces (deprecated, use `ip`)
-- `ip` → Configure network interfaces
-- `iptables` → Configure firewall rules
+- `jobs` — Fonda ishlayotgan vazifalarni ko‘rsatish
+- `journalctl` — Sistem loglarini ko‘rish
 
-## ⏳ J Commands
+## ❌ K Harfi Buyruqlari
 
-- `jobs` → List background jobs
-- `journalctl` → View system logs
+- `kill` — Jarayonni PID orqali to‘xtatish
+- `killall` — Nomiga ko‘ra jarayonlarni to‘xtatish
+- `kmod` — Yadro modullarini yuklash yoki tushirish
 
-## ❌ K Commands
+## 📂 L Harfi Buyruqlari
 
-- `kill` → Terminate a process by PID
-- `killall` → Kill processes by name
-- `kmod` → Load or unload kernel modules
+- `ls` — Katalog tarkibini ko‘rsatish
+- `ln` — Symbolik yoki qattiq havola yaratish
+- `locate` — Fayllarni tezkor qidirish
+- `lsblk` — Blok qurilmalari haqida ma’lumot
 
-## 📂 L Commands
+## 📦 M Harfi Buyruqlari
 
-- `ls` → List directory contents
-- `ln` → Create symbolic or hard links
-- `locate` → Find files quickly using an index
-- `lsblk` → List information about storage devices
+- `man` — Buyruqlar uchun qo‘llanmalar (manual pages)
+- `mkdir` — Yangi katalog yaratish
+- `mv` — Fayl yoki katalogni ko‘chirish/yangi nomlash
+- `mount` — Fayl tizimini tizimga ulash
+- `md5sum` — Fayl uchun MD5 checksum hosil qilish
 
-## 📦 M Commands
+## 🌐 N Harfi Buyruqlari
 
-- `man` → Show manual pages for commands
-- `mkdir` → Create directories
-- `mv` → Move or rename files
-- `mount` → Mount a filesystem
-- `md5sum` → Generate MD5 checksum for a file
+- `nano` — Oddiy matn muharriri
+- `netstat` — Tarmoq holatini ko‘rsatish (eskirgan, o‘rniga `ss`)
+- `nslookup` — DNS yozuvlarini so‘rash
 
-## 🌐 N Commands
+## 🏗️ O Harfi Buyruqlari
 
-- `nano` → Simple text editor
-- `netstat` → Show network connections (deprecated, use `ss`)
-- `nslookup` → Query DNS records
+- `open` — Faylni ochish (faqat macOS uchun)
+- `od` — Faylni turli formatlarda ko‘rsatish
 
-## 🏗️ O Commands
+## 🚀 P Harfi Buyruqlari
 
-- `open` → Open files (macOS)
-- `od` → Display file contents in different formats
+- `ping` — Tarmoq ulanishini tekshirish
+- `pwd` — Joriy ishchi katalogni ko‘rsatish
+- `ps` — Ishlayotgan jarayonlarni ko‘rsatish
+- `passwd` — Foydalanuvchi parolini o‘zgartirish
+- `pkill` — Nomiga ko‘ra jarayonni to‘xtatish
 
-## 🚀 P Commands
+## ❓ Q Harfi Buyruqlari
 
-- `ping` → Check network connectivity
-- `pwd` → Show current working directory
-- `ps` → Show running processes
-- `passwd` → Change user password
-- `pkill` → Kill processes by name
+- `quit` — Dasturdan chiqish (`vi`, `less` kabi)
+- `quota` — Diskdagi foydalanishni ko‘rsatish
 
-## ❓ Q Commands
+## ♻️ R Harfi Buyruqlari
 
-- `quit` → Exit applications like `vi` or `less`
-- `quota` → Display user disk usage
+- `rm` — Fayllarni o‘chirish
+- `rmdir` — Bo‘sh katalogni o‘chirish
+- `reboot` — Tizimni qayta yuklash
+- `rsync` — Fayllarni sinxronlashtirish
 
-## ♻️ R Commands
+## 🔐 S Harfi Buyruqlari
 
-- `rm` → Delete files
-- `rmdir` → Remove empty directories
-- `reboot` → Restart the system
-- `rsync` → Synchronize files between systems
+- `ssh` — Masofaviy ulanish uchun xavfsiz shell
+- `sed` — Matnni oqimda tahrirlash
+- `sort` — Fayldagi satrlarni tartiblash
+- `sudo` — Superfoydalanuvchi sifatida buyruq bajarish
+- `systemctl` — Tizim xizmatlarini boshqarish
+- `scp` — SSH orqali fayl nusxalash
 
-## 🔐 S Commands
+## 📌 T Harfi Buyruqlari
 
-- `ssh` → Secure shell for remote access
-- `sed` → Stream editor for modifying text
-- `sort` → Sort lines of a file
-- `sudo` → Run a command as superuser
-- `systemctl` → Manage system services
-- `scp` → Securely copy files over SSH
+- `tail` — Faylning oxirgi 10 satrini ko‘rsatish
+- `tar` — Fayllarni arxivlash
+- `touch` — Bo‘sh fayl yaratish
+- `top` — Jarayonlarni real vaqtda ko‘rsatish
+- `traceroute` — Tarmoqdagi yo‘nalishni aniqlash
 
-## 📌 T Commands
+## 🔧 U Harfi Buyruqlari
 
-- `tail` → Show last 10 lines of a file
-- `tar` → Archive files
-- `touch` → Create an empty file
-- `top` → Show running processes in real-time
-- `traceroute` → Trace the path to a network host
+- `uptime` — Tizim qancha vaqtdan beri ishlayotganini ko‘rsatish
+- `uname` — Tizim haqida umumiy ma’lumot
+- `unzip` — ZIP arxivlarni ochish
+- `useradd` — Yangi foydalanuvchi yaratish
 
-## 🔧 U Commands
+## 📖 V Harfi Buyruqlari
 
-- `uptime` → Show system uptime
-- `uname` → Show system info
-- `unzip` → Extract ZIP archives
-- `useradd` → Create a new user
+- `vi` — Terminal matn muharriri
+- `vim` — `vi`ning kuchli versiyasi
+- `vmstat` — Tizim resurslari statistikasi
 
-## 📖 V Commands
+## 🌍 W Harfi Buyruqlari
 
-- `vi` → Command-line text editor
-- `vim` → Improved version of `vi`
-- `vmstat` → Show system performance stats
+- `wget` — Internetdan fayl yuklash
+- `who` — Tizimga kim kirganini ko‘rsatish
+- `watch` — Buyruqni takroran ishga tushurish
 
-## 🌍 W Commands
+## ❌ X Harfi Buyruqlari
 
-- `wget` → Download files from the web
-- `who` → Show logged-in users
-- `watch` → Re-run a command at intervals
+- `xargs` — Bir buyrug‘dan boshqasiga natija uzatish
 
-## ❌ X Commands
+## 🔍 Z Harfi Buyruqlari
 
-- `xargs` → Pass input from one command to another
-
-## 🔍 Z Commands
-
-- `zip` → Create compressed ZIP archives
-- `zcat` → View contents of a compressed file
+- `zip` — ZIP arxiv fayllar yaratish
+- `zcat` — Siqilgan fayl tarkibini ko‘rsatish

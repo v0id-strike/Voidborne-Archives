@@ -1,132 +1,146 @@
+## **1️⃣ Manual Sahifalari (`man`)**
+Linux'ning o‘z ichiga olingan hujjat tizimi `man` buyrug‘i orqali ochiladi.
 
-## **1️⃣ Manual Pages (`man`)**
-Linux's built-in documentation system accessible via the `man` command.
+### **Asosiy Xususiyatlari**
+- **Tuzilgan bo‘limlar** (1-9): turli buyruq turlari uchun
+- **Tez ko‘rsatma**: buyruqlar, konfiguratsiya fayllari, tizim chaqiriqlari
+- **Offline mavjudligi**: barcha Linux tizimlarida mavjud
 
-### **Key Features**
-- **Structured sections** (1-9) for different command types
-- **Quick reference** for commands, config files, and system calls
-- **Ubiquitous** - available offline on all Linux systems
-
-### **Usage**
+### **Foydalanish**
 ```bash
-man [section] command
+man [bo‘lim] buyruq
 ```
 
-### **Examples**
+### **Misollar**
 ```bash
-man ls           # Standard command documentation
-man 5 passwd     # Documentation for /etc/passwd file format
-man 3 printf     # C library function documentation
+man ls           # Oddiy buyruq hujjati
+man 5 passwd     # /etc/passwd fayl formati hujjati
+man 3 printf     # C kutubxonasi funksiyasi hujjati
 ```
 
-### **Navigation in man pages**
-| Key        | Action          |
-| ---------- | --------------- |
-| `Space`    | Next page       |
-| `Enter`    | Next line       |
-| `/pattern` | Search forward  |
-| `?pattern` | Search backward |
-| `n`        | Next match      |
-| `q`        | Quit            |
+### **`man` sahifalarida harakat**
+| Tugma      | Harakat                |
+| ---------- | ---------------------- |
+| `Space`    | Keyingi sahifaga o‘tish|
+| `Enter`    | Keyingi qator          |
+| `/pattern` | Oldinga qidirish       |
+| `?pattern` | Orqaga qidirish        |
+| `n`        | Keyingi moslik         |
+| `q`        | Chiqish                |
 
-### **Finding Relevant man Pages**
+### **Tegishli `man` sahifalarini topish**
 ```bash
-man -k "network"          # Search all man pages
-man -f passwd             # Show all sections for 'passwd'
-whatis ls                 # Brief description of command
+man -k "network"          # Barcha `man` sahifalarida izlash
+man -f passwd             # 'passwd' uchun barcha bo‘limlarni ko‘rsatish
+whatis ls                 # Buyruq haqida qisqacha ma'lumot
 ```
 
-## **2️⃣ Info Pages (`info`)**
-More detailed documentation system, often with hyperlinked content.
+---
 
-### **Key Features**
-- **Hierarchical documentation** with nodes
-- **More detailed** than man pages for complex tools
-- **Hyperlinked navigation** between related topics
+## **2️⃣ Info Sahifalari (`info`)**
+Ko‘proq tafsilotga ega hujjat tizimi, ko‘pincha gipermurojaat bilan birga keladi.
 
-### **Usage**
+### **Asosiy Xususiyatlari**
+- **Ierarxik hujjatlar**: tugunlar bilan tuzilgan
+- **`man` sahifalaridan batafsilroq**: ayniqsa murakkab vositalar uchun
+- **Gipermurojaat bilan navigatsiya**: bog‘langan mavzular orasida harakat
+
+### **Foydalanish**
 ```bash
-info command
+info buyruq
 ```
 
-### **Navigation in info**
-| Key     | Action            |
-| ------- | ----------------- |
-| `n`     | Next node         |
-| `p`     | Previous node     |
-| `u`     | Up one level      |
-| `Enter` | Follow link       |
-| `Tab`   | Jump to next link |
-| `q`     | Quit              |
+### **`info`da harakat**
+| Tugma   | Harakat                  |
+| ------- | ------------------------ |
+| `n`     | Keyingi tugun            |
+| `p`     | Oldingi tugun            |
+| `u`     | Bir darajaga yuqoriga   |
+| `Enter` | Havolaga kirish          |
+| `Tab`   | Keyingi havolaga sakrash |
+| `q`     | Chiqish                  |
 
-### **Examples**
+### **Misollar**
 ```bash
-info coreutils            # Documentation for GNU core utilities
-info emacs                # Comprehensive Emacs manual
-info bash                 # Full Bash manual
+info coreutils            # GNU core utilities hujjatlari
+info emacs                # Emacs haqida batafsil qo‘llanma
+info bash                 # Bash to‘liq hujjati
 ```
 
-## **3️⃣ Online Documentation**
-### **System Documentation**
+---
+
+## **3️⃣ Onlayn Hujjatlar**
+### **Tizim Hujjatlari**
 ```bash
-/usr/share/doc/           # Location of package documentation
+/usr/share/doc/           # Paket hujjatlari joylashgan joy
 less /usr/share/doc/package/README
 ```
 
-### **Command Help Options**
+### **Buyruq yordam parametrlari**
 ```bash
-command --help            # Brief usage (GNU style)
-command -h                # Brief usage (BSD style)
+command --help            # Tez ko‘rsatma (GNU uslubi)
+command -h                # Tez ko‘rsatma (BSD uslubi)
 ```
 
-### **Package Documentation**
+### **Paket hujjatlari**
 ```bash
-dpkg -L package | grep doc  # Find docs for Debian packages
-rpm -qd package           # List docs for RPM packages
+dpkg -L package | grep doc  # Debian paketlari uchun hujjatlarni topish
+rpm -qd package             # RPM paketlarining hujjatlarini ko‘rsatish
 ```
 
-## **4️⃣ Comparison: man vs info**
+---
 
-| Feature        | man Pages | info Pages       |
-| -------------- | --------- | ---------------- |
-| Detail Level   | Concise   | Comprehensive    |
-| Navigation     | Linear    | Hyperlinked      |
-| Availability   | Universal | Mostly GNU tools |
-| Learning Curve | Easier    | Steeper          |
-| Examples       | Few       | Many             |
+## **4️⃣ Taqqoslash: `man` va `info`**
 
-## **5️⃣ Documentation Best Practices**
-1. **Start with `--help`** for quick reference
-2. **Use `man`** for standard command syntax
-3. **Consult `info`** for in-depth GNU tool documentation
-4. **Check `/usr/share/doc`** for package-specific docs
-5. **Search online** for tutorials and community knowledge
+| Xususiyat      | `man` Sahifalar | `info` Sahifalar      |
+| -------------- | --------------- | ---------------------- |
+| Tafsilot darajasi | Qisqacha     | Batafsil               |
+| Harakat          | Linear        | Gipermurojaatli        |
+| Mavjudlik        | Har doim      | Asosan GNU vositalari  |
+| O‘rganish darajasi| Osonroq      | Murakkabroq            |
+| Misollar         | Kam           | Ko‘p                   |
 
-## **6️⃣ Finding Documentation**
-### **For Installed Commands**
+---
+
+## **5️⃣ Hujjatlar bilan ishlash bo‘yicha maslahatlar**
+1. **Tez ko‘rish uchun `--help`** dan boshlang
+2. **Buyruqlar sintaksisi uchun `man`** dan foydalaning
+3. **GNU vositalari uchun `info`** orqali chuqurroq o‘rganing
+4. **`/usr/share/doc`** ichidan paketga xos hujjatlarni tekshiring
+5. **Internetda qo‘llanmalar va misollarni izlang**
+
+---
+
+## **6️⃣ Hujjatlarni topish**
+### **O‘rnatilgan buyruqlar uchun**
 ```bash
-type command              # Identify command source
-command --version         # Check version
+type command              # Buyruq qayerdan ishga tushadi
+command --version         # Versiyasini ko‘rish
 ```
 
-### **For System Components**
+### **Tizim komponentlari uchun**
 ```bash
-man hier                  # Filesystem hierarchy documentation
-man 7 glob                # Filename pattern matching
-man 7 signal              # Linux signals reference
+man hier                  # Fayl tizimi tuzilmasi haqida
+man 7 glob                # Fayl nomi mosligi bo‘yicha
+man 7 signal              # Linux signallari haqida
 ```
 
-## **7️⃣ Advanced Tips**
-- **Search all man pages**: `man -K "keyword"`
-- **Print man page as PDF**: `man -t bash | ps2pdf - bash.pdf`
-- **View compressed docs**: `zless /usr/share/doc/package/README.gz`
-- **Create custom man pages**: Store in `~/man/man1/`
+---
 
-## **8️⃣ Recommended Online Resources**
-1. **Linux man pages online**: [man7.org](https://man7.org/linux/man-pages/)
-2. **GNU documentation**: [www.gnu.org/manual](https://www.gnu.org/manual/)
-3. **TLDR pages**: [tldr.sh](https://tldr.sh/) (Simplified man pages)
+## **7️⃣ Kengaytirilgan maslahatlar**
+- **Barcha man sahifalarida izlash**: `man -K "kalit so‘z"`
+- **Man sahifasini PDF qilib chiqarish**: `man -t bash | ps2pdf - bash.pdf`
+- **Siqilgan hujjatlarni ko‘rish**: `zless /usr/share/doc/package/README.gz`
+- **O‘zingizning `man` sahifalaringizni yaratish**: `~/man/man1/` ichiga saqlang
+
+---
+
+## **8️⃣ Tavsiya etilgan Onlayn Manbalar**
+1. **Linux man sahifalari**: [man7.org](https://man7.org/linux/man-pages/)
+2. **GNU hujjatlari**: [www.gnu.org/manual](https://www.gnu.org/manual/)
+3. **TLDR sahifalari**: [tldr.sh](https://tldr.sh/) (Soddalashtirilgan man sahifalari)
 4. **Arch Linux Wiki**: [wiki.archlinux.org](https://wiki.archlinux.org/)
 5. **Stack Overflow**: [stackoverflow.com](https://stackoverflow.com/)
 
-Remember: The ability to quickly find and understand documentation is one of the most valuable skills for any Linux user or administrator!
+🧠 **Eslab qoling:** Hujjatni tez va samarali topa olish hamda tushunish — har qanday Linux foydalanuvchisi yoki administratorining eng muhim ko‘nikmalaridan biridir!
+
