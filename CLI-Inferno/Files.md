@@ -1,152 +1,153 @@
-### 1️⃣ **Core Navigation Commands**  
-| Command | Description                   | Example                 |
-| ------- | ----------------------------- | ----------------------- |
-| `pwd`   | Show current directory        | `pwd` → `/home/user`    |
-| `ls`    | List contents                 | `ls -la` (hidden files) |
-| `cd`    | Change directory              | `cd /var/log`           |
-| `tree`  | Visualize directory structure | `tree -L 2`             |
+### 1️⃣ **Asosiy navigatsiya buyruqlari**  
+| Buyruq  | Tavsif                          | Misol                      |
+| ------- | ------------------------------- | -------------------------- |
+| `pwd`   | Joriy katalogni ko‘rsatadi      | `pwd` → `/home/user`       |
+| `ls`    | Fayllarni ro‘yxatlaydi          | `ls -la` (yashirin fayllar) |
+| `cd`    | Katalogni o‘zgartiradi          | `cd /var/log`              |
+| `tree`  | Katalog tuzilmasini ko‘rsatadi  | `tree -L 2`                |
 
-**Pro Tip:**  
+**Foydali maslahat:**  
 ```bash
-cd -  # Switch to previous directory
+cd -  # Oldingi katalogga qaytish
 ```
 
 ---
 
-### 2️⃣ **File Operations**  
-| Task        | Command    | Example                       |
-| ----------- | ---------- | ----------------------------- |
-| Create file | `touch`    | `touch notes.txt`             |
-| Create dir  | `mkdir -p` | `mkdir -p project/{src,docs}` |
-| Move/Rename | `mv`       | `mv old.txt new.txt`          |
-| Copy        | `cp -r`    | `cp -r dir1/ dir2/`           |
-| Delete      | `rm -rf`   | `rm -rf temp/`                |
+### 2️⃣ **Fayllar bilan ishlash**  
+| Vazifa      | Buyruq     | Misol                          |
+| ----------- | ---------- | ------------------------------ |
+| Fayl yaratish | `touch`    | `touch notes.txt`              |
+| Katalog yaratish | `mkdir -p` | `mkdir -p project/{src,docs}`  |
+| Ko‘chirish / nomini o‘zgartirish | `mv`       | `mv old.txt new.txt`         |
+| Nusxa olish | `cp -r`    | `cp -r dir1/ dir2/`            |
+| O‘chirish   | `rm -rf`   | `rm -rf temp/`                 |
 
-**Warning:**  
-❌ `rm -rf /` → **Destructive!** Always double-check paths.
+**Ogohlantirish:**  
+❌ `rm -rf /` → **Havfli!** Har doim yo‘lni ikki marta tekshiring.
 
 ---
 
-### 3️⃣ **Finding Files**  
-| Tool     | Use Case             | Example                           |
-| -------- | -------------------- | --------------------------------- |
-| `find`   | Advanced searches    | `find / -name "*.conf" -size +1M` |
-| `locate` | Fast filename search | `locate passwd`                   |
-| `which`  | Find executables     | `which python`                    |
+### 3️⃣ **Fayllarni qidirish**  
+| Asbob     | Foydalanish holati    | Misol                             |
+| --------- | --------------------- | --------------------------------- |
+| `find`    | Murakkab qidiruvlar   | `find / -name "*.conf" -size +1M` |
+| `locate`  | Tez nom bo‘yicha qidirish | `locate passwd`                   |
+| `which`   | Ijro faylini topish   | `which python`                    |
 
-**Key `find` Options:**  
+**Muhim `find` parametrlar:**  
 ```bash
 find /var/log -type f -mtime -7 -exec ls -lh {} \;
 ```
-- `-type f`: Files only  
-- `-mtime -7`: Modified in last 7 days  
-- `-exec`: Run command on results  
+- `-type f`: Faqat fayllar  
+- `-mtime -7`: So‘nggi 7 kunda o‘zgargan  
+- `-exec`: Natijaga buyruqni qo‘llash  
 
 ---
 
-### 4️⃣ **File Contents & Filtering**  
-| Command       | Function          | Example                               |
-| ------------- | ----------------- | ------------------------------------- |
-| `cat`         | Display file      | `cat /etc/passwd`                     |
-| `grep`        | Search text       | `grep "root" /etc/passwd`             |
-| `head`/`tail` | View start/end    | `tail -n 20 log.txt`                  |
-| `awk`         | Column extraction | `awk -F: '{print $1,$6}' /etc/passwd` |
-| `sed`         | Text replacement  | `sed 's/foo/bar/g' file.txt`          |
+### 4️⃣ **Fayl ichidagi matn va filtrlash**  
+| Buyruq        | Funktsiya              | Misol                                |
+| ------------- | ---------------------- | ------------------------------------- |
+| `cat`         | Faylni ko‘rsatadi      | `cat /etc/passwd`                    |
+| `grep`        | Matn izlash            | `grep "root" /etc/passwd`            |
+| `head`/`tail` | Boshi yoki oxirini ko‘rish | `tail -n 20 log.txt`             |
+| `awk`         | Ustunni ajratish       | `awk -F: '{print $1,$6}' /etc/passwd` |
+| `sed`         | Matnni o‘zgartirish    | `sed 's/foo/bar/g' file.txt`         |
 
-**Pipeline Magic:**  
+**Quvurlar kombinatsiyasi:**  
 ```bash
 cat logs.txt | grep "ERROR" | awk '{print $2}' | sort | uniq -c
 ```
 
 ---
 
-### 5️⃣ **Permissions Deep Dive**  
-#### Permission Types:
-| Symbol | File           | Directory           |
-| ------ | -------------- | ------------------- |
-| `r`    | Read content   | List files          |
-| `w`    | Modify content | Create/delete files |
-| `x`    | Execute script | Enter directory     |
+### 5️⃣ **Ruxsatlar bo‘yicha chuqur tushuncha**  
+#### Ruxsat turlari:
+| Belgisi | Fayl uchun       | Katalog uchun               |
+| ------- | ---------------- | --------------------------- |
+| `r`     | Mazmunni o‘qish  | Fayllar ro‘yxatini ko‘rish  |
+| `w`     | O‘zgartirish     | Yaratish / o‘chirish        |
+| `x`     | Ijro qilish      | Ichiga kirish               |
 
-#### Octal Notation:
-| #   | Permission               |
-| --- | ------------------------ |
-| 7   | rwx (Read+Write+Execute) |
-| 6   | rw- (Read+Write)         |
-| 5   | r-x (Read+Execute)       |
+#### Sakkizlik yozuv:
+| Raqam | Ruxsatlar                |
+| ----- | ------------------------ |
+| 7     | rwx (O‘qish+Yozish+Ijro) |
+| 6     | rw- (O‘qish+Yozish)      |
+| 5     | r-x (O‘qish+Ijro)        |
 
-**Critical Commands:**  
+**Asosiy buyruqlar:**  
 ```bash
-chmod 750 script.sh  # Owner:rwx, Group:r-x, Others:--- 
+chmod 750 script.sh  # Egasi: rwx, Guruh: r-x, Boshqalar: --- 
 chown user:group file
 ```
 
-#### Special Permissions:
-| Bit        | Effect            | Example                      |
-| ---------- | ----------------- | ---------------------------- |
-| SUID (4)   | Run as owner      | `chmod 4755 /usr/bin/passwd` |
-| SGID (2)   | Inherit group     | `chmod 2770 /shared`         |
-| Sticky (1) | Restrict deletion | `chmod 1777 /tmp`            |
+#### Maxsus ruxsatlar:
+| Bit       | Ta’siri             | Misol                         |
+| --------- | ------------------- | ----------------------------- |
+| SUID (4)  | Egasi sifatida ishlaydi | `chmod 4755 /usr/bin/passwd` |
+| SGID (2)  | Guruhni meros qiladi    | `chmod 2770 /shared`         |
+| Sticky (1)| O‘chirishni cheklaydi   | `chmod 1777 /tmp`            |
 
 ---
 
-### 6️⃣ **Redirection & Pipes**  
-| Symbol | Function        | Example                   |
-| ------ | --------------- | ------------------------- |
-| `>`    | Overwrite file  | `ls > output.txt`         |
-| `>>`   | Append to file  | `echo "new" >> log.txt`   |
-| `2>`   | Redirect errors | `cmd 2> errors.log`       |
-| `\|`   | Pipe output     | `cat file \| grep "text"` |
+### 6️⃣ **Yo‘naltirish va quvurlar**  
+| Belgisi | Vazifasi           | Misol                        |
+| ------- | ------------------ | ---------------------------- |
+| `>`     | Faylni almashtirish | `ls > output.txt`            |
+| `>>`    | Qo‘shib yozish      | `echo "new" >> log.txt`      |
+| `2>`    | Xatoliklarni yozish | `cmd 2> errors.log`          |
+| `|`     | Quvurlash           | `cat file | grep "text"`     |
 
-**Advanced Redirection:**  
+**Kengaytirilgan yo‘naltirish:**  
 ```bash
 command > >(tee stdout.log) 2> >(tee stderr.log >&2)
 ```
 
 ---
 
-### 7️⃣ **Exercises**  
-1. **Navigation:**  
-   - List all `.conf` files in `/etc` sorted by size (`ls -lS /etc/*.conf`)  
-   - Create directory tree `backups/{monthly,weekly}/2023`  
+### 7️⃣ **Mashqlar**  
+1. **Navigatsiya:**  
+   - `/etc` ichidagi barcha `.conf` fayllarni hajm bo‘yicha saralang:  
+     `ls -lS /etc/*.conf`  
+   - `backups/{monthly,weekly}/2023` katalog tuzilmasini yarating  
 
-2. **Permissions:**  
-   - Find all SUID binaries:  
+2. **Ruxsatlar:**  
+   - Barcha SUID fayllarni toping:  
      ```bash
      find / -perm -4000 2>/dev/null
      ```  
-   - Change `/shared` to:  
-     - Group ownership: `developers`  
-     - Permissions: `rwxrwx---` (770)  
+   - `/shared` katalogini quyidagicha sozlang:  
+     - Guruh: `developers`  
+     - Ruxsat: `rwxrwx---` (770)  
 
-3. **Filtering:**  
-   - Extract usernames and shells from `/etc/passwd`:  
+3. **Filtrlash:**  
+   - `/etc/passwd` dan foydalanuvchi nomi va ularning shell'larini ajrating:  
      ```bash
      awk -F: '{print $1,$7}' /etc/passwd | column -t
      ```  
 
 ---
 
-### 8️⃣ **Pro Tips**  
-- **Secure file copies**: Use `rsync -avz` for large transfers.  
-- **Permission calculator**:  
+### 8️⃣ **Qo‘shimcha maslahatlar**  
+- **Xavfsiz fayl ko‘chirish:** Katta fayllar uchun `rsync -avz` dan foydalaning  
+- **Ruxsat kalkulyatori:**  
   ```bash
-  stat -c "%a %n" *  # Show octal perms for all files
+  stat -c "%a %n" *  # Barcha fayllar uchun sakkizlik ruxsatlar
   ```  
-- **Quick archive**:  
+- **Tez arxivlash:**  
   ```bash
   tar -czvf backup.tar.gz /path/to/files
   ```  
 
 ---
 
-### 9️⃣ **Visual Cheatsheet**  
+### 9️⃣ **Vizual ko‘makchi**  
 ```
-# Permission Breakdown
+# Ruxsatlar tafsiloti
 -rwxr-xr--  1 user group  size date filename
 │└─┬─┘└─┬─┘
-│ │  │   └── Others: r--
-│ │  └────── Group: r-x
-│ └───────── Owner: rwx
-└─────────── File type (-,d,l)
+│ │  │   └── Boshqalar: r--
+│ │  └────── Guruh: r-x
+│ └───────── Egasi: rwx
+└─────────── Fayl turi (-,d,l)
 ```
