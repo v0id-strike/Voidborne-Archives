@@ -582,3 +582,162 @@ echo "${#str}"        # → 5
 - ✅ ` (( )) ` → Hisoblaydi, lekin natijani chiqarib bermaydi (sikl yoki shartlarda foydali).
 - ✅ ` ${#var} ` → Satr uzunligini (bo‘sh joylar bilan) qaytaradi.
 - ❌ **Floating-point (kasr sonlar)** yo‘q: buning uchun ` bc ` yoki ` awk ` dan foydalaniladi.
+
+### 4️⃣ **Qachon va nima uchun ishlatiladi**
+```
+#!/bin/bash
+read -p "Ikkita son kiriting: " a b
+echo "Yig‘indi: $((a + b))"
+echo "Ko‘paytma: $((a * b))"
+```
+
+### 5️⃣ **Misollar**
+#### 1-misol: Oddiy kalkulyator
+```
+#!/bin/bash
+read -p "Ikkita son kiriting: " a b
+echo "Yig‘indi: $((a + b))"
+echo "Ko‘paytma: $((a * b))"
+```
+#### 2-misol: Parol kuchini tekshirish
+```
+password="P@ssw0rd"
+if [ ${#password} -lt 8 ]; then
+    echo "Kuchsiz: Parol juda qisqa!"
+fi
+```
+#### 3-misol: CIDR host skanerlovchi (parcha)
+```
+for ip in $cidr_ips; do
+    ping -c 1 $ip >/dev/null && ((alive++))
+    ((total++))
+done
+echo "$alive/$total hostlar javob berdi."
+```
+### 6️⃣ **Kengaytirilgan foydalanish / Fintlar**
+- **Bit bo‘yicha operatsiyalar**:
+```
+echo "$((5 & 3))"   # AND → 1
+echo "$((16#FF))"   # O‘n oltilikdan o‘nlikka → 255
+```
+- **Kasr sonlar bilan ishlash**:
+```
+echo "scale=2; 10/3" | bc  # → 3.33
+```
+- **Tasodifiy sonlar**:
+```
+echo $((RANDOM % 100))  # 0 dan 99 gacha
+```
+### 7️⃣ **Maslahatlar va keng tarqalgan xatoliklar**
+- ❌ **O‘rnatishda bo‘sh joy**: ` sum = $((a+b)) ` xato ` sum=$((a+b)) `   to‘g‘ri
+- ✅ **Xatolik yuz bersa, chiqish**:
+```
+((count > 0)) || exit 1 # Agar count ≤ 0 bo‘lsa, chiqadi
+```
+❌ **Satrlarni ` [ ] ` ichida qo‘shtirnaksiz ishlatish**: ` [[ "${var}" == value ]] ` xavfsizroq
+
+### 8️⃣ **Xulosa**
+> Bash arifmetikasining imkoniyatlari:
+
+> - **Sikllarni samarali boshqarish** (hisoblagichlar, chiqish shartlari)
+
+> - **Tarmoq operatsiyalari** (hostlarni skanerlash, IP hisoblash)
+
+> - **Kiritilgan qiymatlarni tekshirish** (uzunlik, son oraliqlari)
+
+> Bularni sikllar va shartlar bilan birlashtirib, kuchli avtomatlashtirishlarni yaratish mumkin!
+
+---
+
+### 🔖 Bonus: Pro maslahatlar
+**Ternary (uchlik) operatsiya**:
+```
+(( result = condition ? 1 : 0 ))  Agar shart to‘g‘ri bo‘lsa, result o‘zgaruvchiga 1 qiymati beriladi, aks holda 0
+```
+**Terminalda tez hisoblash**:
+```
+echo $(( (10 + 5) * 2 ))  # → 30
+```
+## **📌 7-foyda: Kirish va Chiqish Nazorati
+### 1️⃣ **Kirish / Ta'rif**
+> Bash quyidagi kuchli vositalarni taqdim etadi:
+
+> - **Skriptni boshqarish** uchun interaktiv kirish (` read `)
+
+> - **Chiqish nazorati** (`>`, `>>`, `2>`) va `tee` orqali
+
+> - **Holat bayonotlari** (`case`) yordamida oqimni boshqarish
+
+Foydalanuvchiga qulay skriptlar yaratish va natijalarni qayd etish uchun zarur.
+
+### 2️⃣ **Sintaksis bloklari**
+#### Foydalanuvchi kirishi:
+```
+read -p "So'rov: " variable  # $variable o'zgaruvchisiga foydalanuvchi kiritgan ma'lumotni saqlaydi
+```
+#### Chiqishni yo‘naltirish:
+```
+command > file.txt      # Faylni o‘zgartirish
+command >> file.txt     # Faylga qo‘shish
+command 2> errors.log   # Xatoliklarni yo‘naltirish
+command &> output.log   # Barcha chiqishlarni yo‘naltirish
+```
+#### Tee yordamida ikki yo‘nalishli chiqish:
+```
+command | tee file.txt      # Chiqishni ko‘rsatish va faylga yozish
+command | tee -a file.txt   # Chiqishni ko‘rsatish va faylga qo‘shish
+```
+#### Case bayonoti:
+```
+case $var in
+    "1") command1 ;;
+    "2") command2 ;;
+    *) default_command ;;
+esac
+```
+### 3️⃣ **Sintaksis izohlarini tushuntirish**
+- ✅ ` read -p ` → Foydalanuvchidan so‘rov olish va kiritilgan ma'lumotni saqlash (masalan, menyu tanlovlari).
+- ✅ `tee` → Chiqishni terminalga va faylga bir vaqtning o‘zida chiqaradi (-a opsiyasi faylga qo‘shish qiladi).
+- ✅ `case` → Ko‘p shartlar uchun joylashgan if bayonotlaridan yaxshiroq variant.
+- ❌ `read` **komandasidagi qo'shtirnoqsiz o'zgaruvchilar**: So'zlarni ajratish muammolariga olib kelishi mumkin.
+### 4️⃣ **Nega / Qachon ishlatish kerak**
+
+|        Vaziyat                 |     Vosita         |      Misol                           |                 |
+| ------------------------------ | ------------------ | ------------------------------------ | --------------- |
+| Interaktiv menyular            | `read` + `case`    | CIDR.sh opsiyalari                   |                 |
+| Komanda chiqishini qayd qilish | `tee`              | `whois $ip                           | tee -a log.txt` |
+| Xatoliklarni boshqarish        | `2>`               | `cmd 2> errors.log`                  |                 |
+| Jarayonning ko‘rinishi         | `tee` yoki `-a`    | Real vaqtda skanerlash yangiliklari  |                 |
+
+### 5️⃣ **Misollar**
+#### Misol 1: Interaktiv menyu
+```
+read -p "Tanlang (1-Skanerlash, 2-Ping): " opt
+case $opt in
+    1) nmap -sV $target ;;
+    2) ping -c 4 $target ;;
+    *) echo "Noto‘g‘ri tanlov" ;;
+esac
+```
+#### Misol 2: Tee bilan logging
+```
+nmap -sS 192.168.1.0/24 | tee scan_results.txt
+```
+#### Misol 3: Xatoliklarni boshqarish
+```
+curl https://example.com &> curl.log || echo "Xatolik yuz berdi!"
+```
+### 6️⃣ **Rivojlangan foydalanish / Xatolarni tuzatish**
+**Tinch holat (Silent Mode)**:
+```
+read -s -p "Parol: " pass  # Kiritishni yashirish
+```
+- **Kirish uchun vaqtni cheklash**:
+```
+read -t 10 -p "Tez! Javob (10s): " Javobi
+```
+- **Ko‘p chiqishli logging**:
+```
+cmd | tee >(grep "ERROR" > errors.log) > output.log
+```
+### 7️⃣ **Maslahatlar & Yashirin xatolar**
