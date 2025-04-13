@@ -2,24 +2,19 @@
 
 ## 1️⃣ Kirish / Ta’rif
 **Bash** — bu Unix shell va buyruq tili bo‘lib, avtomatlashtirish, tizim boshqaruvi hamda penetratsion testlarda keng qo‘llaniladi. Kompilyatsiya talab qilmaydi, shuning uchun tez va moslashuvchan ishlaydi. Asosiy xususiyatlari:
-
 - Kompilyatsiya talab qilinmaydi  
 - Tizim buyruqlari bilan bevosita integratsiya  
 - Xavfsizlikdagi vazifalar (privilege escalation, ma’lumotlarni filtrlash) uchun muhim
-
 ---
-
 ## 2️⃣ Sintaksis blok
-
 **Asosiy skript tuzilmasi:**
-
 ```bash
 #!/bin/bash  
+
 # Izohlar '#' bilan boshlanadi  
 
 # O'zgaruvchilar  
 o'zgaruvchi="qiymat"  
-
 # Funksiyalar  
 funksiya_nomi() {  
     buyruqlar  
@@ -109,11 +104,9 @@ Bash skriptlar tizim ishlarini avtomatlashtirish uchun ideal, ayniqsa xavfsizlik
 ```bash
 echo -e "\e[31mXatolik\e[0m"  # Qizil matn
 ```
-
 ---AIga ulangan tg-bot yarating (mening ko'rsatmalarim)
 Siz TG botini yaratishingiz va unga chatZhPT yoki Claude Sonnet (men sizga API beraman) ulanishingiz kerak.
 Bizga allaqachon shunga o'xshash ishni qilgan mutaxassis kerak (chunki bu juda oddiy, hatto Klod Sonnetning o'zi ham kodni yozadi va nima qilish kerakligini bosqichma-bosqich tushuntiradi ... lekin biz odam buni tushunishini va buni birinchi marta qilmasligini istaymiz).
-
 # 📌 2-bosqich: Shartli bajarish
 
 ## 1️⃣ Kirish / Ta’rif
@@ -122,9 +115,7 @@ Shartli bajarish skriptga holatlarga qarab turli yo‘nalishda ishlash imkonini 
 - `if-then-fi` → Asosiy shart tekshiruvi  
 - `elif` → Qo‘shimcha shartlar  
 - `else` → Hech biri to‘g‘ri bo‘lmasa bajariladi  
-
 ## 2️⃣ Sintaksis
-
 **Asosiy tuzilma:**  
 ```bash
 if [ shart ]; then  AIga ulangan tg-bot yarating (mening ko'rsatmalarim)
@@ -137,7 +128,6 @@ else
     # Hech biri rost bo‘lmasa  
 fi  
 ```
-
 **Misol: Argumentni tekshirish**  
 ```bash
 if [ $# -eq 0 ]; then  
@@ -145,26 +135,19 @@ if [ $# -eq 0 ]; then
     exit 1  
 fi  
 ```
-
 ## 3️⃣ Sintaksis tushuntirish
-
 ✅ `if [ shart ]` → Shartli blokni boshlaydi. [ va ] atrofida bo‘shliq bo‘lishi shart.  
 ✅ `-eq`, `-lt`, `-gt` → Taqqoslash operatorlari (=, <, >)  
 ✅ `$#` → Foydalanuvchi kiritgan argumentlar soni  
 ✅ `exit 1` → Xatolik kodi bilan chiqish  
-
 ## 4️⃣ Nima uchun / Qachon ishlatiladi
-
 | Vaziyat                     | Ishlatish            |
 |-----------------------------|-----------------------|
 | Foydalanuvchi kiritishini tekshirish | `if [ $# -eq 0 ]`     |
 | Turli holatlarni boshqarish         | `if-elif-else` zanjiri |
 | Xatolikni boshqarish                | `exit` bilan chiqish   |
-
 **Asosiy foydasi:** noto‘g‘ri kiritishlar tufayli skript buzilmasligini ta’minlaydi.
-
 ## 5️⃣ Misollar
-
 **Misol 1: Sonni solishtirish**  
 ```bash
 value=$1  
@@ -176,7 +159,6 @@ else
     echo "Qiymat = 10"  
 fi  
 ```
-
 **Misol 2: Fayl borligini tekshirish**  
 ```bash
 if [ -f "file.txt" ]; then  
@@ -185,73 +167,56 @@ else
     echo "Fayl topilmadi."  
 fi  
 ```
-
 ## 6️⃣ Kengaytirilgan ishlatish / Foydali usullar
-
 **Shartlarni birlashtirish:**  
 ```bash
 if [ $yosh -gt 18 ] && [ "$mamlakat" = "US" ]; then  
     echo "Mos keladi."  
 fi  
 ```
-
 **Regex bilan tekshirish:**  
 ```bash
 if [[ "$kiritma" =~ ^[A-Za-z]+$ ]]; then  
     echo "Faqat harflardan iborat."  
 fi  
 ```
-
 ## 7️⃣ Maslahatlar va xatoliklar
-
 ❌ Bo‘shliqsiz yozish: `if[$#-eq0]` → Xatolik  
 ✅ O‘zgaruvchilarni qo‘shtirnoqda yozing: `if [ "$var" = "qiymat" ]` → So‘z ajralishining oldini oladi  
 ❌ Sonlar uchun `=` ishlatmang: `-eq` ishlating  
-
 ## 8️⃣ Xulosa
-
 Shartli operatorlar (if-elif-else) skriptlarni dinamik va foydalanuvchi kiritishiga mos qiladi. Har doim chekka holatlarni test qiling!
-
 ## 🔖 Bonus
-
 - Kengaytirilgan imkoniyatlar uchun `[[]]` ishlating (`[]` o‘rniga)  
 - Rangli xatoliklar:  
 ```bash
 echo -e "\e[31mXatolik: Argumentlar yo‘q.\e[0m"
 ```
 # 3-bosqich: O'zgaruvchilar, Argumentlar va Massivlar
-
 ## 1️⃣ Kirish / Ta’rif
 Bash foydalanuvchi tomonidan kiritilgan buyruq argumentlarini avtomatik ravishda $0–$9, $#, $@ kabi maxsus o‘zgaruvchilar orqali boshqaradi. O‘zgaruvchilar odatda matnli qiymatlarni saqlaydi. Massivlar esa bir nechta qiymatlarni saqlashga imkon beradi. Ushbu imkoniyatlar skriptlarni foydalanuvchi kirituvi asosida moslashuvchan qiladi.
-
 ## 2️⃣ Sintaksis Blok
-
 ### Buyruq satri argumentlari:
 ```
 $0          # Skript nomi
 $1-$9       # 1-dan 9-gacha argumentlar
 ${10}       # 10 va undan yuqori argumentlar uchun {} kerak
 ```
-
 ### O‘zgaruvchi tayinlash:
 ```
 var="qiymat"   # To‘g‘ri (bo‘sh joysiz)
 var = "qiymat" # Noto‘g‘ri (xato beradi)
 ```
-
 ### Massiv e’lon qilish:
 ```
 arr=("val1" "val2" "val3")  # Indeks 0 dan boshlanadi
 echo ${arr[1]}              # Ikkinchi elementni chiqarish
 ```
-
 ## 3️⃣ Sintaksis tushuntirishi
-
 ✅ `$0` → Har doim skript nomini o‘z ichiga oladi.  
 ✅ `$1`, `$2`... → Pozitsion argumentlar ($9 gacha). 10-dan keyin `${10}` shaklida yoziladi.  
 ✅ `var="qiymat"` → Tayinlashda `=` atrofida bo‘sh joy bo‘lmasligi kerak.  
 ✅ `arr=(...)` → Massivlar `()` orqali e’lon qilinadi, va qiymatlar bo‘shliq bo‘lsa `"..."` bilan olinadi.
-
 ## 4️⃣ Qachon va nima uchun foydalaniladi
 
 | VAZIYAT                | FOYDALANILADIGAN ELEMENT        |
@@ -262,9 +227,7 @@ echo ${arr[1]}              # Ikkinchi elementni chiqarish
 | Skriptni tahlil qilish | `$?` (chiqish holati kodi)      |
 
 **Asosiy foyda**: Skriptni foydalanuvchi kirituvi asosida moslashuvchan ishlashini ta’minlaydi.
-
 ## 5️⃣ Misollar
-
 ### Misol 1: Oddiy argument ishlatish
 ```bash
 #!/bin/bash
@@ -272,103 +235,77 @@ echo "Skript: $0"
 echo "Birinchi argument: $1"
 echo "Barcha argumentlar: $@"
 ```
-
 ### Misol 2: Massivdan foydalanish
 ```bash
 domains=("www.example.com" "ftp.example.com")
 echo "Birinchi domain: ${domains[0]}"
 echo "Barcha domainlar: ${domains[@]}"
 ```
-
 ## 6️⃣ Kengaytirilgan foydalanish / Fokuslar
-
 ### Argumentlarni siljitish:
 ```bash
 shift   # $1 o‘chiriladi, qolganlari chapga siljiydi ($2 → $1)
 ```
-
 ### Standart qiymatlar:
 ```bash
 name=${1:-"Mehmon"}  # Agar $1 bo‘sh bo‘lsa, "Mehmon" olinadi
 ```
-
 ### Assotsiativ massivlar (Bash 4+):
 ```bash
 declare -A colors=(["qizil"]="#FF0000" ["yashil"]="#00FF00")
 echo ${colors["qizil"]}
 ```
-
 ## 7️⃣ Maslahatlar va keng tarqalgan xatolar
-
 ❌ E’lon qilinmagan o‘zgaruvchilar: `rm $file` xato beradi, agar `$file`da bo‘shliq bo‘lsa. **To‘g‘ri**: `rm "$file"`  
 ✅ Argumentlar sonini tekshirish:
 ```bash
 if [ $# -lt 2 ]; then echo "2 ta argument kerak"; exit 1; fi
 ```  
 ❌ Qavslar yo‘q: `$10` → `$1` + `0` sifatida talqin qilinadi. **To‘g‘ri**: `${10}`
-
 ## 8️⃣ Xulosa
-
 Bash'dagi maxsus o‘zgaruvchilar (`$0–$9`, `$#`, `$@`) va massivlar foydalanuvchi kirituvi bilan ishlashda juda foydali. O‘zgaruvchilar odatda matn shaklida bo‘ladi. Massivlar esa bir nechta qiymatni saqlashni osonlashtiradi. Har doim kirituvni tekshiring!
-
 ## 🔖 Bonus
-
 ### Barcha argumentlarni ro‘yxatlash:
 ```bash
 for arg in "$@"; do echo "$arg"; done
 ```
-
 ### Massivni kesib olish (slice):
 ```bash
 echo ${arr[@]:1:3}  # 1 dan 3 gacha bo‘lgan elementlar
 ```
-
 # 🧠 4-bosqich: Taqqoslash operatorlari (Comparison Operators)
-
 ## 1️⃣ Kirish / Ta’rif
 Bash skriptlarda taqqoslash operatorlari shartlarni baholash orqali qarorlar qabul qilish imkonini beradi. Ular quyidagi toifalarga bo‘linadi:
-
 - **Satr operatorlari** (matn solishtirish)
 - **Butun son operatorlari** (raqam solishtirish)
 - **Fayl operatorlari** (fayl tizimini tekshirish)
 - **Mantiqiy operatorlar** (shartlarni birlashtirish)
-
 ---
-
 ## 2️⃣ Sintaksis blok
-
 **Satr solishtirish:**
 ```bash
 [ "$var" == "value" ]     # Tenglik
 [[ "$var" > "A" ]]         # ASCII bo‘yicha solishtirish (faqat [[ ]] bilan)
 ```
-
 **Butun son solishtirish:**
 ```bash
 [ $num -lt 10 ]           # 10 dan kichik
 ```
-
 **Fayl tekshiruvi:**
 ```bash
 [ -f "file.txt" ]         # Oddiy fayl mavjudmi
 ```
-
 **Mantiqiy operatorlar:**
 ```bash
 [ "$var" ] && [ -f "$var" ]              # AND
 [[ -z "$var" || ! -d "$dir" ]]           # OR/NOT
 ```
-
 ---
-
 ## 3️⃣ Sintaksis izohi
-
 ✅ **Qo‘shtirnoq muhim**: `"$var"` bo‘sh yoki ichida bo‘shliq bo‘lsa, xatolarning oldi olinadi.  
 ✅ **[[ ]]** – kengaytirilgan ifodalar va &&/|| qo‘llab-quvvatlaydi.  
 ✅ **Fayl operatorlari**: `-e`, `-f`, `-d` – mavjudlik va turini tekshiradi.
-
 ---
-
 ## 4️⃣ Qachon va nima uchun ishlatiladi
 
 | VAZIYAT                  | Operator turi       | Misol                        |
@@ -379,9 +316,7 @@ Bash skriptlarda taqqoslash operatorlari shartlarni baholash orqali qarorlar qab
 | Murakkab shartlar         | Mantiqiy (&&/||)     | `[ -f "$file" ] && [ -s "$file" ]` |
 
 ---
-
 ## 5️⃣ Misollar
-
 **Misol 1: Satr solishtirish**
 ```bash
 if [ "$USER" != "root" ]; then
@@ -389,68 +324,50 @@ if [ "$USER" != "root" ]; then
     exit 1
 fi
 ```
-
 **Misol 2: Fayl mavjudligini tekshirish**
 ```bash
 if [[ -f "$logfile" && -s "$logfile" ]]; then
     echo "Log fayli mavjud va bo‘sh emas."
 fi
 ```
-
 **Misol 3: Raqam oraliqlari**
 ```bash
 if [ $count -gt 0 ] && [ $count -le 100 ]; then
     echo "Yaroqli son (1-100)."
 fi
 ```
-
 ---
-
 ## 6️⃣ Ilg‘or qo‘llanma / Fintlar
-
 **Shablonlarga moslik:**
 ```bash
 if [[ "$file" == *.txt ]]; then
     echo "Matnli fayl topildi."
 fi
 ```
-
 **Birgalikda tekshirish:**
 ```bash
 [ -d "$dir" ] || mkdir -p "$dir"  # Agar yo‘q bo‘lsa, katalog yaratiladi
 ```
-
 ---
-
 ## 7️⃣ Foydali maslahatlar va xatoliklar
-
 ❌ **Qo‘shilmagan qo‘shtirnoqlar**: `[ $var == "value" ]` – `$var` bo‘sh bo‘lsa, xatolik.  
 ✅ **[[ ]] ishlatish** – xavfsizroq va regexni qo‘llab-quvvatlaydi.  
 ❌ **Operatorlarni aralashtirmang**: raqamlar uchun `-eq`, satrlar uchun `==`.
-
 ---
-
 ## 8️⃣ Xulosa
-
 Taqqoslash operatorlari quyidagi uchun muhim:
-
 - Kiritilgan ma’lumotni tekshirish (satr/raqam)
 - Fayllarni va ruxsatlarni aniqlash
 - Murakkab mantiqiy qarorlar yaratish
-
 Har doim o‘zgaruvchilarni qo‘shtirnoqqa oling va `[[ ]]` ustunligini biling!
-
 ---
-
 ## 🔖 Bonus
-
 **Regex bilan solishtirish:**
 ```bash
 if [[ "$email" =~ ^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$ ]]; then
     echo "Yaroqli email."
 fi
 ```
-
 **Chiqish kodini tekshirish:**
 ```bash
 if grep -q "error" logfile; then
@@ -458,7 +375,6 @@ if grep -q "error" logfile; then
 fi
 ```
 # 5-bosqich: Aritmetik operatorlar
-
 Bash tilida butun sonlar ustida matematik amallarni bajarish va o‘zgaruvchilar qiymatini o‘zgartirish uchun 7 ta arifmetik operator mavjud.
 
 Operator | Tavsif
@@ -472,12 +388,9 @@ variable++ | 1 ga oshirish
 variable-- | 1 ga kamaytirish
 
 Arifmetik hisob-kitoblar uchun `$(())` sintaksisidan foydalaniladi.
-
 Misol:
-
 ```bash
 #!/bin/bash
-
 oshirish=1
 kamaytirish=1
 
@@ -493,9 +406,7 @@ echo "O'zgaruvchini oshirish: $oshirish"
 ((kamaytirish--))
 echo "O'zgaruvchini kamaytirish: $kamaytirish"
 ```
-
 Natija:
-
 ```bash
 Qo‘shish: 10 + 10 = 20
 Ayirish: 10 - 10 = 0
@@ -506,12 +417,9 @@ O'zgaruvchini oshirish: 2
 O'zgaruvchini kamaytirish: 0
 ```
 Misol:
-
 ```bash
 #!/bin/bash
-
 htb="HackTheBox"
-
 echo "Matn uzunligi: ${#htb}"
 ```
 Natija:
@@ -539,30 +447,21 @@ for host in $cidr_ips; do
 done
 ```
 Izohlar:
-
 - ((stat--)) — sikl oxir-oqibat tugashi uchun ishlatiladi
 
 - ((hosts_up++)) — faol hostlar sonini oshiradi
 
 - ((hosts_total++)) — umumiy tekshirilgan hostlar hisobini yuritadi
-
 # 6-bosqich: Aritmetik operatorlar
-
 ## 1️⃣ Kirish / Ta’rif
-
 Bash tilida butun sonlar asosida arifmetik amallarni bajarish uchun `$(( ))` va `(( ))` sintaksislari mavjud. Asosiy imkoniyatlar:
-
 - Oddiy hisob-kitoblar: `+`, `-`, `*`, `/`, `%`
 - Avtomatik inkrement/dekrement: `++`, `--`
 - Satr uzunligini tekshirish: `${#o'zgaruvchi}`
 - Sikllarni boshqarish va tarmoq operatsiyalari (masalan, hostlarni skanerlash) uchun juda muhim
-
 ---
-
 ## 2️⃣ Sintaksis Bloki
-
 **Oddiy hisoblash:**
-
 ```bash
 echo "$((5 + 3))"     # → 8
 echo "$((5 / 2))"     # → 2 (butun sonli bo‘lish)
@@ -582,7 +481,6 @@ echo "${#str}"        # → 5
 - ✅ ` (( )) ` → Hisoblaydi, lekin natijani chiqarib bermaydi (sikl yoki shartlarda foydali).
 - ✅ ` ${#var} ` → Satr uzunligini (bo‘sh joylar bilan) qaytaradi.
 - ❌ **Floating-point (kasr sonlar)** yo‘q: buning uchun ` bc ` yoki ` awk ` dan foydalaniladi.
-
 ### 4️⃣ **Qachon va nima uchun ishlatiladi**
 ```
 #!/bin/bash
@@ -590,7 +488,6 @@ read -p "Ikkita son kiriting: " a b
 echo "Yig‘indi: $((a + b))"
 echo "Ko‘paytma: $((a * b))"
 ```
-
 ### 5️⃣ **Misollar**
 #### 1-misol: Oddiy kalkulyator
 ```
@@ -638,17 +535,11 @@ echo $((RANDOM % 100))  # 0 dan 99 gacha
 
 ### 8️⃣ **Xulosa**
 > Bash arifmetikasining imkoniyatlari:
-
 > - **Sikllarni samarali boshqarish** (hisoblagichlar, chiqish shartlari)
-
 > - **Tarmoq operatsiyalari** (hostlarni skanerlash, IP hisoblash)
-
 > - **Kiritilgan qiymatlarni tekshirish** (uzunlik, son oraliqlari)
-
 > Bularni sikllar va shartlar bilan birlashtirib, kuchli avtomatlashtirishlarni yaratish mumkin!
-
 ---
-
 ### 🔖 Bonus: Pro maslahatlar
 **Ternary (uchlik) operatsiya**:
 ```
@@ -661,15 +552,10 @@ echo $(( (10 + 5) * 2 ))  # → 30
 ## **📌 7-foyda: Kirish va Chiqish Nazorati
 ### 1️⃣ **Kirish / Ta'rif**
 > Bash quyidagi kuchli vositalarni taqdim etadi:
-
 > - **Skriptni boshqarish** uchun interaktiv kirish (` read `)
-
 > - **Chiqish nazorati** (`>`, `>>`, `2>`) va `tee` orqali
-
 > - **Holat bayonotlari** (`case`) yordamida oqimni boshqarish
-
 Foydalanuvchiga qulay skriptlar yaratish va natijalarni qayd etish uchun zarur.
-
 ### 2️⃣ **Sintaksis bloklari**
 #### Foydalanuvchi kirishi:
 ```
@@ -741,3 +627,169 @@ read -t 10 -p "Tez! Javob (10s): " Javobi
 cmd | tee >(grep "ERROR" > errors.log) > output.log
 ```
 ### 7️⃣ **Maslahatlar & Yashirin xatolar**
+- ✅ **Har doim o‘zgaruvchilarni boshlang‘ich qiymat bilan to‘ldiring**:
+```
+declare -i hosts_up=0  # Sanoq uchun butun son
+```
+- ❌ **Logs fayllarini yozib yuborish**: Muhim ma'lumotlar uchun `>>` yoki `tee -a` ishlating.
+- ✅ **Kirishni tekshirish**:
+```
+[[ "$opt" =~ ^[1-3]$ ]] || exit 1
+```
+### 8️⃣ **Xulosa**
+> Asosiy xulosalar:
+> - Interaktiv menyular uchun `read` + `case`ni ishlating.
+> - Real vaqtda monitoring va logging uchun `tee` juda yaxshi.
+> - Xatoliklarni (`2>`) yordamida alohida faylga yo‘naltiring.
+> - Kirish tekshiruvining barcha chekka holatlarini sinab ko‘ring.
+### 🔖 Bonus: Pro maslahatlar
+- **Menyu so‘rovlari rang bilan bezash**:
+```
+echo -e "\e[32m1) Skanerlash\e[0m"  # Yashil matn
+```
+- **Audit trail (audit izlari)**:
+```
+echo "$(date): Foydalanuvchi $opt tanladi" >> audit.log
+```
+## 📌 8-faza: Oqimni boshqarish va sikllar
+### 1️⃣ **Kirish / Ta’rif**
+> Bash’dagi oqimni boshqarish tuzilmalari skript buyruqlarining shartlar va takrorlanishga asoslangan bajarilishini boshqaradi. Ular quyidagilarni ta’minlaydi:
+> - **Qaror qabul qilish** (`if`, `case`)
+> - **Takroriy bajarish**** (`for`, `while`, `until`)
+> - **Chiqishni boshqarish** (`tee`, yo‘naltirish)
+### 2️⃣ **Sintaksis bloki**
+#### Shoxlanish:
+```
+# If-Else
+if [ "$var" -eq 1 ]; then  
+    komandalar  
+elif [ "$var" -eq 2 ]; then  
+    komandalar  
+else  
+    komandalar  
+fi  
+
+# Case
+case $var in  
+    "a") komandalar ;;  
+    "b") komandalar ;;  
+    *) standart_komandalar ;;  
+esac  
+```
+#### Sikllar:
+```
+# For
+for item in {1..5}; do  
+    komandalar  
+done  
+
+# While
+while [ $counter -le 5 ]; do  
+    komandalar  
+    ((counter++))  
+done  
+
+# Until
+until [ $counter -gt 5 ]; do  
+    komandalar  
+    ((counter++))  
+done  
+```
+#### Chiqishni boshqarish:
+```
+command | tee file.txt          # Terminalga chiqarish + faylga saqlash  
+command >> file.txt 2>&1        # stdout/stderr’ni faylga qo‘shish  
+```
+### 3️⃣ **Sintaksis izohi**
+- ✅ `if [ ]` → `[ ]` ichida bo‘shliqlar majburiy. Raqamlar uchun `-eq`, satrlar uchun `==` ishlatiladi.
+- ✅ `case` → Bir nechta holatlarni aniqlash uchun `if`ga nisbatan soddaroq. Har bir holatni `;;` bilan tugating.
+- ✅ `for` → Ro‘yxatlar bo‘yicha aylanadi (`{1..5}`, `*.txt`, `${array[@]}`).
+- ✅ `while` / `until` → Cheksiz sikldan saqlanish uchun o‘zgaruvchilarni yangilashni unutmang.
+- ❌ **Iqtibossiz o‘zgaruvchilar** → So‘zlarni noto‘g‘ri bo‘lishi mumkin (`[ ]`) testlarida muammo.
+### 4️⃣ **Qachon / Nega ishlatiladi?**
+| Vaziyat                              | Tuzilma           | Misol                      |                 |
+| ------------------------------------ | ----------------- | -------------------------- | --------------- |
+| Menyu asosidagi skriptlar            | `case`            | `CIDR.sh` opsiyalar        |                 |
+| Fayllar yoki IP’lar bo‘yicha aylanis | `for`             | `for ip in $(prips $cidr)` |                 |
+| Xatolarga chidamli bajarish          | `while` + `break` | Xatolikda qayta urinish    |                 |
+| Real vaqtda loglash                  | `tee`             | scan                       | tee -a log.txt` |
+### 5️⃣ **Misollar**
+#### Misol 1: Tarmoq skaneri
+```
+for ip in $(prips 192.168.1.0/24); do  
+    ping -c 1 $ip >/dev/null && echo "$ip: LIVE" | tee -a live_hosts.txt  
+done
+```
+#### Misol 2: Foydalanuvchi menyusi
+```
+case $choice in  
+    1) nmap -sV $target ;;  
+    2) ping -c 4 $target ;;  
+    3) exit 0 ;;  
+    *) echo "Noto‘g‘ri tanlov" && exit 1 ;;  
+esac
+```
+#### Misol 3: Faylni shartli qayta ishlash
+```
+while read -r file; do  
+    if [ -f "$file" ]; then  
+        wc -l "$file"  
+    else  
+        echo "Yo‘q: $file" >> errors.log  
+    fi  
+done < file_list.txt
+```
+### 6️⃣ Kengaytirilgan foydalanish / Hiylalar
+- **Siklni nazorat qilish:**
+```
+for i in {1..100}; do  
+    [ $i -eq 50 ] && break     # Erta chiqish  
+    [ $i -lt 10 ] && continue  # Ba’zi aylanishlarni o‘tkazib yuborish  
+done
+```
+- **Fon rejimida ishlash**:
+```
+while read ip; do  
+    ping $ip &  # Har bir ping’ni fon rejimida bajarish  
+done < ips.txt
+```
+- **Tee uchun nomlangan quvurlar (pipe)**:
+```
+mkfifo pipe  
+command | tee pipe > output.log &  
+grep "ERROR" pipe > errors.log
+```
+### 7️⃣ **Maslahatlar va xatolar**
+- ✅ **O‘zgaruvchilarni iqtibosga oling**: `[ "$file" = "test" ]` (bo'sh joylar bilan xavfsiz ishlaydi).
+- ❌ **Cheksiz aylanishlar (infinite loops)** : Aylanishdagi o'zgaruvchilarni doimo yangilab boring (`((i++))`).
+- ✅ **Regex uchun `[[ ]]` dan foydalaning**: `[[ "$str" =~ ^[0-9]+$ ]]`.
+- ❌ **Faylni ustiga yozib yuborish (overwrite)**: Loglar uchun `>>` yoki tee `-a` dan foydalanish afzal.
+### 8️⃣ **Xulosa**
+> 🔑 Asosiy xulosalar:
+> - if / case — qaror qabul qilish uchun.
+> - for, while, until — takrorlovchi vazifalar uchun.
+> - tee — real vaqtli ko‘rinish va loglash uchun.
+> - Kirishlarni har doim tekshiring, chiqish shartlarini belgilang.
+### 🔖 Bonus: Professional maslahatlar
+- **Parallel bajarish**:
+```
+for ip in ${ips[@]}; do  
+    (ping -c 1 $ip | tee -a ping.log) &  
+done  
+wait  # Barcha fon jarayonlarini kutish
+```
+- **Rangli chiqish**:
+```
+echo -e "\e[31mXATO\e[0m"  # Qizil matn
+```
+---
+## **📌 9-faza: case operatorlari**
+### 1️⃣ **Kirish / Ta’rif**
+>   case operatorlari (ya’ni, switch-case) `if-elif-else` zanjirlariga qaraganda ancha soddaroq va toza ko‘rinishda turuvchi yozuvlarni taqdim etadi. Ular quyidagi holatlarda foydalidir:
+> - **Aniq qiymat**lar bilan solishtirishda (oraliklar yoki shartlar emas).
+> - **Bir nechta belgilangan variantlar** (masalan, menyular) bilan ishlaganda.
+> - **Andoza**larga moslashtirishda (wildcardlar, regex-ga o‘xshash yozuvlar).
+
+`if-else` dan asosiy farqlari: 
+✅ Aniq qiymatlar uchun toza sintaksis
+❌ Boolean ifodalarni (`-gt, -lt`) tekshira olmaydi
