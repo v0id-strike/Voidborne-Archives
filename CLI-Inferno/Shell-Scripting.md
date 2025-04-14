@@ -904,3 +904,124 @@ case $opt in
     "1") echo "$(date): Skanirovka tanlandi" >> audit.log ;;
 esac
 ```
+## **📌 10-faza: function (Funktsiyalar)**
+### 1️⃣ **Kirish / Ta’rif**
+> Bash’dagi funksiyalar quyidagilarni ta’minlaydi:
+> - **Kodni qayta ishlatish** (takrorlanishdan qochish)
+> - **Yaxshi tuzilganlik** (modullashtirilgan tuzilma)
+> - **Mahalliy o‘zgaruvchilar** ( local kalit so‘zi bilan )
+> - **Parametrlar uzatish** ($1, $2 — funksiyada foydalaniladi)
+> - **Qaytariladigan qiymatlar** ( exit code yoki stdout orqali)
+### 2️⃣ **Sintaksis Bloki**
+#### Funksiya yaratish:
+```
+# 1-usul (aniq)
+function nomi {
+    buyruklar
+}
+
+# 2-usul (ixcham)
+nomi() {
+    buyruklar
+}
+```
+#### Funksiyani chaqirish:
+```
+nomi              # Argumentlarsiz
+nomi "arg1"       # Argument bilan
+```
+#### Qiymatni qaytarish:
+```
+return 0          # Muvaffaqiyat (0-255 oraliqda)
+echo "qiymat"     # Chiqishni ushlash uchun
+```
+### 3️⃣ **Sintaksis izohi**
+- ✅ **`function` kalit so‘zi**: Majburiy emas, lekin o‘qilishi osonroq qiladi
+- ✅ **Parametrlar**: `$1`, `$2` orqali olinadi (funksiya doirasida)
+- ✅ **`local` o‘zgaruvchilar**: Ko‘lamni cheklaydi: `local var="qiymat`".
+- ❌ **Standart holatda global**: E’lon qilinmagan o‘zgaruvchilar butun skriptga ta’sir qiladi.
+### 4️⃣ **Qachon va nima uchun ishlatiladi**
+| Holat           | Funksiya afzalligi            | Misol                            |
+| --------------- | ----------------------------- | -------------------------------- |
+| Takroriy kod	  | Bitta ta’rif, ko‘p chaqirish  | `network_range()` `CIDR.sh` da   |
+| Murakkab mantiq | Alohida tekshirish, tuzatish  | Kiritilgan ma’lumotni tekshirish |
+| Skriptni tuzish | Mantiqiy bo‘limlarga ajratish | `main()` with sub-functions      |
+5️⃣ Misollar
+#### 1-misol: Oddiy funksiya
+```
+function salomlash {
+    echo "Salom, $1!"
+}
+salomlash "Ozodbek"  # → "Salom, Ozodbek!"
+```
+#### 2-misol: Status (kod) qaytarish
+```
+function fayl_bormi {
+    [ -f "$1" ] && return 0 || return 1
+}
+fayl_bormi "test.txt"
+echo "Mavjudmi? $?"  # 0=ha, 1=yo‘q
+```
+#### 3-misol: Chiqishni ushlash
+```
+function ip_ol {
+    host $1 | grep "has address" | cut -d" " -f4
+}
+iplar=$(ip_ol "example.com")
+```
+### 6️⃣ **Kengaytirilgan foydalanish / Foydali usullar**
+- **Dinamik o‘zgaruvchilar**:
+```
+function o_rnat {
+    local "$1"="$2"  # Xavfsiz tayinlash
+}
+o_rnat "rang" "qizil"
+```
+- **Array (ro‘yxat) argumentlari**:
+```
+function fayllarni_kor {
+    for file in "$@"; do
+        wc -l "$file"
+    done
+}
+fayllarni_kor *.txt
+```
+- **Xatolikni tuzatuvchi funksiya**:
+```
+function xavfsiz_ochir {
+    [ -e "$1" ] || { echo "Fayl topilmadi"; return 1; }
+    rm "$1"
+}
+```
+### 7️⃣ **Maslahatlar va xatoliklar**
+- ✅ **Har doim `local`**: Yon ta’sirlarning oldini oladi: `local counter=0`.
+- ❌ **Global o‘zgaruvchilardan haddan tashqari foydalanish**: Xatoliklarni tuzatishni qiyinlashtiradi.
+- ✅ **Funksiyalarni hujjatlashtiring (izoh bilan tushuntiring)**: bu kodni tushunishni va qo‘llab-quvvatlashni osonlashtiradi.
+```
+# Foydalanish: salomlash <ism>
+# Qaytaradi: Salom matni
+function salomlash { ... }
+```
+- ❌ **Natijani e'tiborsiz qoldirish**: `$?` orqali chiqish kodini tekshiring yoki chiqishni o‘zgaruvchiga yozib oling.
+### 8️⃣ ***Xulosa**
+### Asosiy xulosalar:
+
+- Qayta ishlatiladigan kod bloklari uchun funksiyalardan foydalaning.
+- `local` o‘zgaruvchilar tasodifiy global o‘zgarishlarning oldini oladi.
+- Natijani `exit` kodlari orqali ( `0` = muvaffaqiyat) yoki `stdout` chiqishini ushlab olish orqali qaytaring.
+- Maqsad va foydalanishni hujjatlashtiring — texnik xizmat ko‘rsatishni yengillashtiradi.
+## 🔖 Bonus: Pro Maslahatlar
+### Nosozliklarni aniqlash:
+```
+function debug {
+    echo "DEBUG: $*" >&2  # stderrga chiqarish
+}
+debug "O‘zgaruvchi x=$x"
+```
+### Rangli ogohlantirish:
+```
+function ogohlantir {
+    echo -e "\e[33mOGOH: $*\e[0m" >&2
+}
+ogohlantir "Diskda joy kam"
+```
