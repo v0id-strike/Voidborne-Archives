@@ -1,164 +1,150 @@
-*"Master every command, decode every whisper, and leave no stone unturned on your journey. Embrace every topic—big or small—as you forge your legacy in the shadowed realms of cyberspace."* 
+# "Har bir buyruqni o‘rgan, har bir shiverni yech, va sayohatingizda hech qanday toshni o‘zgartirmang. Har bir mavzuni — katta yoki kichik — qabul qiling, kiberxavfsizlikning soyali olamlarida meros qoldirishingiz uchun."
 
 ---
-### **Phase 1: Shadow-Lab – Constructing the Cyber Fortress**
+### **1-bosqich: Shadow-Lab – Kiber Qo‘rg‘onini Qurish**
 
-**Goal**: _Lay the foundation of your digital battlefield—deploy core machines, forge secure networks, and shape the architecture of your domain._
+**Maqsad**: _Sizning raqamli jang maydoningizning asosini qo‘yish — asosiy mashinalarni joylashtirish, xavfsiz tarmoqlarni yaratish va o‘z domeningizning arxitekturasini shakllantirish._
 
-- **Domain Expansion**  
-  *A world must be built before war can begin. Construct the virtual domain within VirtualBox, mapping the roles of each machine. OPNsense guards the gates, AthenaOS wields the blade, Ubuntu Server whispers in the dark, Arch Linux crafts the soul, while Metasploitable and Fedora Server lurk in exile, waiting for their fate.*
+- **Domenni kengaytirish**  
+  *Dunyo qurilmasa, urush boshlanmaydi. VirtualBoxda virtual domenni qurib, har bir mashinaning rolini belgilash. OPNsense darvozalarni himoya qiladi, AthenaOS qilichni ko‘taradi, Ubuntu Server qorong‘ilikda shivirlashadi, Arch Linux ruхni yaratadi, Metasploitable va Fedora Server exile’da qoladi, taqdiri kutmoqda.*
 
-- **The Firewall’s Dawn** 
-  *Summon the first guardian—install and configure OPNsense as the sentinel of your realm. Assign three sacred paths: NAT for the outside world, LAN for the trusted core, and DMZ for the forsaken.*
+- **Firewally boshidan**  
+  *Birinchi himoyachini chaqiring — OPNsense-ni o‘rnatib, domeningizning qoralig‘iga qarshi himoyachisi sifatida sozlash. Uchta muqaddas yo‘lni belgilash: NAT tashqi dunyo uchun, LAN ishonchli markaz uchun va DMZ forsakenlar uchun.*
 
-- **The Attacker’s Birth** 
-  *From the depths of darkness, AthenaOS awakens—your blade in the cyber shadows. Configure tools of penetration, forge the arsenal of exploits, and establish its rightful place within the LAN.*
+- **Huquqbuzarning tug‘ilishi**  
+  *Qorong‘ulikdan AthenaOS uyg‘onadi — kiber soyalaridagi qilichingiz. Penetratsiya vositalarini sozlash, ekspluatatsiyalar arsenali yaratish va uni LANga joylashtirish.*
 
-- **The Keeper of Secrets**  
-  *Ubuntu Server rises as the silent orchestrator—crafting hidden corridors for C2 operations and web hosting. Shape its structure with SSH, configure its shields, and ensure its whispers remain unheard beyond the veil.*
+- **Sirlarga So‘nggi Qarash**  
+  *Ubuntu Server jimning ijrochisi sifatida uyg‘onadi — C2 operatsiyalari va veb xosting uchun yashirin yo‘llarni yaratish. SSH bilan tuzilishini shakllantiring, qalqonlarini sozlang va uning shivirlari pardaning ortida eshitilmasligini ta’minlang.*
 
-- **The Architect’s Canvas**  
-  *Arch Linux, the sculptor’s masterpiece, awaits your vision. Mold it to perfection—rice the environment, shape the interface, and command the system with unyielding precision.*
+- **Arxitektning naqshlari**  
+  *Arch Linux, haykaltrening asari, sizning ko‘rinishingizni kutmoqda. Uni mukammallikka keltiring — muhitni o‘rnating, interfeysni shakllantiring va tizimni qat’iyat bilan boshqaring.*
 
-- **The Exiled Ones**  
-  *Beyond the firewall’s grace, in the desolate DMZ, remnants of the fallen await. Metasploitable, broken yet brimming with weaknesses, and Fedora Server, a gateway to Docker’s realm—unleash them to test, to conquer, to learn.*
-
----
-### **Phase 2: CLI-Inferno – Embracing the Terminal's Flame**  
-**Goal**: *Become one with your machine—master every command, script, and system secret.*
-
-- **The Newborn Terminal**  
-  *Begin at the very beginning: install multiple Linux distributions (Arch, Ubuntu, Fedora, Debian) via Live USBs and virtual machines. Learn the basics—navigating directories, file manipulation (ls, cd, cp, mv, rm), and understanding the Linux file hierarchy.*
-
-- **The Man Pages’ Muse**  
-  *Turn to the ancient scrolls—man pages, info commands, and online documentation—to seek wisdom on every command and system utility.*
-
-- **The File’s Chronicle**  
-  *Delve into file permissions, ownership, and the mysteries of the Unix file system. Learn about symbolic links, hard links, and how to tame file hierarchies with chmod, chown, and umask.*
-
-- **The Shell’s Symphony**  
-  *Compose elegant shell scripts using Bash and Zsh. Master variables, loops, conditionals, functions, and learn how to automate mundane tasks to orchestrate your system’s performance.*
-
-- **The Daemon’s Whisper**  
-  *Uncover the secrets of background processes: learn about system logs (syslog, journalctl), process management (ps, top, htop), and debugging with strace, ltrace, and gdb.*
-
-- **The Chisel and the Hammer**  
-  *Tinker with the very heart of your OS—compile your own Linux kernel, adjust system calls, and write simple kernel modules. Feel the pulse of the machine as you shape its core.*
-
-- **Sentinels of Security**  
-  *Lay the foundations of protection: configure firewalls (iptables, nftables), explore security frameworks like SELinux and AppArmor, and secure your system against the digital dark.*
-
-- **Containers & Forensics**  
-  *Harness the power of containerization with Docker, Podman, and LXC. Then, when secrets need uncovering, master forensics tools (dd, foremost, Autopsy) to analyze logs, disk images, and system artifacts.*
+- **Qochqinlar**  
+  *Firewallyning inoyatidan tashqarida, DMZda, qulaganlarning qoldiqlari kutmoqda. Metasploitable, buzilgan, ammo zaifliklarga to‘la, va Fedora Server, Docker olamining darvozasiga kirish — ularni chiqarib, sinovdan o‘tkazing, zabt eting, o‘rganing.*
 
 ---
-### **Phase 3: Network Wars – Navigating the Digital Abyss**  
-**Goal**: *Understand and command the invisible threads that bind computers together.*
+### **2-bosqich: CLI-Inferno – Terminalning Ochiq Yoriqlari**
 
-- **The Ether’s Awakening**  
-  *Start with the basics of networking hardware and protocols. Learn about network interfaces, Ethernet, Wi-Fi, and the tools to test and monitor your connection.*
+**Maqsad**: *Mashinalaringiz bilan bir bo‘ling — har bir buyruq, skript va tizim sirlarini o‘rganing.*
 
-- **The Layers of Reality**  
-  *Decipher the OSI model and the TCP/IP stack. Learn about IP addressing, subnetting, and the magic behind DNS, DHCP, and ARP.*
+- **Yangi tug‘ilgan Terminal**  
+  *Eng boshlanishdan: bir nechta Linux distribyutivlarini (Arch, Ubuntu, Fedora, Debian) Live USB va virtual mashinalar orqali o‘rnatish. Asoslarni o‘rganing — kataloglar orqali harakatlanish, fayllarni manipulyatsiya qilish (ls, cd, cp, mv, rm) va Linux fayl tizimi tuzilmasini tushunish.*
 
-- **The Protocol Opera**  
-  *Study every note in the network symphony: TCP, UDP, ICMP, HTTP/S, FTP, SMTP, SSH, and more. Understand how each protocol communicates and interacts.*
+- **Man sahifalarining ilhomi**  
+  *Qadimgi parchalarga murojaat qiling — man sahifalari, info buyruqlari va onlayn hujjatlar — har bir buyruq va tizim yordamchi dasturini o‘rganish.*
 
-- **The Architect’s Blueprint**  
-  *Design and configure networks—set up routers, switches, VLANs, NAT, and port forwarding. Build and secure your own mini Internet in the lab.*
+- **Faylning xronikasi**  
+  *Fayl ruxsatnomalari, egalik va Unix fayl tizimining sirlarini kashf eting. Simvolik havolalar, qattiq havolalar va fayl tizimlarini chmod, chown va umask orqali qanday boshqarishni o‘rganing.*
 
-- **Whispering Through Wires**  
-  *Learn the art of packet capture with Wireshark, tcpdump, and tshark. Analyze network traffic, identify anomalies, and become fluent in the language of data packets.*
+- **Shell simfoniyasi**  
+  *Bash va Zsh yordamida chiroyli shell skriptlarini yozing. O‘zgaruvchilar, sikllar, shartlar, funktsiyalarni o‘rganing va kundalik vazifalarni avtomatlashtirish orqali tizimingizning ishlashini muvofiqlashtiring.*
 
-- **Proxies & Veils**  
-  *Implement proxies, explore VPNs (OpenVPN, WireGuard), and traverse the murky realms of the TOR network. Master techniques to hide your digital footprint.*
+- **Daemonning shiviri**  
+  *Orqa jarayonlar sirlarini oching: tizim jurnalini (syslog, journalctl), jarayonlarni boshqarish (ps, top, htop) va strace, ltrace, gdb yordamida nosozliklarni tekshirishni o‘rganing.*
 
-- **Digital Fortresses**  
-  *Build impenetrable defenses with firewalls (pfSense, iptables) and intrusion detection systems (Snort, Suricata, Zeek). Understand SIEM tools to correlate and analyze security events.*
+- **Xaltalar va Bolg‘a**  
+  *O‘zingizning Linux yadroingizni to‘g‘ri kompilyatsiya qiling, tizim chaqiruvlarini sozlang va oddiy yadro modullarini yozing. Mashinangizning urishini his eting.*
 
-- **Invisible Passage**  
-  *Learn advanced networking tricks: SSH tunneling, proxychains, VPN pivoting, and the art of lateral movement across networks.*
+- **Xavfsizlikni himoya qilish**  
+  *Himoya asoslarini qo‘yish: firewalllarni (iptables, nftables) sozlash, SELinux va AppArmor kabi xavfsizlik tizimlarini o‘rganish va tizimingizni raqamli qorong‘ilikdan himoya qilish.*
 
----
-### **Phase 4: Red Nights – Dancing with the Shadows**  
-**Goal**: *Step into the shoes of an adversary—understand, simulate, and ultimately master the art of offensive security.*
-
-- **The Trickster’s Prelude**  
-  *Begin with the human element: study social engineering techniques including phishing, vishing, and pretexting. Learn to wield persuasion as a weapon and the countermeasures to defend against it.*
-
-- **The Eye of the Storm**  
-  *Master OSINT—scour the internet using Google dorking, recon-ng, Maltego, and theHarvester to gather intelligence on any target, be it digital or physical.*
-
-- **The Shadows of the Physical Realm**  
-  *Delve into physical security: learn basic lock picking, RFID cloning, tailgating, and bypass techniques to understand how real-world security is breached.*
-
-- **The Digital Assassin’s Arsenal**  
-  *Get hands-on with Active Directory: learn LDAP, Kerberos, Group Policy, and techniques like LLMNR poisoning, Pass-the-Hash, and Kerberoasting. Map out enterprise networks using BloodHound.*
-
-- **The Art of Exploitation**  
-  *Study vulnerability scanning and exploitation tools: Nmap, Nessus, OpenVAS, and learn manual exploitation techniques to turn vulnerabilities into entry points.*
-
-- **Scripting the Infiltration**  
-  *Hone your coding skills with Python, Bash, and PowerShell to develop custom exploits, automate tasks, and control your attacks.*
-
-- **The Red Storm**  
-  *Familiarize yourself with comprehensive penetration testing frameworks like Metasploit, Cobalt Strike, and Empire. Learn to craft custom payloads that bypass conventional defenses.*
-
-- **The Final Gambit**  
-  *Master privilege escalation techniques for both Linux and Windows systems. Practice exploiting misconfigurations, kernel vulnerabilities, and other overlooked weak points.*
-
-- **The Veil of Shadows**  
-  *Perfect your OPSEC: learn anti-forensics, log manipulation, digital footprint reduction, and methods to cover your tracks like a ghost in the system.*
-
-- **Simulated Chaos**  
-  *Engage in full red team exercises and simulated breaches to put all your skills to the test, from reconnaissance to exploitation and post-engagement analysis.*
+- **Kontainerlar va Forensika**  
+  *Docker, Podman, LXC bilan kontainerizatsiya kuchidan foydalaning. Keyin, sirlar kashf etilishi kerak bo‘lsa, forensika vositalari (dd, foremost, Autopsy) yordamida jurnallarni, disk rasmlarini va tizim artefaktlarini tahlil qiling.*
 
 ---
-### **Phase 5: Art of Malware – Crafting Digital Sorcery**  
-**Goal**: *From low-level code to stealthy implants—learn to create malware that lurks and persists in the shadows.*
+### **3-bosqich: Tarmoq Urushlari – Raqamli Cheksizlikda Sayohat**
 
-- **The Alchemist’s Primer**  
-  *Lay the groundwork with C programming and an introduction to C++. Understand how software interacts with hardware and the nuances of memory management.*
+**Maqsad**: *Kompyuterlarni birlashtiradigan ko‘rmas iplarni tushunish va boshqarish.*
 
-- **Assembly of the Ancients**  
-  *Dive into the realm of x86/x64 Assembly. Learn to read and write assembly code, understand processor instructions, and grasp the inner workings of your machine.*
+- **Efirning uyg‘onishi**  
+  *Tarmoq apparatlari va protokollarining asoslari bilan boshlang. Tarmoq interfeyslari, Ethernet, Wi-Fi va ulanishni sinovdan o‘tkazish va monitoring qilish vositalarini o‘rganing.*
 
-- **The Silent Code**  
-  *Craft your first shellcode. Learn the techniques of process injection, code caves, and how to create payloads that execute without detection.*
+- **Haqiqiyatning qatlamlari**  
+  *OSI modelini va TCP/IP stekini dekodlash. IP manzillari, subnetlash, DNS, DHCP va ARPning sehrini o‘rganing.*
 
-- **Structures of the Abyss**  
-  *Dissect PE and ELF file formats—understand how executables are built, and learn to manipulate these structures for both exploitation and defense.*
+- **Protokollar opera**  
+  *Tarmoq simfoniyasining har bir notasi bilan tanishing: TCP, UDP, ICMP, HTTP/S, FTP, SMTP, SSH va boshqalar. Har bir protokol qanday muloqot qilishini va o‘zaro aloqalarini tushuning.*
 
-- **Mirror of the Machine**  
-  *Enter the realm of reverse engineering with tools like IDA Pro, Ghidra, and radare2. Practice analyzing malware samples and uncovering their secrets.*
+- **Arxitektning loyihasi**  
+  *Tarmoqlarni loyihalash va sozlash — routerni, switchlarni, VLAN-larni, NAT va port yo‘naltirishni o‘rnatish. O‘z mini Internetingizni labaratoriyada qurish va xavfsizligini ta’minlash.*
 
-- **Obscure Enchantments**  
-  *Experiment with obfuscation, packing, and polymorphism. Learn methods to cloak your code from antiviruses and static analysis tools.*
+- **Tarmoqlardan shivirlash**  
+  *Wireshark, tcpdump, tshark yordamida paketlarni tahlil qilish san’ati bilan tanishing. Tarmoq trafigini tahlil qiling, anomaliyalarni aniqlang va ma'lumot paketlarining tiliga qobiliyatli bo‘ling.*
 
-- **Evasion Dance**  
-  *Study anti-debugging and sandbox evasion techniques. Learn how malware detects virtual environments and bypasses them to avoid detection.*
+- **Proksilar va pardalar**  
+  *Proksilarni o‘rnatish, VPN-larni (OpenVPN, WireGuard) o‘rganish va TOR tarmog‘ining murg‘ak olamiga sayohat qilish. Raqamli izingizni yashirish uchun texnikalarni o‘rganing.*
 
-- **Persistent Shadows**  
-  *Design persistence mechanisms using registry manipulation, scheduled tasks, services, and even bootkits. Ensure your digital presence remains undisturbed and resilient.*
+- **Raqamli qal’alar**  
+  *Firewalls (pfSense, iptables) va tarmoqni o‘rganishga yordam beradigan SIEM tizimlarini qurish. Tarmoq xavfsizligi hodisalarini tahlil qilishni o‘rganing.*
 
-- **The Command of the Undead**  
-  *Build your own Command & Control (C2) infrastructures. Learn to create covert channels for communication between your malware and its master control.*
-
-- **The Final Conjuring**  
-  *Combine your skills to craft a custom implant—integrating stealth, persistence, and effective communication to embody your mastery of digital sorcery.*
+- **Ko‘rinmas o‘tkazish**  
+  *SSH tunneling, proxychains, VPN pivoting va tarmoqlar orasidagi harakatlarning san’ati bilan tanishing.*
 
 ---
-### **Phase 6: The Hacker’s Legacy – Transcending Mortal Limits**  
-**Goal**: *Emerge not just as a skilled practitioner, but as a master, mentor, and innovator in the cyber realm.*
+### **4-bosqich: Qizil Tungi – Soyalar Bilan Raqs**
 
-- **The Grand Heist**  
-  *Plan and execute full-scale red team engagements. Develop strategies for multi-vector attacks, coordinate simulated adversary operations, and learn from every successful breach—and every failure.*
+**Maqsad**: *Raqibning poyabzaliga qadam qo‘ying — xavfsizlikni tushuning, simulyatsiya qiling va oxir-oqibat, hujumni o‘zlashtiring.*
 
-- **The Master’s Codex**  
-  *Advance your expertise with cutting-edge threat hunting, incident response, and advanced digital forensics. Reverse-engineer complex malware and contribute new insights to the community.*
+- **Qanday qilishni o‘rganish**  
+  *Insoniy jihatdan boshlang: phishing, vishing va pretexting kabi ijtimoiy muhandislik texnikalarini o‘rganing. Persuaziyani qurol sifatida ishlatishni va unga qarshi himoya choralarini o‘rganing.*
 
-- **The Eternal Library**  
-  *Stay on the bleeding edge: explore IoT security, cloud-native defenses, container security, and the emerging realm of AI-driven cyber warfare. Constantly update your knowledge as technology evolves.*
+- **Kompyuterni to‘liq urish**  
+  *Xavfsizlikni buzish: Exploitlar, Metasploit, Netcat va boshqa hujum vositalari bilan mashq qilish. Tizimlarni chiroyli tarzda buzishni, zaifliklarni to‘g‘ri tahlil qilishni o‘rganing.*
 
-- **The Cypher’s Destiny**  
-  *Delve into advanced cryptography, study quantum computing implications, and explore the future of cybersecurity to ensure you’re always several steps ahead of the curve.*
+- **Ko‘rsatilgan urushlar**  
+  *Fayl buzilishi, tarmoqqa zarar yetkazish, XSS, SQLi, RCE kabi hujumlarni muvaffaqiyatli amalga oshiring. Yaxshi tushuning va himoya qilishni ko‘rsating.*
+
+- **Kiberhujumning qoidalari**  
+  *Keyinchalik butun loyihalarning xavfsizligini tekshirib chiqish va javob tizimlarini qo‘llab-quvvatlash. Tarmoq va tizimlarni to‘g‘ri himoya qilishni amalga oshiring.*
+
+---
+### **5-bosqich: Zararli Dasturlar San’ati – Raqamli Sehrgarlikni Yaratish**
+
+**Maqsad**: *Kam darajadagi koddan tortib, ko‘zdan kechirilmaydigan implantlarga qadar—soya ichida yashirinish va mustahkamlanish uchun zararli dasturlar yaratishni o‘rganing.*
+
+- **Alkimyogar Dasturi**  
+  *C dasturlash tili va C++ ga kirish bilan asos soling. Dasturiy ta’minotning apparat bilan qanday o‘zaro aloqada bo‘lishini va xotira boshqaruvining nozik tomonlarini tushunib oling.*
+
+- **Kadimgi Dastur Kodlari**  
+  *x86/x64 Assembly tiliga kirib boring. Assembly kodlarini o‘qish va yozishni o‘rganing, protsessor buyruqlarini tushuning va mashinangizning ichki ishlashini anglab yeting.*
+
+- **Jim Kod**  
+  *Birinchi shellkodni yarating. Jarayonni inyeksiya qilish, kod g‘orlarini yaratish va aniqlanishdan o‘tkazilmasdan payloadlar yaratish texnikalarini o‘rganing.*
+
+- **Zaharning Tuzilishi**  
+  *PE va ELF fayl formatlarini tahlil qiling—ijro etiladigan fayllar qanday yaratilishini tushuning va bu strukturalarni ekspluatatsiya va himoya uchun qanday manipulyatsiya qilishni o‘rganing.*
+
+- **Mashinani Ko‘rish**  
+  *IDA Pro, Ghidra va radare2 kabi teskari muhandislik vositalari bilan tanishing. Zararli dasturlar namunalarini tahlil qilish va ularning sirlarini aniqlash bo‘yicha mashq qiling.*
+
+- **Noaniq Sehrlar**  
+  *Obfuskatsiya, pakkalash va polimorfizm bilan tajriba qiling. Kodingizni antiviruslar va statik tahlil vositalaridan yashirish usullarini o‘rganing.*
+
+- **Qochish Raqsi**  
+  *Anti-debugging va sandboxdan qochish texnikalarini o‘rganing. Zararli dasturlar virtual muhitlarni qanday aniqlashini va ularni tahlil qilishdan qochishini tushuning.*
+
+- **Doimiy Soyalar**  
+  *Registrni manipulyatsiya qilish, rejalashtirilgan vazifalar, xizmatlar va hatto bootkitlardan foydalangan holda doimiylik mexanizmlarini yaratish. Raqamli mavjudligingizni bezovta qilmasdan va mustahkam holda saqlang.*
+
+- **O‘liklarning Buyrug‘i**  
+  *O‘z Command & Control (C2) infratuzilmalaringizni yarating. Zararli dastur va uning boshqaruv markazi o‘rtasidagi yashirin aloqa kanallarini yaratishni o‘rganing.*
+
+- **So‘nggi Sehr**  
+  *O‘z malakalaringizni birlashtirib, maxsus implantni yarating—soya, doimiylik va samarali kommunikatsiyani birlashtirib, raqamli sehrgarlikdagi ustunligingizni namoyish qiling.*
+
+### **6-bosqich: Hakerlar Merosi – O‘limdan O‘zgacha O‘zgarish**
+
+**Maqsad**: *Faqat tajribali mutaxassis bo‘lish emas, balki kiber sohada ustoz, mentor va innovator sifatida paydo bo‘lish.*
+
+- **Katta Talon**  
+  *To‘liq miqyosdagi qizil jamoa faoliyatlarini rejalashtiring va amalga oshiring. Ko‘p vektorli hujumlar strategiyalarini ishlab chiqaring, simulyatsiya qilingan raqib operatsiyalarini muvofiqlashtiring va har bir muvaffaqiyatli buzilishdan ham, har bir muvaffaqiyatsizlikdan ham o‘rganing.*
+
+- **Ustozning Kodexi**  
+  *Xavf tahlili, hodisa javob berish va ilg‘or raqamli forensika bo‘yicha tajribangizni oshiring. Murakkab zararli dasturlarni teskari muhandislikdan o‘tkazing va jamiyatga yangi bilimlar qo‘shing.*
+
+- **Abadiy Kutubxona**  
+  *Har doim zamonaviy texnologiyalarga moslashing: IoT xavfsizligi, bulutga asoslangan himoya tizimlari, konteyner xavfsizligi va AI asosida kiber urushning yangi olamlarini o‘rganing. Texnologiyalar rivojlanishi bilan bilimlaringizni doimiy ravishda yangilang.*
+
+- **Shifrlovchining Taqdiri**  
+  *Ilg‘or kriptografiyani o‘rganing, kvant hisoblashning ta’sirini o‘rganing va kiberxavfsizlikning kelajagi haqida chuqur izlanishlar olib boring. Doimo oldinga qarab yurish va texnologiyalardan oldinda bo‘lishni ta’minlang.*
