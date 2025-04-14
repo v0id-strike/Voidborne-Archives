@@ -1,147 +1,108 @@
-# 📝 Note-Taking Structure (for tech topics)
+# Bash-da Case Statements
 
-### 1. **Title**
-- Write the main topic clearly.
-- Example: `Case Statements in Bash`
+## Nima bu?
+Case statements – Bashda o'zgaruvchi qiymatiga asoslanib oqimni boshqarish usulidir. Bu C/C++ tillaridagi switch-case konstruktsiyasiga o'xshash.
 
----
-
-### 2. **Introduction / Definition**
-- Brief explanation of what it is.
-- Optional: Mention comparisons to other languages/tools.
-- Example:
-  > `Case statements are a way to control flow in Bash based on variable matching, similar to switch-case in C/C++.`
-
----
-
-### 3. **Syntax Block**
-- Write the general form/structure.
-- Use code block formatting.
-- Example:
-  ```bash
-  case <variable> in
-      pattern1 )
-          commands
-          ;;
-      pattern2 )
-          commands
-          ;;
-      * )
-          default commands
-          ;;
-  esac
-  ```
-
----
-
-### 4. **Explanation of Syntax**
-- Break down each part line by line.
-- Use bullet points or ✅ checkmarks for clarity.
-- Example:
-  - ✅ `case <variable> in` — starts the case statement.
-  - ✅ `pattern )` — matches the value.
-  - ✅ `;;` — ends the case block.
-  - ✅ `esac` — ends the whole statement.
-
----
-
-### 5. **Why / When to Use**
-- Explain the use cases.
-- Optional: Comparison table (if useful).
-- Example:
-  > *Use when you have multiple choices based on exact matches or patterns. Easier to manage than multiple if-else.*
-
-| Situation          | Use `if`      | Use `case`  |
-| ------------------ | ------------- | ----------- |
-| Numeric comparison | ✅             | ❌           |
-| Menu choices       | ✅ (but messy) | ✅ (cleaner) |
-
----
-
-### 6. **Examples**
-- Provide several working examples.
-- Start with simple, go to advanced.
-- Example:
-  ```bash
-  read -p "Enter choice: " choice
-  case $choice in
-      1 ) echo "Option 1 selected" ;;
-      2 ) echo "Option 2 selected" ;;
-      * ) echo "Invalid option" ;;
-  esac
-  ```
-
----
-
-### 7. **Advanced Usage / Tricks (Optional)**
-- Add pattern matching, loops, etc.
-- Example: Pattern matching with `[Yy]`
-
----
-
-### 8. **Tips & Common Mistakes**
-- Optional but **very useful**.
-- Helps you remember pitfalls.
-- Example:
-  > ❌ Forgetting the `;;` at the end of a block will cause errors.
-  > ✅ Always close the `case` with `esac`.
-
----
-
-### 9. **Summary**
-- Quick recap of what you learned.
-- Example:
-  > *Case statements help control flow by comparing a variable to patterns. They're clean and good for user input menus.*
-
----
-
-### 10. **Optional: Exercises / To-Do**
-- List things to practice.
-- Example:
-  > - [ ] Create a script with 3 menu options.
-  > - [ ] Try pattern matching with `[A-Za-z]`.
-  > - [ ] Make a case statement inside a loop.
-
----
-
-### 🔖 Bonus
-If you’re keeping digital notes, you can also:
-- ✅ Use **headings** for fast navigation.
-- ✅ Use **checklists** for tasks.
-- ✅ Use **code blocks** for clarity.
-- ✅ Add **emojis or icons** for visual memory (like ✅, ❌, 🧩, 🚀).
-
----
-
-### 📂 Example Visual Layout
-
+## Sintaksis
+```bash
+case <o'zgaruvchi> in
+    pattern1 )
+        buyruqlar
+        ;;
+    pattern2 )
+        buyruqlar
+        ;;
+    * )
+        standart buyruqlar
+        ;;
+esac
 ```
-# Case Statements in Bash
+### 4. **Sintaksisning Tushuntirish**
+- Har bir qismni qatorma-qator tushuntiring.
+- Aniqroq bo'lishi uchun balli yoki ✅ belgilardan foydalaning.
+-Misol:
+  - ✅ `case <o'zgaruvchi> in` — case bayonotini boshlaydi.
+  - ✅ `pattern )` — qiymatni moslashtiradi.
+  - ✅ `;;` — case blokining tugashi.
+  - ✅ `esac` — butun bayonotni tugatadi.
+### 5. **Qachon va Nima Uchun Foydalanish**
+- Foydalanish holatlarini tushuntiring.
+- Ixtiyoriy: taqqoslash jadvali (agar foydali bo'lsa).
+- Misol:
+> *Agar sizda aniq moslamalar yoki naqshlar asosida bir nechta tanlov bo'lsa, ishlating. Ko'proq if-else yordamida boshqarishdan osonroq.*
 
-## What is it?
-Quick explanation...
+| `Vaziyat`            | `if`               | `case`   |
+| ------------------ | ------------------ | -------- |
+| Raqamli taqqoslash | ✅                 | ❌       |
+| Menyu variantlari	 | ✅ (lekin chalkash)| ✅ (toza)|
+## 6. Misollar (Namunalar)
+- Bir nechta ishlaydigan misollarni taqdim eting.
+- Oddiydan boshlang, keyin murakkabgacha o'ting.
+- Misol:
+```bash
+read -p "Enter choice: " choice
+case $choice in
+    1 ) echo "Option 1 selected" ;;
+    2 ) echo "Option 2 selected" ;;
+    * ) echo "Invalid option" ;;
+esac
+```
+# 7. Qo‘shimcha Foydalanish / Hiylalar (Ixtiyoriy)
 
-## Syntax
-(case block)
+- Naqshlarni solishtirish, tsikllar va boshqalarni qo‘shing.
+- Misol: `[Yy]` bilan naqshlarni solishtirish.
 
-## Parts Explained
-- case <variable> in — ...
-- pattern ) — ...
+# 8. Maslahatlar va Keng Tarqalgan Xatolar
 
-## When to Use
-| Situation | if | case |
+- Ixtiyoriy, lekin juda foydali.
+- Tuzoqlarni eslab qolishga yordam beradi.
+- Misol:  
+  > Blok oxirida `;;` ni unutish xatolarga olib keladi. Har doim `esac` bilan `case` ni yoping.
+
+# 9. Xulosa
+
+- O‘rganilgan narsalarning tezkor takrori.
+- Misol:  
+  > `Case` gaplar o‘zgaruvchini naqshlar bilan solishtirib, oqimni boshqarishga yordam beradi. Ular aniq va foydalanuvchi menyulari uchun yaxshi.
+
+# 10. Ixtiyoriy: Mashqlar / Vazifalar
+
+- Amaliyot uchun narsalarni ro‘yxatlang.
+- Misol:  
+  > 3 ta menyu varianti bo‘lgan skript yarating.  
+  > `[A-Za-z]` bilan naqshlarni solishtirishni sinab ko‘ring.  
+  > Tsikl ichida `case` gapini yarating.
+### 🔖 Bonus  
+Agar siz raqamli eslatmalarni olib borayotgan bo'lsangiz, shuningdek quyidagilarni ham ishlatishingiz mumkin:
+- ✅ Tez navigatsiya uchun sarlavhalardan foydalaning.  
+- ✅ Vazifalar uchun tekshirish ro'yxatlarini foydalaning.  
+- ✅ Tushunarli bo'lishi uchun kod bloklaridan foydalaning.  
+- ✅ Vizual esda qolish uchun emoji yoki ikonkalardan foydalaning (masalan, ✅, ❌, 🧩, 🚀).
+### 📂 Namuna Vizual Tartib
+---
+```
+# Bash-da Case Statements
+## Nima bu?  
+Tezkor tushuntirish...
+## Sintaksis  
+(case blok)
+## Tushuntirish  
+- `case <o'zgaruvchi> in` — ...
+- `pattern )` — ...
+
+## Qachon Ishlatish  
+| Vaziyat                | if | case |
 ...
+## Misollar  
+( kod misoli )
 
-## Examples
-(code example)
+## Maslahatlar va Xatolar  
+- ✅ `;;` ni eslab qoling.  
+- ❌ `esac` ni unutmaslikka harakat qiling.
 
-## Tips & Mistakes
-- ✅ Remember ;;
-- ❌ Don't forget esac
+## Xulosa  
+Tezkor xulosa...
 
-## Summary
-Quick recap...
-
-## Exercises
-- [ ] Make a menu script
+## Mashqlar  
+- [ ] Menyu skriptini yaratish.
 ```
