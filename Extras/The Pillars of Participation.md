@@ -1,10 +1,12 @@
-Welcome, fellow seekers of knowledge. As you contribute to this roadmap, keep these principles in mind:
+# Bilim izlovchilari, xush kelibsiz!
 
-- **Stay True to the Theme** – Keep your contributions aligned with the roadmap’s structured and immersive style. Clarity and engagement go hand in hand.
-- **Clear Yet Impactful** – While creativity is encouraged, technical insights should remain clear, practical, and actionable.
-- **Respect the Foundation** – This roadmap is built on shared knowledge and collaboration. Maintain integrity, accuracy, and respect in all additions.
-- **Teach with Purpose** – Every command, concept, and strategy should help others advance in their journey. Make your contributions meaningful.
-- **Balance Style with Substance** – Use engaging language, but ensure content is informative and useful.
-- **Build for the Future** – As the project grows, each contribution should add lasting value for future learners.
+Ushbu yo‘l xaritasiga hissa qo‘shganingizda, quyidagi tamoyillarga amal qiling:
 
-Your contributions shape this resource into a guide that is both practical and inspiring. Welcome to the journey.
+- **Mavzuga Sodiq Qoling** – Hissalaringizni yo‘l xaritasining tuzilgan va o'ziga xos uslubiga mos ravishda saqlang. Aniqlik va qiziqish bir-birini to‘ldiradi.
+- **Aniq va Ta’sirli Bo‘ling** – Ijodkorlikni rag'batlantirishga ruxsat berilgan, lekin texnik tushunchalar aniq, amaliy va bajarilishi oson bo‘lishi kerak.
+- **Asosga Hurmat Bilan Yondoshing** – Ushbu yo‘l xaritasi umumiy bilim va hamkorlikka asoslangan. Hamma qo‘shgan hissa to‘g‘ri, aniq va hurmat bilan bo‘lishi kerak.
+- **Maqsadli O‘rgating** – Har bir buyruq, kontseptsiya va strategiya boshqalarga o‘rganish yo‘lida yordam berishi kerak. Qo‘shgan hissalaringiz ma’noli bo‘lishi zarur.
+- **Uslub va Mazmunni Muvozanatlang** – Qiziqarli tilda yozishni rag'batlantiramiz, lekin kontent ma'lumotli va foydali bo‘lishi kerak.
+- **Kelajakni Qurish** – Loyihalar o‘sishi bilan, har bir qo‘shgan hissa kelajakdagi o‘rganuvchilar uchun doimiy qiymat qo‘shishi kerak.
+
+Sizning hissalaringiz ushbu resursni amaliy va ilhomlantiruvchi qo‘llanma sifatida shakllantiradi. Safarga xush kelibsiz!
