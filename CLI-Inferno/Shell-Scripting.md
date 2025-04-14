@@ -1025,3 +1025,123 @@ function ogohlantir {
 }
 ogohlantir "Diskda joy kam"
 ```
+# 11-bosqich: Nosozliklarni tuzatish (Debugging)
+
+## 1️⃣ Kirish / Ta’rif
+
+Bash skriptlarida nosozliklarni tuzatish quyidagilarni aniqlash va bartaraf etishni o‘z ichiga oladi:
+
+- **Sintaksis xatolari** (yetishmayotgan qo‘shtirnoq, qavslar)
+- **Mantiqiy xatolar** (noto‘g‘ri shart yoki hisob-kitoblar)
+- **Ish vaqtidagi muammolar** (ruxsatlar, yo‘q fayllar)
+
+Asosiy vositalar: `-x` (xtrace) va `-v` (verbose) flaglari
+
+---
+
+## 2️⃣ Sintaksis Blogi
+
+### Nosozliklarni tuzatish buyruqlari:
+
+```bash
+bash -x script.sh     # Qadam-baqadam bajarishni ko‘rsatadi
+bash -v script.sh     # Skriptni asl holida va natijasi bilan ko‘rsatadi
+bash -xv script.sh    # Har ikkisini birlashtirib, batafsil tahlil qiladi
+```
+### Skript ichida debugging:
+```
+#!/bin/bash
+set -x        # Shu nuqtadan debugging yoqiladi
+code_block
+set +x        # Debugging o‘chiriladi
+```
+### 3️⃣ Sintaksis izohi
+- ✅ -x → Buyruqlarni kengaytirilgan o‘zgaruvchilar/argumentlar bilan chop etadi (+ bilan ko‘rsatiladi).
+- ✅ -v → Buyruqlar bajarilishidan oldin ularning asl shaklini ko‘rsatadi.
+- ✅ set -x/+x → Skript ichida debugging rejimini yoqish/o‘chirish imkonini beradi.
+- ❌ Breakpointlar yo‘q: IDE'lardagi kabi to‘xtatish yoki tekshirish imkoniyati Bash'da mavjud emas.
+## 3️⃣ Sintaksis izohi
+- ✅ `-x` → Kengaytirilgan o‘zgaruvchilar/argumentlar bilan buyruqlarni chiqaradi (`+` bilan ko‘rsatiladi).
+- ✅ `-v` → Buyruqlar bajarilishidan oldin ularning asl shaklini ko‘rsatadi.
+- ✅ `set -x/+x` → Skript bo‘limlarida debugging rejimini yoqish/o‘chirish imkonini beradi.
+- ❌ **Breakpointlar yo‘q**: IDE dasturlaridagidek to‘xtatish yoki tekshirish imkoniyati mavjud emas.
+---
+## 4️⃣ Qachon va nima uchun ishlatiladi
+
+| Holat                             | Vosita        | Misol                                            |
+|-----------------------------------|---------------|--------------------------------------------------|
+| O‘zgaruvchi qiymatlarini kuzatish | `-x`          | CIDR.sh ichida `$domain` o‘zgaruvchisini ko‘rish |
+| Boshqaruv oqimini tekshirish      | `-x`          | `if-else` bloklarining ishlaganini tasdiqlash    |
+| Skript tahlilini tekshirish       | `-v`          | Kutilmagan o‘zgaruvchilarni erta aniqlash        |
+| Muammo bor kodni ajratib olish    | `set -x` blok | Faqat bitta funksiyani debugging qilish          |
+
+---
+## 5️⃣ Misollar
+### Misol 1: Oddiy debugging
+```bash
+$ bash -x CIDR.sh inlanefreight.com
++ '[' 1 -eq 0 ']'
++ domain=inlanefreight.com
++ echo -e 'Discovered IP address:\n165.22.119.202'
+Discovered IP address:
+165.22.119.202
+```
+#### 2️⃣ Misol: Diqqatni jamlash orqali xatolikni tuzatish.
+```
+#!/bin/bash
+# ... odatiy kodlar ...
+
+set -x             # Debug rejimni yoqish
+network_range      # Tekshirilayotgan funksiya
+set +x             # Debug rejimni o‘chirish
+
+# ... qolgan skript ...
+```
+#### 3️⃣ Misol: Batafsil (Verbose) rejim.
+```
+$ bash -v script.sh
+```
+```
+#!/bin/bash
+# Argumentlarni tekshirish
+if [ $# -eq 0 ]
+then
+    echo "Xato: Argumentlar yo‘q"
+fi
+```
+### 6️⃣ **Ilg‘or foydalanish / Xususiyatlar**
+- **PS4 Maxsus sozlash**:  
+```bash
+  export PS4='+ ${BASH_SOURCE}:${LINENO}: '  # Fayl/qatordagi raqamlarni ko‘rsatish
+  bash -x script.sh
+```
+#### Log faylga yozish:
+```
+bash -x script.sh 2> debug.log
+```
+#### Xatolikni ushlash (`trap` bilan):
+```
+trap 'echo "Xato $LINENO-qatorida"' ERR
+```
+### 7️⃣ **Maslahatlar va Ommaviy Xatoliklar**
+- ✅ **Kichik boshlang**: Har safar bitta funksiya/blokni tekshirib chiqing.  
+- ❌ **Ortga izlash**: Katta skriptlar uchun `-xv` dan qoching (faqat zarur bo'lganda ishlating).  
+- ✅ **Toza chiqish**: Kerak bo'lganda shovqinni yo'naltiring (`2>/dev/null`).  
+- ❌ **Chiqarish kodlarini e'tiborsiz qoldirish**: Muammoli buyruqlardan keyin doimo `$?` ni tekshiring.  
+# Xulosa
+Samarali debaglash uchun:
+- `-x` - bajarilayotgan qadamlar ro‘yxati  
+- `-v` - skriptni bajarishdan oldin tekshirish  
+- `set -x` / `set +x` - muammoni izolyatsiya qilish  
+- `echo` lar orqali mantiqni sinash  
+---
+## Bonus: Pro Maslahatlar
+#### Rangli debag chiziqlari:  
+```bash  
+export PS4='\e[33m+ ${BASH_SOURCE}:${LINENO}:'\e[0m '  
+bash -x script.sh 
+``` 
+#### Funksiya bajarilish vaqtini o‘lchash:
+```
+set -x; start=$SECONDS; network_range; echo "Took $((SECONDS-start))s"; set +x 
+```
