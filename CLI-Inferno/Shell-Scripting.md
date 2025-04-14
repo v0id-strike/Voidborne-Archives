@@ -828,4 +828,79 @@ esac
   - `[Yy]*` → `"Yes"`, `"yes"` kabi qiymatlar uchun mos keladi
 - ✅ `;;` → Har bir blokni yakunlaydi (C tilidagi `break`ga o‘xshaydi)
 - ✅ `esac` → `case` operatorini tugatadi (case teskari yozuvi)
-
+### 4️⃣ **Qachon va nima uchun ishlatiladi**
+| Holat                            | 	case yoki if?          | Misol                       |                 |
+| -------------------------------- | ------------------------- | --------------------------- | --------------- |
+| Menyuli skriplar                 | ✅ `case` orqali soddaroq | CIDR.sh variantlari         |                 |
+| Aniq qiymatlar bilan ishlash     | ✅ `case` aniqroq         | 	`"yes" / "no"`          |                 |
+| Pattern / wildcard bilan ishlash | ✅ `case` o‘zida mavjud   | `[Yy]*` — ha degan javoblar |                 |
+| Sonlar oralig‘i                  | ❌ `if` kerak             | `[ $num -gt 10 ]`           | tee -a log.txt` |
+ ### 5️⃣ **Misollar**
+#### 1-misol: Oddiy menyu
+```
+read -p "Amal (start|stop|restart): " cmd
+case $cmd in
+    "start") systemctl start nginx ;;
+    "stop") systemctl stop nginx ;;
+    "restart") systemctl restart nginx ;;
+    *) echo "Noto‘g‘ri buyruq" && exit 1 ;;
+esac
+```
+#### 2-misol: Wildcard moslik
+```
+read -p "Tasdiqlang (Y/n): " answer
+case $answer in
+    [Yy]*) echo "Davom etamiz..." ;;
+    [Nn]*) echo "Bekor qilindi." && exit 0 ;;
+    *) echo "Noto‘g‘ri kiritma" ;;
+esac
+```
+#### 3-misol: Ko‘p shablonli moslik
+```
+case $file_ext in
+    "jpg"|"png"|"gif") echo "Rasm fayli" ;;
+    "txt"|"md") echo "Matn fayli" ;;
+    "sh") echo "Skript fayli" ;;
+esac
+```
+### 6️⃣ **Kengaytirilgan ishlatish / Foydali usullar**
+- **Regexga o‘xshash shablonlar**:
+```
+case $host in
+    web*) echo "Veb server" ;;        # "web" bilan boshlanadi
+    *db) echo "Ma’lumotlar bazasi" ;; # "db" bilan tugaydi
+esac
+```
+- **Bir nechta holatni ketma-ket bajarish (Bash 4+)**:
+```
+;&  # Keyingi blokka o‘tadi (;; o‘rniga)
+```
+- **Chiqarish kodlari bilan ishlash**:
+```
+case $(curl -s example.com) in
+    *"200 OK"*) exit 0 ;;
+    *) exit 1 ;;
+esac
+```
+### 7️⃣ **Foydali maslahatlar va xatolar**
+- ✅ **Andozalarni (patterns) qo‘shtirnoqqa oling**: `"pattern"` — globbing (yulduzcha bilan moslashish) ni oldini olish uchun.
+- ❌ **`;;` ni unutish**: Bu holat keyingi holatlarga "o‘tish"ga sabab bo‘ladi (ko‘pincha bu kutilmagan natijani beradi).
+- ✅ **Oxirida `*` dan foydalaning**: Standart (default) holat doimo oxirgi andoza bo‘lishi kerak.
+- ❌ **Ortacha chuqurlikdagi ichma-ichlik (over-nesting)**: Murakkab mantiqlardan qoching; buning o‘rniga funksiyalardan foydalaning.
+### 8️⃣ **Xulosa**
+> case operatori quyidagilarda juda qulay:
+> - **Menyu tizimlari** ( `if-elif` dan ko‘ra ancha toza va tartibli)
+> - **Aniq yoki andozaga mos tushish** (wildcardlar, `|` bilan "YOKI" holatlari)
+> - **Standart holatlar** (`*` orqali)
+Raqamli oraliqlar yoki mantiqiy (boolean) ifodalar uchun qulay emas.
+### 🔖 Bonus: Pro Maslahatlar
+- **Rangli menyular**:
+```
+echo -e "1) \e[32mSkanirovka\e[0m\n2) \e[31mChiqish\e[0m"
+```
+- **Audit log yuritish**:
+```
+case $opt in
+    "1") echo "$(date): Skanirovka tanlandi" >> audit.log ;;
+esac
+```
