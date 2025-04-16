@@ -86,3 +86,5 @@ Void hamkorlarni kutmoqda.
 - **MIT LITSEZIYASI**: Umumiy foydalanish uchun.
 ---
 - **Nyx’s Decree**: "Uni aqlli ishlating — yoki arxivning bir qismiga aylanasiz."
+fewfuew
+fwefew
