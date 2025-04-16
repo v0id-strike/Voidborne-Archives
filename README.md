@@ -81,10 +81,8 @@ Void hamkorlarni kutmoqda.
 -  **Issue** qo‘ying — men uni buzaman.
 - Ishtirok Pillarlari: (Extras/The%20Pillars%20of%20Participation.md).
 "Kodlaringizni, mahoratingizni va kofeingizni olib keling. Terminal kutmoqda."
----
+--- 
 ## 📜 **Litsenziya**
 - **MIT LITSEZIYASI**: Umumiy foydalanish uchun.
 ---
 - **Nyx’s Decree**: "Uni aqlli ishlating — yoki arxivning bir qismiga aylanasiz."
-fewfuew
-fwefew
