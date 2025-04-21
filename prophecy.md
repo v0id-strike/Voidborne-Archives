@@ -42,9 +42,6 @@
 - **The Daemon’s Whisper**  
   *Uncover the secrets of background processes: learn about system logs (syslog, journalctl), process management (ps, top, htop), and debugging with strace, ltrace, and gdb.*
 
-- **The Chisel and the Hammer**  
-  *Tinker with the very heart of your OS—compile your own Linux kernel, adjust system calls, and write simple kernel modules. Feel the pulse of the machine as you shape its core.*
-
 - **Sentinels of Security**  
   *Lay the foundations of protection: configure firewalls (iptables, nftables), explore security frameworks like SELinux and AppArmor, and secure your system against the digital dark.*
 
