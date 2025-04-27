@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "cd28d3cd25e2f71c",
+        "id": "7b7fd48bfb5ca214",
         "type": "tabs",
         "children": [
           {
-            "id": "6c81f2f48f247c30",
+            "id": "a32902ffc7a177b5",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Obscure Codex/TimeShift.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "TimeShift"
+              "title": "New tab"
             }
           }
         ]
@@ -165,24 +161,28 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "6c81f2f48f247c30",
+  "active": "a32902ffc7a177b5",
   "lastOpenFiles": [
-    "README.md",
-    "Obscure Codex/TimeShift.md",
-    "prophecy.md",
-    "Obscure Codex/Kernel.md",
-    "CLI-Inferno/Man-Pages.md",
-    "CLI-Inferno/Background-Processes-and-Debugging.md",
+    "TimeShift.md",
+    "Wifi-Cracking.md",
+    "VirtualBox.md",
+    "Unix-Commands.md",
+    "Shell-Scripting.md",
+    "Securing-Home.md",
+    "Note-Taking Templete.md",
+    "Man-Pages.md",
+    "Kernel.md",
+    "GPG-101.md",
+    "Files.md",
+    "Background-Processes-and-Debugging.md",
+    "Arch-Setup.md",
     "Shadow-Lab/VirtualBox.md",
-    "CLI-Inferno/Unix-Commands.md",
-    "CLI-Inferno/Files.md",
-    "CLI-Inferno/Shell-Scripting.md",
-    "Obscure Codex/Arch-Setup.md",
+    "README.md",
+    "Extras/The Pillars of Participation.md",
+    "prophecy.md",
+    "Tarmoq Protokollari va Portlar (O'zbek tilida).md",
     "CLI-Inferno/Misc",
-    "Extras/Note-Taking Templete.md",
     "Shadow-Lab/AthenaOS.md",
-    "Shadow-Lab/OpnSense.md",
-    "Obscure Codex/VirtualBox.md",
-    "Obscure Codex/Securing-Home.md"
+    "Shadow-Lab/OpnSense.md"
   ]
 }
