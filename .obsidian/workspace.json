@@ -11,10 +11,14 @@
             "id": "a32902ffc7a177b5",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "Wifi-Cracking.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Wifi-Cracking"
             }
           }
         ]
@@ -163,21 +167,21 @@
   },
   "active": "a32902ffc7a177b5",
   "lastOpenFiles": [
-    "TimeShift.md",
-    "Wifi-Cracking.md",
     "VirtualBox.md",
     "Unix-Commands.md",
+    "TimeShift.md",
     "Shell-Scripting.md",
     "Securing-Home.md",
+    "README.md",
     "Note-Taking Templete.md",
+    "GPG-101.md",
     "Man-Pages.md",
     "Kernel.md",
-    "GPG-101.md",
+    "Arch-Setup.md",
     "Files.md",
     "Background-Processes-and-Debugging.md",
-    "Arch-Setup.md",
+    "Wifi-Cracking.md",
     "Shadow-Lab/VirtualBox.md",
-    "README.md",
     "Extras/The Pillars of Participation.md",
     "prophecy.md",
     "Tarmoq Protokollari va Portlar (O'zbek tilida).md",
