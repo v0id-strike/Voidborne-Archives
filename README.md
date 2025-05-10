@@ -1,20 +1,20 @@
-## 🎯 **Purpose of the Void**
+## 🎯 **Voidning Maqsadi**
 
-This repo is:
+Ushbu repo:
 
-- A **record** of my path from sysadmin to red teamer.
-- A **repository** for configs, scripts, and exploits from my homelab.
-- My [Origin](Extras/The%20Spark%20of%20a%20Cyber%20Odyssey.md).
+- Mening **sysadmin**dan **red teamer**ga o‘tish yo‘limning **yozuvlari**.
+- **Homelab**imdagi konfiguratsiyalar, skriptlar va ekspluatatsiyalarning **ma'lumotlar bazasi**.
+- Mening [**Origin**](Extras/The%20Spark%20of%20a%20Cyber%20Odyssey.md).
 
-_"Every commit is progress. Every branch is a battlefield."_
+_"Har bir commit — bu yutuq. Har bir branch — bu jang maydoni."_
 
 ---
 
-## 📖 **The Chronicle (Ongoing)**
+## 📖 **Xronika (Davom etmoqda)**
 
 ### I. Shadow-Lab
 
-_"Building the stronghold—where security is forged, and control is absolute."_
+_"Mustahkamlikni qurish — bu yerda xavfsizlik shakllanadi va boshqaruv mutlaqdir."_
 
 - [Domain Expansion](Shadow-Lab/VirtualBox.md)
 - [The Firewall’s Dawn](Shadow-Lab/OpnSense.md)
@@ -25,7 +25,7 @@ _"Building the stronghold—where security is forged, and control is absolute."_
 
 ### II. CLI Inferno
 
-_"Mastering the Terminal’s Power."_
+_"Terminal kuchini egallash."_
 
 - [The Newborn Terminal](CLI-Inferno/Unix-Commands.md)
 - [The Man Pages’ Muse](CLI-Inferno/Man-Pages.md)  
@@ -35,63 +35,54 @@ _"Mastering the Terminal’s Power."_
 
 ### III. Network Wars
 
-_"Understanding and exploiting the backbone of the digital world."_
+_"Raqamli dunyoning asosi bo‘lgan tarmoqlarni tushunish va ekspluatatsiya qilish."_
 
 - ...
 
 ### IV. Red Nights
 
-_"Offense is the best defense."_
+_"Hujum — eng yaxshi himoya."_
 
 - ...
 
 ### V. Art of Malware
 
-_"Reverse engineering, evasion, and digital weaponry."_
+_"Teskari muhandislik, yashirish va raqamli qurol-yarog‘lar."_
 
 - ...
 
 ### VI. The Hacker’s Legacy
 
-_"Leaving something behind."_
+_"Qoldiradigan narsa."_
 
 - ...
 
 ---
 
-## 🌌 **The Archive’s Anatomy**
+## 🌌 **Arxivin anatomiyasi**
 
 ```plaintext
 .  
-├── CLI-Inferno/         # Linux Mastery  
-├── network-wars/        # Networking, protocols, and exploits  
-├── red-nights/          # Red teaming, pentesting, tools  
-├── malware-art/         # Malware development, reverse engineering  
-├── shadow-lab/          # The practice ground  
-├── obscure-codex/       # Notes, findings, and research  
-└── prophecy.md          # Future Plans  
-```
+├── CLI-Inferno/         # Linux ustaligi  
+├── network-wars/        # Tarmoq, protokollar va ekspluatatsiyalar  
+├── red-nights/          # Red teaming, pentesting, vositalar  
+├── malware-art/         # Malware ishlab chiqish, teskari muhandislik  
+├── shadow-lab/          # Amaliyot maydoni  
+├── obscure-codex/       # Izlanishlar, topilmalar va tadqiqotlar  
+└── prophecy.md          # Kelajak rejalari
+```  
+## 🔥 **O‘sishga Qo‘shiling**
+Void hamkorlarni kutmoqda.
 
+- **Star** bosing, safarga qo‘shiling.
+
+- **Fork** qiling, o‘z yo‘lingizni yaratish uchun.
+
+-  **Issue** qo‘ying — men uni buzaman.
+- Ishtirok Pillarlari: (Extras/The%20Pillars%20of%20Participation.md).
+"Kodlaringizni, mahoratingizni va kofeingizni olib keling. Terminal kutmoqda."
+--- 
+## 📜 **Litsenziya**
+- **MIT LITSEZIYASI**: Umumiy foydalanish uchun.
 ---
-
-## 🔥 **Join the Ascension**
-
-The void seeks collaborators.
-
-- **Star** to follow the journey.
-- **Fork** to create your own.
-- **Issue** a challenge—I will breach it.
-- [The Pillars of Participation](Extras/The%20Pillars%20of%20Participation.md).
-
-_"Bring your code, your skills, and your coffee. The terminal awaits."_
-
----
-
-## 📜 **License**
-
-- **MIT LICENSE**: For general use.
-- **Nyx’s Decree**: _"Use it wisely—or become part of the archive."_
-
----
-
-**Last updated by Void-Strike under the 13th moon.**
+- **Nyx’s Decree**: "Uni aqlli ishlating — yoki arxivning bir qismiga aylanasiz."

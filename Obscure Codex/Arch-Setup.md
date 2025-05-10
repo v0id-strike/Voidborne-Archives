@@ -1,111 +1,87 @@
-## **🛠 Steps to Install Arch on the Empty Btrfs Partition**
-### **1️⃣ Prepare the Partition**
-First, check your partition table:
+## **🛠 Arch Linux’ni Bo‘sh Btrfs Bo‘limiga O‘rnatish Bosqichlari**
 
+### **1️⃣ Bo‘limni Tayyorlash**
+Avvalo bo‘limlar jadvalini tekshiring:
 ```bash
 lsblk -f
 ```
-- Identify the **empty Btrfs partition** (e.g., `/dev/nvme1n1pX`).
-- If needed, format it (but since it’s already Btrfs, this step may not be necessary).
+- Bo‘sh Btrfs bo‘limini aniqlang (masalan, /dev/nvme1n1pX).
+- Agar kerak bo‘lsa, uni formatlang (lekin agar allaqachon Btrfs bo‘lsa, bu kerak emas).
 
-To format (only if required):
-```bash
+Formatlash uchun (faqat zarurat bo‘lsa):
+```
 sudo mkfs.btrfs -f /dev/nvme1n1pX
 ```
-
 ---
-
-### **2️⃣ Mount the Partition**
-Create a mount point and mount the partition:
-
-```bash
+### 2️⃣ **Bo‘limni Ulash**
+Ulash nuqtasini yarating va bo‘limni ulang:
+```
 sudo mkdir -p /mnt/arch
 sudo mount /dev/nvme1n1pX /mnt/arch
 ```
-
 ---
-
-### **3️⃣ Bootstrap Arch Linux**
-Use `pacstrap` to install the base system:
-
-```bash
+### 3️⃣ **Arch Linux’ni Bootstrap Qilish**
+`pacstrap` yordamida tizimning asosiy komponentlarini o‘rnating:
+```
 sudo pacstrap /mnt/arch base linux linux-firmware btrfs-progs
 ```
-
 ---
-
-### **4️⃣ Generate fstab**
-Generate an `fstab` file to ensure proper mounting:
-
-```bash
+### 4️⃣ **fstab Faylini Yaratish**
+Bo‘limlar avtomatik ulanib turishi uchun `fstab` faylini yarating:
+```
 sudo genfstab -U /mnt/arch | sudo tee /mnt/arch/etc/fstab
 ```
-
 ---
-
-### **5️⃣ Chroot into the New Arch System**
-Change root into the Arch installation:
-
-```bash
+### 5️⃣ **Arch Tizimiga Chroot Qilish**
+Arch tizimiga o‘tish (chroot qilish):
+```
 sudo arch-chroot /mnt/arch
 ```
-
 ---
-
-### **6️⃣ Set Up Basic Configuration**
-Set the hostname:
-```bash
+### 6️⃣ **Asosiy Sozlamalarni Amalga Oshirish**
+Kompyuter nomini belgilang:
+```
 echo "arch-btrfs" > /etc/hostname
 ```
-
-Set up the locale:
-```bash
+---
+Til va kodlash tizimini sozlang:
+```
 echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
 locale-gen
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
 export LANG=en_US.UTF-8
 ```
-
-Set the root password:
-```bash
+Root foydalanuvchi uchun parol o‘rnating:
+```
 passwd
 ```
-
 ---
+### 7️⃣ **GRUB Yuklovchini O‘rnatish (Dual Boot Uchun)**
+CachyOS allaqachon GRUB yuklovchidan foydalangani sababli, biz Arch Linux’ni unga qo‘shamiz.
 
-### **7️⃣ Install GRUB for Dual Boot**
-Since CachyOS is already using GRUB, we’ll add Arch to it.
-
-Install GRUB inside Arch:
-```bash
+Arch ichida GRUB’ni o‘rnating:
+```
 pacman -S grub efibootmgr
 ```
-
-Find your EFI partition (likely `/dev/nvme1n1p1`) and mount it:
-```bash
+EFI bo‘limni aniqlang (odatda `/dev/nvme1n1p1`) va uni ulang:
+```
 mount /dev/nvme1n1p1 /boot
 ```
-
-Then install GRUB:
-```bash
+GRUB’ni o‘rnating:
+```
 grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
-
----
-
-### **8️⃣ Exit Chroot & Reboot**
-Exit the chroot environment:
-```bash
+### 8️⃣ **Chroot’dan Chiqish va Qayta Yuklash**
+Chroot muhitidan chiqing:
+```
 exit
 ```
-
-Unmount the partitions:
-```bash
+Bo‘limlarni ajrating:
+```
 sudo umount -R /mnt/arch
 ```
-
-Reboot:
-```bash
+Kompyuterni qayta yuklang:
+```
 sudo reboot
-``` 
+```
