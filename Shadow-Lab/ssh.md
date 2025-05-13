@@ -1,12 +1,10 @@
-### 🖥️ On Each Lab PC (Running AthenaOS or Any Linux)
+### On Each Lab PC
 
 1. **Install the OpenSSH server**
    Most distros already have this, but confirm:
 
 ```bash
-sudo pacman -S openssh   # For Arch-based (AthenaOS)
-# or
-sudo apt install openssh-server  # For Debian/Ubuntu
+sudo pacman -S openssh
 ```
 
 2. **Enable and start the SSH service**
@@ -45,7 +43,7 @@ Look for something like `192.168.x.x` under `wlan0` or `enp*`.
 
 ---
 
-## 💻 From Your Laptop (Attacker Machine / Admin Node)
+## From Admin Node
 
 You can now remotely connect like this:
 
@@ -53,11 +51,11 @@ You can now remotely connect like this:
 ssh student@192.168.x.x
 ```
 
-> Replace `student` with the actual username and `192.168.x.x` with the IP of the lab PC.
+> Replace 192.168.x.x` with the IP of the lab PC.
 
 ---
 
-## 🧠 Optional: Make It Easier with SSH Key Auth
+## Optional: Make It Easier with SSH Key Auth
 
 If you want **passwordless and secure** login:
 
@@ -81,16 +79,14 @@ ssh -i ~/.ssh/lab_key student@192.168.x.x
 
 ---
 
-## 🛠️ Optional: Batch Manage Multiple PCs
+## Optional: Batch Manage Multiple PCs
 
 You can write a quick loop or use tools like `Ansible` or `pssh` to push commands to multiple lab machines at once.
 
 Simple loop example:
 
 ```bash
-for ip in 192.168.1.{101..105}; do
+for ip in 192.168.1.{2..255}; do
   ssh student@$ip "sudo pacman -Syu --noconfirm"
 done
 ```
-
----
