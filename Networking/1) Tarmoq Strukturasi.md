@@ -17,7 +17,7 @@ dan foydlanadi.
 
 Internetga kirganingizda, so'rovingiz quyidagicha bo'ladi: 
 **Kompyuteringiz → Router → ISP → DNS → Veb-sayt → Kompyuteringiz**
-  ![net_overview](264343691557171.png)
+  ![net_overview](assets/264343691557171.png)
 
 ---
 
@@ -90,49 +90,49 @@ Yaxshi mo'ljallangan tarmoq topologiyasi ma'lumotlar oqimi samaradorligini oshir
 
 **Nuqtadan Nuqtaga** topologiyasi tarmoq konfiguratsiyasining eng oddiy shakli bo‘lib, bunda ikkita qurilma bir-biriga bevosita ulanadi. Ushbu topologiya minimal kechikish va yuqori ma'lumotlar xavfsizligini ta'minlaydigan maxsus ulanishni taklif qiladi. U ko'pincha ijaraga olingan tarmoqlarda va an'anaviy telefoniya tizimlarida qo'llaniladi. Biroq, u faqat ikkita qurilmani birlashtirgani uchun kengaytirilishi mumkin emas.
 
-![topo_p2p](83685467523186.png)
+![topo_p2p](assets/83685467523186.png)
 
 ### 2. **Bus Topology**
 
 **Avtobus Topologiyasida** barcha qurilmalar avtobus yoki magistral deb ataladigan yagona markaziy kabelga ulangan. Qurilmalar vositani ulashadi va ma'lumotlar barcha tugunlarga uzatiladi. Ma'lumotlarni faqat mo'ljallangan oluvchi qabul qiladi; boshqalar buni e'tiborsiz qoldiradilar. Ushbu topologiya tejamkor va kichik tarmoqlar uchun sodda, lekin qo'shimcha qurilmalar qo'shilganligi sababli unumdorlik bilan bog'liq muammolar mavjud. Bundan tashqari, markaziy kabeldagi nosozlik butun tarmoqni buzishi mumkin.
 
-![topo_bus](317606709852447.png)
+![topo_bus](assets/317606709852447.png)
 
 ### 3. **Star Topology**
 
 **Yulduzli topologiya** barcha qurilmalarni markaz hub, switch yoki routerga ulaydi. Ushbu markaziy qurilma ma'lumotlar trafigini boshqaradi va boshqaruvchi vazifasini bajaradi. Yulduzli topologiya o'zining mustahkamligi va muammolarni bartaraf etish qulayligi tufayli zamonaviy LANlarda keng qo'llaniladi. Agar bitta kabel ishlamay qolsa, faqatgina o'sha kabelga ulangan qurilmaga ta'sir qiladi. Biroq, agar markaziy hub ishlamay qolsa, butun tarmoq ishlamay qoladi.
 
-![topo_star](599126672218303.png)
+![topo_star](assets/599126672218303.png)
 
 ### 4. **Ring Topology**
 
 **Halqali topologiyada** har bir qurilma aylana ma’lumotlar yo‘lini tashkil qilib, aynan ikkita boshqa qurilmaga ulanadi. Ma'lumotlar bir yo'nalishda (yoki ba'zan ikki tomonlama tarmoqlarda ikki tomonlama) tarqaladi. Token uzatish ko'pincha tarmoq muhitiga kirishni boshqarish uchun ishlatiladi. Ushbu topologiya ma'lumotlar to'qnashuvidan qochadi va tartibli uzatilishini ta'minlasa-da, agar ortiqcha halqa mavjud bo'lmasa, bitta nosozlik nuqtasi aloqani buzishi mumkin.
 
-![topo_ring](264007125147707.png)
+![topo_ring](assets/264007125147707.png)
 
 ### 5. **Mesh Topology**
 
 **To'r topologiyasi** har bir qurilmani boshqa barcha qurilmaga ulash orqali nosozliklarga chidamliligini taʼminlaydi. **To'liq To'r** da har bir tugun boshqa barcha tugunlarga ajratilgan havolaga ega. **Qisman To'r** da ba'zi tugunlar to'liq bog'langan, boshqalari esa faqat bir nechta tugunlarga ulangan. To'r topologiyalari ishonchliligi muhim bo'lgan tarmoqlar uchun ideal, masalan, WAN yoki muhim infratuzilma tizimlarida. Biroq, zarur bo'lgan ko'p sonli ulanishlar tufayli ulardan foydalanish qimmat va murakkab.
 
-![topo_mesh](571568476148351.png)
+![topo_mesh](assets/571568476148351.png)
 
 ### 6. **Tree Topology**
 
 **Daraxt topologiyasi** yulduz va avtobus topologiyalarining xususiyatlarini birlashtirgan tuzilmadir. U chiziqli avtobus magistraliga ulangan yulduzcha konfiguratsiya qilingan tarmoqlar guruhlaridan iborat. Ushbu tuzilma keng ko'lamli va turli bo'limlari yoki qavatlari bo'lgan yirik tashkilotlar uchun juda mos keladi. Biroq, asosiy yo'nalishdagi nosozlik butun tarmoqqa ta'sir qilishi mumkin.
 
-![topo_tree](247926236481904.png)
+![topo_tree](assets/247926236481904.png)
 
 ### 7. **Hybrid Topology**
 
 **gibrid topologiya** ikki yoki undan ortiq turli turdagi topologiyalarning individual afzalliklarini birlashtiradi. Masalan, kompaniya bo'limlar ichida yulduz topologiyasidan foydalanishi va ularni daraxt topologiyasini shakllantirgan holda avtobus magistralidan foydalanib ulashi mumkin. Gibrid tarmoqlar moslashuvchanlik, va ishlashni optimallashtiradi, ammo loyihalash va boshqarish uchun murakkab.
 
-![topo_hybrid](415856589617625.png)
+![topo_hybrid](assets/415856589617625.png)
 
 ### 8. **Daisy Chain Topology**
 
 **Daisy zanjir topologiyasida** qurilmalar birin-ketin chiziqli ketma-ket ulanadi. Kichik o'lchamli tarmoqlar uchun sodda va tejamkor bo'lsa-da, bu topologiya jiddiy cheklovlarga ega: agar bitta qurilma ishlamay qolsa, quyi oqim qurilmalari ulanishni yo'qotadi. Sanoat avtomatizatsiyasidan tashqari zamonaviy tarmoqlarda kamdan-kam qo'llaniladi.
 
-![topo_daisy-chain](32297751438653.png)
+![topo_daisy-chain](assets/32297751438653.png)
  
   --- 
  
@@ -166,7 +166,7 @@ O'tkazish proksi-serveri mijoz va server o'rtasida joylashgan. U ichki foydalanu
 * Veb-faoliyatni kuzatib borish va qayd qilish.
 * Ba'zi saytlarga kirish huquqini cheklash.
 
-![forward_proxy](475515712744141.png)
+![forward_proxy](assets/475515712744141.png)
 
 ### 2. **Teskari proksi**
 
@@ -178,7 +178,7 @@ O'tkazish proksi-serverdan farqli o'laroq, teskari proksi-server server oldida t
 
 **Misol**: Cloudflare kabi xizmatlar veb-saytlarni DDoS hujumlari va zararli foydalanuvchilardan himoya qilish uchun teskari proksi sifatida ishlaydi.
 
-![reverse_proxy](25646395741809.png)
+![reverse_proxy](assets/25646395741809.png)
 
 ### 3. **Shaffof proksi**
 
