@@ -23,7 +23,7 @@ PORT      STATE SERVICE    VERSION
 ...
 ```
 
-Note: Port 7066 appears intermittently. Visiting http://<IP>/tools reveals helpful scripts like pspy64 and linpeas.sh.
+Note: Port 7066 appears intermittently.
 
 ## Initial Access via Port 7066
 
