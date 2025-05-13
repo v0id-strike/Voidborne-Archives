@@ -29,7 +29,7 @@ Hackers or testers may think all devices are in one group (`/24`), but if it’s
 * **DNS** is the address book that finds where to send your message.
   When you go online, your request goes:
   **Your Computer → Router → ISP → DNS → Website → Back to You**  
-  ![net_overview](264343691557171.png)
+  ![net_overview](https://academy.hackthebox.com/storage/modules/34/redesigned/net_overview.png)
 
 ## **5. Tips for Safer Networks**
 
@@ -117,49 +117,49 @@ A well-designed network topology enhances data flow efficiency, minimizes networ
 
 The **point-to-point** topology is the simplest form of network configuration, where two devices are directly connected to each other. This topology offers a dedicated connection, ensuring minimal latency and high data security. It is often used in leased line networks and traditional telephony systems. However, it lacks scalability since it only connects two devices.
 
-![topo_p2p](83685467523186.png)
+![topo_p2p](https://academy.hackthebox.com/storage/modules/34/redesigned/topo_p2p.png)
 
 ### 2. **Bus Topology**
 
 In a **bus topology**, all devices are connected to a single central cable, called the bus or backbone. Devices share the medium, and data is broadcast to all nodes. Only the intended recipient accepts the data; others ignore it. This topology is cost-effective and simple to implement for small networks but suffers from performance issues as more devices are added. Additionally, a failure in the central cable can bring down the entire network.
 
-![topo_bus](317606709852447.png)
+![topo_bus](https://academy.hackthebox.com/storage/modules/34/redesigned/topo_bus.png)
 
 ### 3. **Star Topology**
 
 The **star topology** connects all devices to a central hub, switch, or router. This central device manages data traffic and acts as a controller. Star topology is widely used in modern LANs due to its robustness and ease of troubleshooting. If one cable fails, only the corresponding device is affected. However, if the central hub fails, the entire network becomes inoperative.
 
-![topo_star](599126672218303.png)
+![topo_star](https://academy.hackthebox.com/storage/modules/34/redesigned/topo_star.png)
 
 ### 4. **Ring Topology**
 
 In a **ring topology**, each device connects to exactly two other devices, forming a circular data path. Data travels in one direction (or sometimes bidirectionally in dual-ring networks). Token passing is often used to manage access to the network medium. While this topology avoids data collisions and ensures orderly transmission, a single point of failure can disrupt communication unless a redundant ring is in place.
 
-![topo_ring](264007125147707.png)
+![topo_ring](https://academy.hackthebox.com/storage/modules/34/redesigned/topo_ring.png)
 
 ### 5. **Mesh Topology**
 
 A **mesh topology** offers high redundancy and fault tolerance by connecting every device to every other device. In a **full mesh**, each node has a dedicated link to all other nodes. In a **partial mesh**, some nodes are fully connected, while others are only connected to a few nodes. Mesh topologies are ideal for networks where reliability is crucial, such as in WANs or critical infrastructure systems. However, they are expensive and complex to maintain due to the large number of connections required.
 
-![topo_mesh](571568476148351.png)
+![topo_mesh](https://academy.hackthebox.com/storage/modules/34/redesigned/topo_mesh.png)
 
 ### 6. **Tree Topology**
 
 The **tree topology** is a hierarchical structure that combines characteristics of star and bus topologies. It consists of groups of star-configured networks connected to a linear bus backbone. This structure is scalable and well-suited for large organizations with different departments or floors. However, it relies heavily on the backbone; failure in the main line can affect the entire network.
 
-![topo_tree](247926236481904.png)
+![topo_tree](https://academy.hackthebox.com/storage/modules/34/redesigned/topo_tree.png)
 
 ### 7. **Hybrid Topology**
 
 A **hybrid topology** integrates two or more different types of topologies to leverage their individual advantages. For example, a company might use a star topology within departments and connect them using a bus backbone, forming a tree topology. Hybrid networks offer flexibility, scalability, and performance optimization but can be more complex to design and manage.
 
-![topo_hybrid](415856589617625.png)
+![topo_hybrid](https://academy.hackthebox.com/storage/modules/34/redesigned/topo_hybrid.png)
 
 ### 8. **Daisy Chain Topology**
 
 In a **daisy chain topology**, devices are connected in a linear series, one after another. While simple and cost-effective for small-scale applications, this topology has serious limitations: if one device fails, downstream devices lose connectivity. It is rarely used in modern networks except in specific scenarios like industrial automation.
 
-![topo_daisy-chain](32297751438653.png)
+![topo_daisy-chain](https://academy.hackthebox.com/storage/modules/34/redesigned/topo_daisy-chain.png)
 
 ## **Conclusion**
 
@@ -201,7 +201,7 @@ A forward proxy sits between a client and the internet. It receives requests fro
 
 **Example**: A company blocks social media access by routing all employee traffic through a forward proxy with filtering rules.
 
-![forward_proxy](475515712744141.png)
+![forward_proxy](https://academy.hackthebox.com/storage/modules/34/redesigned/forward_proxy.png)
 
 ### 2. **Reverse Proxy**
 
@@ -213,7 +213,7 @@ Unlike a forward proxy, a reverse proxy sits in front of a server, intercepting 
 
 **Example**: Services like Cloudflare act as reverse proxies to protect websites from DDoS attacks and malicious users.
 
-![reverse_proxy](25646395741809.png)
+![reverse_proxy](https://academy.hackthebox.com/storage/modules/34/redesigned/reverse_proxy.png)
 
 ### 3. **Transparent Proxy**
 
