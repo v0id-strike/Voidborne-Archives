@@ -4,26 +4,12 @@ The primary purpose of this VM is to serve as a **fortress of learning**—a pla
 
 ---
 
-## **📌 Phase 1: Creating the Ubuntu VM**
-### **1️⃣ Setup Virtual Machine**
-
-1. Open **VirtualBox** and click **New**.
-2. Name the VM: **Ubuntu Server**
-3. Type: **Linux**
-4. Version: **Ubuntu (64-bit)**
-5. VirtualBox Settings > Network:
-    - **Adapter 1:** Attached to: **Host-only Adapter**
-
----
-
-## **📌 Phase 2: Installing AthenaOS**
-### **2️⃣ Boot into Live ISO**
-
-- Attach the **Ubuntu ISO** to your VM
+## 📌 Installing AthenaOS
+### Boot into Live ISO
+- Attach the **Ubuntu ISO**
 - Boot into **Ubuntu Installer**
 
-### **3️⃣ Installation Process**
-
+### Installation Process
 - **Language & Keyboard:** Choose your preferred settings
 - **Network Setup:** Configure your network (can leave as default for DHCP)
 - **Storage:** Choose **"Use entire disk"** (or manual partitioning if preferred)
@@ -34,8 +20,7 @@ The primary purpose of this VM is to serve as a **fortress of learning**—a pla
     - Tick **"Install OpenSSH server"** (important for remote access)
     - Select **third-party drivers** if prompted
 
-### **4️⃣ Finish Installation**
-
+### Finish Installation
 - Start the installation process
 - Once completed, **reboot** the system
 - Login with your created user credentials

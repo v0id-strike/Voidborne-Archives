@@ -5,26 +5,12 @@ By setting up a **Fedora Server VM**, we create a **powerful and stable environm
 
 ---
 
-## **📌 Phase 1: Creating the Fedora VM**
-### **1️⃣ Setup Virtual Machine**
-
-1. Open **VirtualBox** and click **New**.
-2. Name the VM: **Fedora Server**
-3. Type: **Linux**
-4. Version: **Fedora (64-bit)**
-5. VirtualBox Settings > Network:
-    - **Adapter 1:** Attached to: **Host-only Adapter**
-
----
-
-## **📌 Phase 2: Installing AthenaOS**
-### **2️⃣ Boot into Live ISO**
-
-- Attach the **Fedora Server ISO** to your VM
+## Installing Fedora-Server
+### Boot into Live ISO
+- Attach the **Fedora Server ISO**
 - Start the **installer**
 
-### **3️⃣ Installation Process**
-
+### Installation Process
 - **Language & Keyboard:** Choose your preferred settings
 - **Installation Destination:** Select the disk for installation
 - **Time Zone:** Set your system time zone

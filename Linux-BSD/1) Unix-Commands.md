@@ -1,5 +1,3 @@
-In this chapter, we were supposed to learn how to install and configure Linux distros. However, we **already conquered that challenge** while setting up our **Shadow-Lab**. So instead of repeating what we’ve already done, let's focus on something far more practical—**command-line mastery.**
-
 Below is an **A to Z** reference of essential Unix/Linux commands. This will serve as your **quick-access arsenal** whenever you need to execute system tasks, automate workflows, or dominate the terminal like a pro
 
 ---
@@ -132,6 +130,7 @@ Below is an **A to Z** reference of essential Unix/Linux commands. This will ser
 
 - `ssh` → Secure shell for remote access
 - `sed` → Stream editor for modifying text
+- `shred` -> Overwrite a file to hide its content, and optionally delete it 
 - `sort` → Sort lines of a file
 - `sudo` → Run a command as superuser
 - `systemctl` → Manage system services

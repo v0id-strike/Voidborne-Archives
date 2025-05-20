@@ -4,25 +4,8 @@ Arch Linux is the ultimate choice for **ricing** due to its minimal, **DIY appro
 
 ---
 
-## **📌 Phase 1: Creating the Arch VM**
-
-### **1️⃣ Setup Virtual Machine**
-
-1. Open **VirtualBox** and click **New**.
-2. Name the VM: **Arch**
-3. Type: **Linux**
-4. Version: **Arch (64-bit)**
-5. VirtualBox Settings > Display
-	-  Increase **VRAM to 128MB**
-6. VirtualBox Settings > Network:
-    - **Adapter 1:** Attached to: **Host-only Adapter**
-
-
----
-
-## **📌 Phase 2: Installing Arch**
-### **2️⃣ Boot into Live Environment**
-
+## 📌 Phase 1: Installing Arch
+### Boot into Live Environment
 1. **Attach ISO** and boot into Arch
 2. It should **auto-login**
 3. Check storage devices:
@@ -31,8 +14,7 @@ lsblk
 ```
 _(Example: Assume your disk is `/dev/sda`)_
 
-### **3️⃣ Partition Disk**
-
+### Partition Disk
 1. Run `cfdisk`:
 ```bash
 cfdisk /dev/sda
@@ -52,8 +34,7 @@ Check partitions with:
 lsblk
 ```
 
-### **4️⃣ Format Partitions**
-
+### Format Partitions
 1. Format **EFI partition**:
 ```bash
 mkfs.fat -F32 /dev/sda1
@@ -63,8 +44,7 @@ mkfs.fat -F32 /dev/sda1
 mkfs.btrfs /dev/sda2
 ```
 
-### **5️⃣ Mount Partitions**
-
+### Mount Partitions
 1. Mount root partition:
 ```bash
 mount /dev/sda2 /mnt
@@ -83,8 +63,7 @@ pacstrap /mnt base linux linux-firmware vim networkmanager
 genfstab -U /mnt >> /mnt/etc/fstab
 ```
 
-### **6️⃣ Chroot into System**
-
+### Chroot into System
 ```bash
 arch-chroot /mnt
 ```
@@ -135,8 +114,7 @@ reboot
 
 ---
 
-## **📌 Phase 3: Post-Installation (After Reboot)**
-
+## 📌 Phase 2: Post-Installation (After Reboot)
 - Login as root, then:
 - Enable NetworkManager:
 ```bash
@@ -155,7 +133,6 @@ echo "myuser ALL=(ALL) ALL" >> /etc/sudoers
 ```
 
 ---
-## **Final Thoughts**
-
+## Final Thoughts
 You’ve successfully set up **Arch** in your home lab. 🔥
-💡 **archinstall if you afraid of manual installation** 🚀
+💡 Use `archinstall` command, if you afraid of manual installation 🚀
