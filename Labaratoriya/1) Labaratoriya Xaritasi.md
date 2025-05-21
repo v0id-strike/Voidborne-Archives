@@ -1,11 +1,11 @@
-## **Lab Purpose**
+## **Maqsad**
 
-This lab is built for hands-on learning in Red Teaming, system administration, and Linux customization. It simulates real-world attack/defense scenarios while also supporting teaching and workflow optimization.
+Ushbu laboratoriya Red Teaming, tizim boshqaruvi va Linuxni sozlashda amaliy o'rganish uchun qurilgan. U haqiqiy hujum/mudofaa stsenariylarini simulyatsiya qiladi, shu bilan birga o'qitish va ish jarayonini optimallashtirishni qo'llab-quvvatlaydi. 
 
 ---
 
-## **Network Topology**  
-The Shadow-Lab network is structured for both security and versatility.  
+## **Tarmoq topologiyasi**
+Laboratoriya tarmog'i xavfsizlik va ko'p qirralilik uchun tuzilgan.
 
 ```
 ┌─────────────────────────────────────────────────────────┐
@@ -28,48 +28,36 @@ The Shadow-Lab network is structured for both security and versatility.
 
 ---
 
-## **Simple Breakdown**  
+## **Qisqacha Tavsilotlar**
  
 ### OPNsense
+- Kiruvchi va chiquvchi trafikni boshqaruvchi **xavfsizlik devori** va **asosiy router** bo'lib xizmat qiladi.
+- Izolyatsiya va boshqariladigan kirishni ta'minlash uchun ichki va tashqi tarmoqlarni segmentlarga ajratadi.
+- Avtomatik IP tayinlash uchun **DHCP** beradi.
+- Xavfsiz masofaviy kirish uchun ixtiyoriy **VPN**-ni qo'llab-quvvatlaydi.
 
-- Serves as the **firewall** and **primary router**, managing inbound and outbound traffic.
-- Segments internal and external networks to ensure isolation and controlled access.
-- Provides **DHCP** for automatic IP assignments.
-- Supports an optional **VPN** for secure remote access.
+### [LAN] – Ishonchli tarmoq
+- Ishonchli mashinalarni o'z ichiga oladi.
+- Ochiq internetdan cheklanmagan foydalanish imkoniyatiga ega.
 
-### [LAN] – Trusted Network
+#### BalckArch _(Asosiy mashina)_
+- **kirish testi** va **ekspluatatsiyani rivojlantirish** uchun asosiy hujumkor xavfsizlik Sistemasi.
 
-- Hosts trusted machines.
-- Has unrestricted access to the open internet.
+#### Arch Linux _(Qo'shimcha Kvest)_
+- **Linux ricing** uchun ishlatiladi.
 
-#### BalckArch _(Main Machine)_
+#### Arch Server _(Asosiy Server)_
+- **C2 ramkalar**, **veb-ilovalar** va **Eksploitlar**ni uchun host sifatida ishlatiladi.
 
-- Primary offensive security VM for **penetration testing** and **exploit development**.
-- Targets vulnerable machines for real-world simulation.
-
-
-#### Arch Linux _(Side Quest)_
-
-- Used for **Linux ricing** and deep customization.
-- Helps improve **workflow efficiency** and **aesthetic productivity**.
-
-#### Arch Server _(Main Server)_
-
-- Main server used to **teach my brother** and explore **system administration**.
-- Hosts **C2 frameworks**, **web applications**, and **exploit development tools**.
-
-### [DMZ] – Vulnerable Network
-
-- Isolated segment with **no access to the open internet**.
-- Hosts intentionally vulnerable machines for testing and practice.
+### [DMZ] – Zaif tarmoq
+- **ochiq internetga kirish imkoni yo'q**
+- Sinov va amaliyot uchun zaif mashinalarni saqlaydi.
 
 #### Fedora Server
+- Amaliy ekspluatatsiyani ishlab chiqish uchun **maxsus zaifliklarni** taqlid qilish maqsadida ishlab chiqilgan.
 
-- Purpose-built to simulate **custom vulnerabilities** for hands-on exploit development.
-
-#### HackMyVM Machines
-
-- Pre-built vulnerable machines designed for Red Team and pentest practice.
+#### HackMyVM Mashinalari
+- Red Team va pentest amaliyoti uchun mo'ljallangan, oldindan qurilgan zaif mashinalar.
 
 ---
 

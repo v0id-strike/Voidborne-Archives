@@ -1,4 +1,4 @@
-These virtual machines exist to be **attacked, exploited, DDoSed, and completely wrecked**—all in the name of learning and mastering **offensive security**.
+Ushbu virtual mashinalar **hujum, ekspluatatsiya, DDoS va butunlay vayron qilish uchun** - bularning barchasi **Offensive Security**ni o'rganish va o'zlashtirish uchun.
 
 ---
 
