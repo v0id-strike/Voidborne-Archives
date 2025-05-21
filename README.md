@@ -1,11 +1,11 @@
-# Linux & Red Teaming Notes
+# Linux va Red Teaming eslatmalari
 
-This repository is a collection of notes compiled throughout my journey exploring Linux and Red Teaming.
+Ushbu arxiv Linux va Red Teamingni o'rganish bo'yicha sayohatim davomida tuzilgan eslatmalar to'plamidir.
 
-## Tools & Resources Used
+## Ishlatilgan dasturlar va manbalar
 
-- **Hack The Box** – Practical hands-on challenges
+- **Hack The Box** – Amaliy amaliy topshiriqlar
 
-- **YouTube** – Tutorials, walkthroughs, and learning content
+- **YouTube** – Qo‘llanmalar, ko‘rsatmalar va o‘rganish mazmuni
 
-- **Obsidian** – Note-taking and knowledge management
+- **Obsidian** - Eslatmalar va bilimlarni boshqarish
