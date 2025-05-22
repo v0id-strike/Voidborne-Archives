@@ -10,15 +10,15 @@ Ko'pincha "ISO/OSI" deb ataladigan "OSI" modeli tizimlar orasidagi aloqani tavsi
 
 “ISO/OSI” standartini yaratishdan maqsad turli qurilmalar va texnologiyalar orqali turli texnik tizimlarning aloqasini va moslikni taʼminlovchi modelni yaratish edi. “OSI” modeli ushbu maqsadga erishish uchun bir-biriga asoslangan 7 turli qatlamlardan foydalanadi.
 
-| **Layer**                | **Function**                                                                                                                                                                                                                        |
-| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `7.Ilova`                | Boshqa narsalar qatorida, bu qatlam ma'lumotlarni kiritish va chiqarishni boshqaradi va dastur funktsiyalarini ta'minlaydi.                                                                                                         |
-| `6.Taqdimot`             | Taqdimot qatlamining vazifasi tizimga bog'liq bo'lgan ma'lumotlar taqdimotini dasturdan mustaqil shaklga o'tkazishdir.                                                                                                              |
-| `5.Sessiya`              | Sessiya qatlami ikki tizim o'rtasidagi mantiqiy aloqani boshqaradi va, tarmoqda uzilishi yoki boshqa muammolarni oldini oladi.                                                                                                      |
-| `4.Transport`            | 4-qatlam uzatilgan ma'lumotlarni oxirigacha nazorat qilish uchun ishlatiladi. Transport qatlami tirbandlik holatlarini va segment ma'lumotlar oqimini aniqlashi va oldini olishi mumkin.                                            |
-| `3.Tarmoq`               | Tarmoq sathida ulanishlar sxemali kommutatsiyalangan tarmoqlarda o'rnatiladi va ma'lumotlar paketlari paketli kommutatsiyalangan tarmoqlarda uzatiladi. Ma'lumotlar jo'natuvchidan qabul qiluvchiga butun tarmoq bo'ylab uzatiladi. |
-| `2.Ma'lumotlar havolasi` | 2-qatlamning asosiy vazifasi tegishli muhitda ishonchli va xatosiz uzatishni ta'minlashdir. Shu maqsadda 1-qatlamdagi bit oqimlari bloklarga bo'linadi.                                                                             |
-| `1.Physical`             | Amaldagi uzatish usullari, masalan, elektr signallari, optik signallar yoki elektromagnit to'lqinlar. 1-qatlam orqali uzatish simli yoki simsiz uzatish liniyalarida amalga oshiriladi                                              |
+| **Layer**                | **Function**                                                                                                                                                                                                                          |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `7.Ilova`                | Boshqa narsalar qatorida, bu qatlam ma'lumotlarni kiritish va chiqarishni boshqaradi va dastur funktsiyalarini ta'minlaydi.                                                                                                           |
+| `6.Taqdimot`             | Taqdimot qatlamining vazifasi tizimga bog'liq bo'lgan ma'lumotlar taqdimotini dasturdan mustaqil shaklga o'tkazishdir.                                                                                                                |
+| `5.Sessiya`              | Sessiya qatlami ikki tizim o'rtasidagi mantiqiy aloqani boshqaradi va, tarmoqda uzilishi yoki boshqa muammolarni oldini oladi.                                                                                                        |
+| `4.Transport`            | 4-qatlam uzatilgan ma'lumotlarni oxirigacha nazorat qilish uchun ishlatiladi. Transport qatlami tirbandlik holatlarini va segment ma'lumotlar oqimini aniqlashi va oldini olishi mumkin.                                              |
+| `3.Tarmoq`               | Tarmoq qatlamida ulanishlar sxemali kommutatsiyalangan tarmoqlarda o'rnatiladi va ma'lumotlar paketlari paketli kommutatsiyalangan tarmoqlarda uzatiladi. Ma'lumotlar jo'natuvchidan qabul qiluvchiga butun tarmoq bo'ylab uzatiladi. |
+| `2.Ma'lumotlar havolasi` | 2-qatlamning asosiy vazifasi tegishli muhitda ishonchli va xatosiz uzatishni ta'minlashdir. Shu maqsadda 1-qatlamdagi bit oqimlari bloklarga bo'linadi.                                                                               |
+| `1.Physical`             | Amaldagi uzatish usullari, masalan, elektr signallari, optik signallar yoki elektromagnit to'lqinlar. 1-qatlam orqali uzatish simli yoki simsiz uzatish liniyalarida amalga oshiriladi                                                |
 
 "2-4" qatlamlari "transportga yo'naltirilgan" va "5-7" qatlamlari "ilovaga yo'naltirilgan" qatlamlardir. Har bir qatlamda aniq belgilangan vazifalar bajariladi va qo'shni qatlamlarga aniq tasvirlanadi. Har bir qatlam to'g'ridan-to'g'ri uning ustidagi qatlamga foydalanish uchun xizmatlarni taklif qiladi. Ushbu xizmatlarni mavjud qilish uchun qatlam o'zining ostidagi qatlam xizmatlaridan foydalanadi va o'z qatlamining vazifalarini bajaradi.
 
@@ -28,7 +28,7 @@ Agar ikkita tizim o'zaro aloqa qilsa, "OSI" modelining barcha 7 qatlami kamida "
 
 ## TCP/IP Model
 
-`TCP/IP` ko'pgina tarmoq protokollari uchun umumiy atamadir. Protokollar Internetda ma'lumotlar paketlarini almashtirish va tashish uchun javobgardir. Internet butunlay “TCP/IP” protokollari oilasiga asoslangan. 
+`TCP/IP` ko'pgina tarmoq protokollari uchun umumiy atamadir. Protokollar Internetda ma'lumotlar paketlarini almashtirish va tashish uchun javobgardir. Internet “TCP/IP” protokollari oilasiga asoslangan. 
 
 "TCP/IP" nafaqat ushbu ikkita protokolga ishora qiladi, balki butun protokollar oilasi uchun ham umumiy atama sifatida ishlatiladi. Masalan, `ICMP` (`Internet Control Message Protocol`) yoki `UDP` (`User Datagram Protocol`) protokollar oilasiga tegishli. Protokollar oilasi shaxsiy yoki umumiy tarmoqda ma'lumotlar paketlarini tashish va almashtirish uchun zarur funktsiyalarni ta'minlaydi.
 
